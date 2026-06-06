@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/drsei/Downloads/index.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haikyuu Fitness Coach</title>
+<link href="./Haikyuu Fitness Coach_files/css2" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--primary:#0a0a14;
+--accent:#ff6b00;
+--accent2:#ffcc00;
+--bg:#0d0d1a;
+--card:#13131f;
+--card2:#1a1a2e;
+--text:#ffffff;
+--text2:#9090b0;
+--green:#00e676;
+--blue:#448aff;
+--font-ar:'Tajawal',sans-serif;
+--font-en:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-ar);overflow-x:hidden}
+body.en{font-family:var(--font-en);direction:ltr}
+
+/* MANGA LINES BG */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(90deg,rgba(255,107,0,0.015) 0px,transparent 1px,transparent 40px),repeating-linear-gradient(0deg,rgba(255,107,0,0.015) 0px,transparent 1px,transparent 40px);pointer-events:none;z-index:0}
+
+/* LANG TOGGLE */
+.lang-btn{position:fixed;top:20px;left:20px;z-index:999;background:var(--accent);border:none;color:white;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:14px;font-family:inherit;font-weight:700;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.lang-btn:hover{background:#e05500;transform:scale(1.05)}
+body.en .lang-btn{left:auto;right:20px}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(13,13,26,0.97);border-bottom:2px solid var(--accent);backdrop-filter:blur(10px)}
+.logo{font-family:'Bangers',cursive;font-size:28px;color:var(--accent);letter-spacing:3px;text-shadow:3px 3px 0 rgba(255,107,0,0.3)}
+.logo span{color:var(--accent2)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s;text-transform:uppercase;letter-spacing:1px}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:white;padding:10px 22px;text-decoration:none;font-size:14px;font-weight:700;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.nav-cta:hover{background:#e05500;transform:translateY(-2px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;z-index:1}
+.hero-volleyball{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:420px;height:420px;opacity:0.85;pointer-events:none}
+.hero-content{max-width:580px;z-index:2}
+.manga-badge{display:inline-block;background:var(--accent);color:white;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.hero h1{font-family:'Bangers',cursive;font-size:clamp(48px,6vw,80px);font-weight:400;line-height:1.05;margin-bottom:16px;letter-spacing:3px;text-shadow:4px 4px 0 rgba(255,107,0,0.25)}
+.hero h1 .orange{color:var(--accent)}
+.hero h1 .yellow{color:var(--accent2)}
+.speech-bubble{background:white;color:#0d0d1a;padding:16px 20px;border-radius:4px;font-size:16px;font-weight:700;margin-bottom:28px;position:relative;max-width:420px;line-height:1.6;border:2px solid #0d0d1a;box-shadow:4px 4px 0 rgba(255,107,0,0.4)}
+.speech-bubble::after{content:'';position:absolute;bottom:-14px;right:30px;border:7px solid transparent;border-top-color:white}
+body.en .speech-bubble::after{right:auto;left:30px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.btn-primary{background:var(--accent);color:white;padding:14px 32px;text-decoration:none;font-size:16px;font-weight:700;transition:all 0.3s;display:inline-block;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));text-transform:uppercase;letter-spacing:1px}
+.btn-primary:hover{background:#e05500;transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,107,0,0.4)}
+.btn-secondary{background:transparent;color:var(--accent2);padding:14px 32px;text-decoration:none;font-size:16px;font-weight:700;border:2px solid var(--accent2);transition:all 0.3s;display:inline-block;text-transform:uppercase;letter-spacing:1px}
+.btn-secondary:hover{background:var(--accent2);color:#0d0d1a}
+.hero-stats{display:flex;gap:32px;margin-top:44px;flex-wrap:wrap}
+.stat{text-align:center;background:var(--card);border:1px solid rgba(255,107,0,0.2);padding:16px 20px}
+body.en .stat{text-align:left}
+.stat-num{font-family:'Bangers',cursive;font-size:36px;color:var(--accent);letter-spacing:2px}
+.stat-label{font-size:12px;color:var(--text2);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+
+/* SECTION */
+.section{padding:80px 5%;position:relative;z-index:1}
+.section-title{text-align:center;margin-bottom:56px}
+.section-title .manga-tag{display:inline-block;background:var(--accent2);color:#0d0d1a;padding:4px 14px;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title h2{font-family:'Bangers',cursive;font-size:clamp(32px,4vw,52px);letter-spacing:2px;margin-bottom:10px}
+.section-title h2 .orange{color:var(--accent)}
+.section-title p{color:var(--text2);font-size:15px;max-width:480px;margin:0 auto}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.feature-card{background:var(--card);border:1px solid rgba(255,107,0,0.15);padding:28px;transition:all 0.3s;position:relative;overflow:hidden}
+.feature-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.feature-card:hover{transform:translateY(-4px);border-color:rgba(255,107,0,0.4)}
+.feature-card:hover::after{transform:scaleX(1)}
+.feature-icon{font-size:32px;margin-bottom:16px}
+.feature-card h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--accent2)}
+.feature-card p{color:var(--text2);font-size:14px;line-height:1.7}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.step{text-align:center;padding:28px 16px;background:var(--card);border:1px solid rgba(255,204,0,0.1);transition:border-color 0.3s}
+.step:hover{border-color:rgba(255,204,0,0.4)}
+.step-num{font-family:'Bangers',cursive;width:52px;height:52px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 18px;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.step h3{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--accent2)}
+.step p{color:var(--text2);font-size:13px;line-height:1.7}
+
+/* PRICING */
+.pricing-section{background:var(--card2);padding:80px 5%;position:relative;z-index:1}
+.pricing-card{max-width:500px;margin:0 auto;background:var(--bg);border:2px solid var(--accent);padding:44px;position:relative;overflow:hidden}
+.pricing-card::before{content:'!!';font-family:'Bangers',cursive;font-size:180px;position:absolute;top:-20px;left:-10px;color:rgba(255,107,0,0.04);line-height:1;pointer-events:none;letter-spacing:-10px}
+.popular-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent2);color:#0d0d1a;padding:6px 24px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+.price-original{font-size:17px;color:var(--text2);text-decoration:line-through;margin-top:32px;display:block}
+.price-now{font-family:'Bangers',cursive;font-size:72px;color:var(--green);display:flex;align-items:flex-start;gap:6px;letter-spacing:2px;line-height:1}
+.price-now sup{font-size:24px;margin-top:14px}
+.price-period{font-family:var(--font-ar);font-size:16px;color:var(--text2);align-self:flex-end;margin-bottom:10px;font-weight:400}
+.discount-badge{display:inline-block;background:rgba(0,230,118,0.12);border:1px solid rgba(0,230,118,0.3);color:var(--green);padding:6px 16px;font-size:13px;font-weight:700;margin:12px 0 28px;letter-spacing:1px}
+.features-list{list-style:none;margin-bottom:32px}
+.features-list li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text2)}
+.features-list li:last-child{border:none}
+.check{color:var(--green);font-size:16px;flex-shrink:0;font-weight:700}
+
+/* DISCOUNT */
+.discount-section{padding:48px 5%;max-width:560px;margin:0 auto;z-index:1;position:relative}
+.discount-box{background:var(--card);border:2px solid rgba(255,204,0,0.3);padding:32px}
+.discount-box h3{font-family:'Bangers',cursive;font-size:24px;letter-spacing:2px;margin-bottom:6px;color:var(--accent2)}
+.discount-box p{color:var(--text2);font-size:14px;margin-bottom:20px}
+.discount-input-wrap{display:flex;gap:10px;flex-wrap:wrap}
+.discount-input{flex:1;min-width:160px;background:var(--bg);border:2px solid rgba(255,255,255,0.1);color:var(--text);padding:12px 18px;font-size:16px;font-family:inherit;outline:none;transition:border 0.3s;text-transform:uppercase;letter-spacing:3px}
+.discount-input:focus{border-color:var(--accent2)}
+.discount-btn{background:var(--accent2);color:#0d0d1a;padding:12px 24px;border:none;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.3s;text-transform:uppercase;letter-spacing:1px}
+.discount-btn:hover{background:#e0b800;transform:translateY(-2px)}
+.discount-result{margin-top:14px;padding:12px 18px;font-size:14px;display:none;border-right:4px solid}
+.discount-result.success{background:rgba(0,230,118,0.08);border-color:var(--green);color:var(--green);display:block}
+.discount-result.error{background:rgba(255,107,0,0.08);border-color:var(--accent);color:#ff9060;display:block}
+
+/* REGISTER */
+.register-section{padding:80px 5%;max-width:680px;margin:0 auto;position:relative;z-index:1}
+.register-section>h2{font-family:'Bangers',cursive;font-size:42px;text-align:center;margin-bottom:6px;letter-spacing:2px}
+.register-section>p{text-align:center;color:var(--text2);margin-bottom:36px;font-size:15px}
+.form-card{background:var(--card);border:1px solid rgba(255,107,0,0.2);padding:40px}
+.section-divider{font-family:'Bangers',cursive;font-size:16px;letter-spacing:3px;color:var(--accent);border-bottom:2px solid rgba(255,107,0,0.2);padding-bottom:8px;margin:28px 0 20px;text-transform:uppercase}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:13px;color:var(--text2);margin-bottom:7px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.required{color:var(--accent);margin-right:3px}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,0.08);color:var(--text);padding:12px 16px;font-size:15px;font-family:inherit;outline:none;transition:border 0.3s;border-radius:0}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent)}
+.form-textarea{resize:vertical;min-height:80px;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-select{cursor:pointer;appearance:none}
+.radio-group{display:flex;gap:12px;flex-wrap:wrap}
+.radio-opt{display:flex;align-items:center;gap:8px;cursor:pointer;background:var(--bg);border:1px solid rgba(255,255,255,0.08);padding:10px 16px;transition:all 0.3s;flex:1;min-width:100px}
+.radio-opt:hover{border-color:var(--accent)}
+.radio-opt input{accent-color:var(--accent);width:16px;height:16px}
+.radio-opt span{font-size:14px;color:var(--text2)}
+.radio-opt.selected{border-color:var(--accent);background:rgba(255,107,0,0.08)}
+.radio-opt.selected span{color:var(--text)}
+.photo-upload{background:var(--bg);border:2px dashed rgba(255,107,0,0.3);padding:24px;text-align:center;cursor:pointer;transition:all 0.3s}
+.photo-upload:hover{border-color:var(--accent);background:rgba(255,107,0,0.05)}
+.photo-upload p{color:var(--text2);font-size:14px;margin-top:8px}
+.photo-upload .upload-icon{font-size:28px}
+.photo-preview{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.photo-preview img{width:80px;height:80px;object-fit:cover;border:2px solid var(--accent)}
+.optional-tag{background:rgba(68,138,255,0.15);color:var(--blue);padding:2px 8px;font-size:11px;font-weight:700;letter-spacing:1px;margin-right:8px}
+.female-only-note{background:rgba(255,107,0,0.08);border:1px solid rgba(255,107,0,0.2);padding:10px 14px;font-size:13px;color:#ff9060;margin-bottom:14px;display:none}
+.submit-btn{width:100%;background:var(--accent);color:white;padding:16px;border:none;font-family:'Bangers',cursive;font-size:22px;letter-spacing:3px;cursor:pointer;transition:all 0.3s;margin-top:10px;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.submit-btn:hover{background:#e05500;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,0,0.35)}
+.register-note{text-align:center;margin-top:14px;font-size:13px;color:var(--text2)}
+.register-note span{color:var(--green);font-weight:700}
+.success-msg{display:none;text-align:center;padding:40px 28px;background:rgba(0,230,118,0.05);border:2px solid rgba(0,230,118,0.2)}
+.success-msg .big-emoji{font-size:56px;display:block;margin-bottom:12px}
+
+/* FOOTER */
+footer{background:var(--primary);padding:36px 5%;text-align:center;border-top:2px solid var(--accent);position:relative;z-index:1}
+footer .logo-footer{font-family:'Bangers',cursive;font-size:26px;color:var(--accent);letter-spacing:3px;margin-bottom:8px}
+footer p{color:var(--text2);font-size:13px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-content{animation:fadeUp 0.7s ease forwards}
+
+@media(max-width:768px){
+.nav-links{display:none}
+.form-row{grid-template-columns:1fr}
+.hero-volleyball{display:none}
+.pricing-card{padding:28px 20px}
+.form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+
+<nav>
+  <div class="logo">🏐 HAIKYUU <span>FIT</span></div>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/drsei/Downloads/index.html#features" data-ar="المميزات" data-en="FEATURES">المميزات</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index.html#how" data-ar="كيف يعمل" data-en="HOW IT WORKS">كيف يعمل</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index.html#register" data-ar="سجّل الآن" data-en="JOIN NOW">سجّل الآن</a></li>
+  </ul>
+  <a href="file:///C:/Users/drsei/Downloads/index.html#register" class="nav-cta" data-ar="انضم للفريق" data-en="JOIN THE TEAM">انضم للفريق</a>
+</nav>
+
+<!-- HERO SVG VOLLEYBALL SCENE -->
+<section class="hero">
+  <svg class="hero-volleyball" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- bg glow -->
+    <circle cx="210" cy="210" r="200" fill="rgba(255,107,0,0.04)"></circle>
+    <!-- volleyball -->
+    <circle cx="210" cy="180" r="90" fill="#ff6b00" stroke="#ffcc00" stroke-width="3"></circle>
+    <circle cx="210" cy="180" r="90" fill="none" stroke="white" stroke-width="2" stroke-dasharray="8 4" opacity="0.3"></circle>
+    <!-- volleyball lines -->
+    <path d="M130 150 Q210 130 290 150" stroke="white" stroke-width="2.5" fill="none" opacity="0.6"></path>
+    <path d="M130 210 Q210 190 290 210" stroke="white" stroke-width="2.5" fill="none" opacity="0.6"></path>
+    <path d="M175 100 Q165 180 180 260" stroke="white" stroke-width="2.5" fill="none" opacity="0.6"></path>
+    <path d="M245 100 Q255 180 240 260" stroke="white" stroke-width="2.5" fill="none" opacity="0.6"></path>
+    <!-- hinata face simplified -->
+    <ellipse cx="210" cy="320" rx="45" ry="50" fill="#f5c88a" stroke="#333" stroke-width="2"></ellipse>
+    <!-- spiky hair -->
+    <path d="M168 300 Q170 260 180 255 Q185 270 190 275" fill="#e05500" stroke="#333" stroke-width="1.5"></path>
+    <path d="M175 285 Q172 245 185 238 Q192 255 195 265" fill="#e05500" stroke="#333" stroke-width="1.5"></path>
+    <path d="M185 275 Q188 235 200 230 Q204 248 205 262" fill="#ff6b00" stroke="#333" stroke-width="1.5"></path>
+    <path d="M200 270 Q205 228 215 225 Q218 244 217 260" fill="#ff6b00" stroke="#333" stroke-width="1.5"></path>
+    <path d="M215 272 Q222 232 232 228 Q233 248 230 263" fill="#e05500" stroke="#333" stroke-width="1.5"></path>
+    <path d="M228 280 Q238 245 248 240 Q246 258 242 270" fill="#e05500" stroke="#333" stroke-width="1.5"></path>
+    <path d="M240 290 Q252 258 260 256 Q256 272 250 282" fill="#cc4400" stroke="#333" stroke-width="1.5"></path>
+    <!-- eyes -->
+    <ellipse cx="196" cy="315" rx="8" ry="9" fill="#1a0a00"></ellipse>
+    <ellipse cx="224" cy="315" rx="8" ry="9" fill="#1a0a00"></ellipse>
+    <circle cx="199" cy="312" r="2.5" fill="white"></circle>
+    <circle cx="227" cy="312" r="2.5" fill="white"></circle>
+    <!-- eyebrows -->
+    <path d="M188 305 Q196 300 204 304" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+    <path d="M216 304 Q224 300 232 305" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+    <!-- mouth smile -->
+    <path d="M200 332 Q210 340 220 332" stroke="#a0522d" stroke-width="2" fill="none" stroke-linecap="round"></path>
+    <!-- jersey #10 -->
+    <rect x="175" y="368" width="70" height="45" rx="4" fill="#ff6b00" stroke="#ffcc00" stroke-width="2"></rect>
+    <text x="210" y="396" text-anchor="middle" font-family="Bangers,cursive" font-size="22" fill="white" letter-spacing="1">10</text>
+    <!-- speed lines -->
+    <line x1="30" y1="120" x2="100" y2="140" stroke="rgba(255,107,0,0.3)" stroke-width="1.5"></line>
+    <line x1="20" y1="150" x2="95" y2="160" stroke="rgba(255,107,0,0.2)" stroke-width="1"></line>
+    <line x1="35" y1="180" x2="100" y2="182" stroke="rgba(255,107,0,0.3)" stroke-width="1.5"></line>
+    <line x1="330" y1="80" x2="390" y2="95" stroke="rgba(255,204,0,0.25)" stroke-width="1.5"></line>
+    <line x1="335" y1="110" x2="400" y2="115" stroke="rgba(255,204,0,0.2)" stroke-width="1"></line>
+    <!-- sparkles -->
+    <text x="60" y="80" font-size="18" fill="#ffcc00" opacity="0.7">✦</text>
+    <text x="350" y="200" font-size="14" fill="#ff6b00" opacity="0.7">✦</text>
+    <text x="80" y="330" font-size="12" fill="#ffcc00" opacity="0.5">✦</text>
+  </svg>
+
+  <div class="hero-content">
+    <div class="manga-badge" data-ar="🏐 كوتشينج احترافي متخصص" data-en="🏐 PROFESSIONAL SPECIALIST COACHING">🏐 كوتشينج احترافي متخصص</div>
+    <h1 data-ar="&lt;span class=&quot;orange&quot;&gt;حوّل&lt;/span&gt; جسمك&lt;br&gt;زي &lt;span class=&quot;yellow&quot;&gt;بطل&lt;/span&gt; الأنمي!" data-en="&lt;span class=&quot;orange&quot;&gt;TRANSFORM&lt;/span&gt;&lt;br&gt;LIKE AN&lt;br&gt;&lt;span class=&quot;yellow&quot;&gt;ANIME&lt;/span&gt; HERO!"><span class="orange">حوّل</span> جسمك<br>زي <span class="yellow">بطل</span> الأنمي!</h1>
+    <div class="speech-bubble">
+      <span data-ar="&quot;الفائزون والخاسرون يُحددون بأدائهم — ابدأ رحلتك النهارده! 💪&quot;" data-en="&quot;Winners and losers are decided by their actions — start your journey today! 💪&quot;">"الفائزون والخاسرون يُحددون بأدائهم — ابدأ رحلتك النهارده! 💪"</span>
+    </div>
+    <div class="hero-btns">
+      <a href="file:///C:/Users/drsei/Downloads/index.html#register" class="btn-primary" data-ar="انضم للفريق الآن" data-en="JOIN THE TEAM NOW">انضم للفريق الآن</a>
+      <a href="file:///C:/Users/drsei/Downloads/index.html#how" class="btn-secondary" data-ar="كيف يعمل؟" data-en="HOW IT WORKS?">كيف يعمل؟</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">+50</div><div class="stat-label" data-ar="مشترك نشط" data-en="ACTIVE MEMBERS">مشترك نشط</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label" data-ar="نسبة الرضا" data-en="SATISFACTION">نسبة الرضا</div></div>
+      <div class="stat"><div class="stat-num">12kg</div><div class="stat-label" data-ar="متوسط الخسارة" data-en="AVG LOSS">متوسط الخسارة</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-title">
+    <div class="manga-tag" data-ar="السلاح السري" data-en="SECRET WEAPON">السلاح السري</div>
+    <h2 data-ar="كل ما تحتاجه في &lt;span class=&quot;orange&quot;&gt;مكان واحد&lt;/span&gt;" data-en="EVERYTHING IN &lt;span class=&quot;orange&quot;&gt;ONE PLACE&lt;/span&gt;">كل ما تحتاجه في <span class="orange">مكان واحد</span></h2>
+    <p data-ar="نظام متكامل للمتابعة الغذائية والتمرينية" data-en="A complete nutrition and workout tracking system">نظام متكامل للمتابعة الغذائية والتمرينية</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">🍽️</div><h3 data-ar="برنامج غذائي مخصص" data-en="Custom Nutrition Plan">برنامج غذائي مخصص</h3><p data-ar="سعرات وماكروز (بروتين، كارب، دهون) محسوبة بدقة حسب جسمك وهدفك الشخصي" data-en="Precise calories and macros (protein, carbs, fat) calculated for your body and personal goal">سعرات وماكروز محسوبة بدقة حسب جسمك وهدفك</p></div>
+    <div class="feature-card"><div class="feature-icon">🏋️</div><h3 data-ar="برنامج تمرين بالصور" data-en="Workout Plan with Photos">برنامج تمرين بالصور</h3><p data-ar="كل تمرين بصورة وشرح للطريقة الصحيحة وعدد الجُلَس والتكرارات" data-en="Every exercise with photos and full explanation of correct form, sets, and reps">كل تمرين بصورة وشرح كامل للطريقة الصحيحة</p></div>
+    <div class="feature-card"><div class="feature-icon">📊</div><h3 data-ar="تتبع أسبوعي دقيق" data-en="Precise Weekly Tracking">تتبع أسبوعي دقيق</h3><p data-ar="متابعة الوزن والقياسات أسبوعياً مع تعديل البرنامج حسب تقدمك" data-en="Weekly weight and measurement tracking with program adjustments based on your progress">متابعة الوزن والقياسات مع تعديل تلقائي</p></div>
+    <div class="feature-card"><div class="feature-icon">💬</div><h3 data-ar="تواصل مباشر مع الكوتش" data-en="Direct Coach Communication">تواصل مباشر مع الكوتش</h3><p data-ar="تقدر تسأل في أي وقت عن التغذية أو التمرين أو أي استفسار" data-en="Ask anytime about nutrition, training, or any question">تواصل مع الكوتش في أي وقت</p></div>
+    <div class="feature-card"><div class="feature-icon">🩺</div><h3 data-ar="متابعة صحية شاملة" data-en="Comprehensive Health Monitoring">متابعة صحية شاملة</h3><p data-ar="أخذ التاريخ المرضي والتحاليل بعين الاعتبار لضمان سلامتك وفعالية البرنامج" data-en="Medical history and lab results considered to ensure your safety and program effectiveness">مراعاة التاريخ المرضي والتحاليل الطبية</p></div>
+    <div class="feature-card"><div class="feature-icon">⚡</div><h3 data-ar="برنامجك خلال 24 ساعة" data-en="Your Program in 24 Hours">برنامجك خلال 24 ساعة</h3><p data-ar="بعد ملء البيانات، هتستلم برنامجك الكامل خلال يوم واحد بس" data-en="After filling your data, receive your complete program within just one day">استلم برنامجك الكامل خلال يوم واحد</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how" style="background:var(--card2)">
+  <div class="section-title">
+    <div class="manga-tag" data-ar="خطة الهجوم" data-en="ATTACK PLAN">خطة الهجوم</div>
+    <h2 data-ar="كيف &lt;span class=&quot;orange&quot;&gt;يعمل&lt;/span&gt;؟" data-en="HOW DOES IT &lt;span class=&quot;orange&quot;&gt;WORK&lt;/span&gt;?">كيف <span class="orange">يعمل</span>؟</h2>
+    <p data-ar="٤ خطوات وابدأ رحلتك" data-en="4 steps to start your journey">٤ خطوات وابدأ رحلتك</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step"><div class="step-num">1</div><h3 data-ar="سجّل بياناتك" data-en="Register Your Data">سجّل بياناتك</h3><p data-ar="ادخل معلوماتك الصحية والجسدية والتاريخ المرضي وهدفك" data-en="Enter your health, physical, medical history, and goal info">معلوماتك الصحية وهدفك</p></div>
+    <div class="step"><div class="step-num">2</div><h3 data-ar="تحليل شامل" data-en="Full Analysis">تحليل شامل</h3><p data-ar="الكوتش يراجع كل بياناتك بدقة ويصمم برنامجك المخصص" data-en="The coach carefully reviews all your data and designs your custom program">مراجعة دقيقة لكل بياناتك</p></div>
+    <div class="step"><div class="step-num">3</div><h3 data-ar="استلم وطبّق" data-en="Receive &amp; Apply">استلم وطبّق</h3><p data-ar="تستلم برنامجك الغذائي والتمريني خلال 24 ساعة وتبدأ مباشرة" data-en="Receive your nutrition and workout program within 24 hours and start immediately">برنامجك خلال 24 ساعة</p></div>
+    <div class="step"><div class="step-num">4</div><h3 data-ar="تابع وطوّر" data-en="Track &amp; Improve">تابع وطوّر</h3><p data-ar="متابعة أسبوعية وتعديل مستمر للبرنامج لضمان أفضل النتائج" data-en="Weekly follow-up and continuous program adjustments to ensure best results">تعديل أسبوعي لأفضل نتائج</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-title">
+    <div class="manga-tag" data-ar="الاشتراك" data-en="SUBSCRIPTION">الاشتراك</div>
+    <h2 data-ar="سعر &lt;span class=&quot;orange&quot;&gt;واحد&lt;/span&gt; — كل شيء" data-en="ONE &lt;span class=&quot;orange&quot;&gt;PRICE&lt;/span&gt; — EVERYTHING">سعر <span class="orange">واحد</span> — كل شيء</h2>
+    <p data-ar="لا مفاجآت — خدمة كاملة" data-en="No surprises — full service">لا مفاجآت — خدمة كاملة</p>
+  </div>
+  <div class="pricing-card">
+    <div class="popular-badge" data-ar="⭐ الأكثر طلباً" data-en="⭐ MOST POPULAR">⭐ الأكثر طلباً</div>
+    <span class="price-original" id="originalPrice" data-ar="السعر الأصلي: $50 / شهر" data-en="Original Price: $50 / month">السعر الأصلي: $50 / شهر</span>
+    <div class="price-now">
+      <sup>$</sup>
+      <span id="priceVal">0</span>
+      <span class="price-period" data-ar="/ شهر" data-en="/ month">/ شهر</span>
+    </div>
+    <div class="discount-badge" id="discountBadge" data-ar="🎉 خصم 100% — مجاناً تماماً!" data-en="🎉 100% DISCOUNT — COMPLETELY FREE!">🎉 خصم 100% — مجاناً تماماً!</div>
+    <ul class="features-list">
+      <li><span class="check">✓</span><span data-ar="برنامج غذائي مخصص حسب أهدافك" data-en="Custom nutrition plan based on your goals">برنامج غذائي مخصص حسب أهدافك</span></li>
+      <li><span class="check">✓</span><span data-ar="برنامج تمرين مع صور تفصيلية" data-en="Workout plan with detailed photos">برنامج تمرين مع صور تفصيلية</span></li>
+      <li><span class="check">✓</span><span data-ar="مراعاة التاريخ المرضي والتحاليل" data-en="Medical history and lab results considered">مراعاة التاريخ المرضي والتحاليل</span></li>
+      <li><span class="check">✓</span><span data-ar="متابعة أسبوعية وتعديل البرنامج" data-en="Weekly follow-up and program adjustments">متابعة أسبوعية وتعديل البرنامج</span></li>
+      <li><span class="check">✓</span><span data-ar="تواصل مباشر مع الكوتش" data-en="Direct communication with coach">تواصل مباشر مع الكوتش</span></li>
+      <li><span class="check">✓</span><span data-ar="حساب السعرات والماكروز الدقيق" data-en="Precise calorie and macro calculation">حساب السعرات والماكروز الدقيق</span></li>
+    </ul>
+    <a href="file:///C:/Users/drsei/Downloads/index.html#register" class="btn-primary" style="width:100%;text-align:center;display:block;font-size:17px;font-family:&#39;Bangers&#39;,cursive;letter-spacing:2px" data-ar="انضم للفريق مجاناً ←" data-en="JOIN THE TEAM FREE →">انضم للفريق مجاناً ←</a>
+  </div>
+
+  <div class="discount-section">
+    <div class="discount-box">
+      <h3 data-ar="🎟️ عندك كود خصم؟" data-en="🎟️ HAVE A CODE?">🎟️ عندك كود خصم؟</h3>
+      <p data-ar="ادخل الكود وشوف خصمك قبل التسجيل" data-en="Enter the code to see your discount before registering">ادخل الكود وشوف خصمك قبل التسجيل</p>
+      <div class="discount-input-wrap">
+        <input type="text" class="discount-input" id="discountInput" placeholder="VIP100" maxlength="10" oninput="this.value=this.value.toUpperCase()">
+        <button class="discount-btn" onclick="applyDiscount()" data-ar="تطبيق" data-en="APPLY">تطبيق</button>
+      </div>
+      <div class="discount-result" id="discountResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER FORM -->
+<section class="register-section" id="register">
+  <h2 data-ar="سجّل بياناتك الآن" data-en="REGISTER NOW">سجّل بياناتك الآن</h2>
+  <p data-ar="معلوماتك تساعدنا نصمم برنامجك المثالي" data-en="Your info helps us design your perfect program">معلوماتك تساعدنا نصمم برنامجك المثالي</p>
+
+  <div class="form-card">
+    <div id="regForm">
+
+      <!-- BASIC INFO -->
+      <div class="section-divider" data-ar="⚡ المعلومات الأساسية" data-en="⚡ BASIC INFORMATION">⚡ المعلومات الأساسية</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span><span data-ar="الاسم الأول" data-en="First Name">الاسم الأول</span></label>
+          <input type="text" class="form-input" id="firstName" placeholder="محمد">
+        </div>
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span><span data-ar="الاسم الأخير" data-en="Last Name">الاسم الأخير</span></label>
+          <input type="text" class="form-input" id="lastName" placeholder="أحمد">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span></label>
+        <input type="email" class="form-input" id="email" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="رقم الجوال (واتساب)" data-en="Phone (WhatsApp)">رقم الجوال (واتساب)</span></label>
+        <input type="tel" class="form-input" id="phone" placeholder="+966 5X XXX XXXX">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span><span data-ar="العمر" data-en="Age">العمر</span></label>
+          <input type="number" class="form-input" id="age" placeholder="25" min="16" max="70">
+        </div>
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span><span data-ar="الجنس" data-en="Gender">الجنس</span></label>
+          <select class="form-select" id="gender" onchange="handleGender(this.value)">
+            <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
+            <option value="male" data-ar="ذكر" data-en="Male">ذكر</option>
+            <option value="female" data-ar="أنثى" data-en="Female">أنثى</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span><span data-ar="الوزن (كجم)" data-en="Weight (kg)">الوزن (كجم)</span></label>
+          <input type="number" class="form-input" id="weight" placeholder="75" min="40" max="250">
+        </div>
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span><span data-ar="الطول (سم)" data-en="Height (cm)">الطول (سم)</span></label>
+          <input type="number" class="form-input" id="height" placeholder="175" min="140" max="220">
+        </div>
+      </div>
+
+      <!-- GOALS -->
+      <div class="section-divider" data-ar="🎯 الهدف والنشاط" data-en="🎯 GOALS &amp; ACTIVITY">🎯 الهدف والنشاط</div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="هدفك الأساسي" data-en="Main Goal">هدفك الأساسي</span></label>
+        <select class="form-select" id="goal">
+          <option value="" data-ar="اختر هدفك..." data-en="Select your goal...">اختر هدفك...</option>
+          <option value="cut" data-ar="تنشيف وخسارة دهون" data-en="Cutting &amp; Fat Loss">تنشيف وخسارة دهون</option>
+          <option value="bulk" data-ar="بناء عضل وزيادة وزن" data-en="Muscle Building &amp; Weight Gain">بناء عضل وزيادة وزن</option>
+          <option value="maintain" data-ar="الحفاظ على الوزن وتحسين القوام" data-en="Maintain Weight &amp; Improve Physique">الحفاظ على الوزن وتحسين القوام</option>
+          <option value="health" data-ar="تحسين الصحة العامة" data-en="Improve General Health">تحسين الصحة العامة</option>
+          <option value="athlete" data-ar="تحسين الأداء الرياضي" data-en="Improve Athletic Performance">تحسين الأداء الرياضي</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="الهدف خلال كام شهر؟" data-en="Goal Timeline (months)?">الهدف خلال كام شهر؟</span></label>
+        <select class="form-select" id="timeline">
+          <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
+          <option value="1-2" data-ar="1 - 2 شهر" data-en="1 - 2 months">1 - 2 شهر</option>
+          <option value="3-4" data-ar="3 - 4 شهور" data-en="3 - 4 months">3 - 4 شهور</option>
+          <option value="6" data-ar="6 شهور" data-en="6 months">6 شهور</option>
+          <option value="12" data-ar="سنة كاملة" data-en="Full year">سنة كاملة</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="مستوى النشاط اليومي" data-en="Daily Activity Level">مستوى النشاط اليومي</span></label>
+        <select class="form-select" id="activity">
+          <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
+          <option value="sedentary" data-ar="خامل — عمل مكتبي، مش بتتحرك كتير" data-en="Sedentary — desk job, little movement">خامل — عمل مكتبي</option>
+          <option value="light" data-ar="خفيف — تمرين 1-3 أيام/أسبوع" data-en="Light — 1-3 days/week training">خفيف — 1-3 أيام/أسبوع</option>
+          <option value="moderate" data-ar="متوسط — تمرين 3-5 أيام/أسبوع" data-en="Moderate — 3-5 days/week training">متوسط — 3-5 أيام/أسبوع</option>
+          <option value="active" data-ar="نشيط — تمرين 6-7 أيام/أسبوع" data-en="Active — 6-7 days/week training">نشيط — 6-7 أيام/أسبوع</option>
+          <option value="veryactive" data-ar="نشيط جداً — رياضي أو عمل جسدي شاق" data-en="Very active — athlete or heavy physical work">نشيط جداً — رياضي أو شغل جسدي</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="كم مرة تتمرن في الأسبوع؟" data-en="How many days/week do you train?">كم مرة تتمرن في الأسبوع؟</span></label>
+        <div class="radio-group" id="trainDays">
+          <label class="radio-opt"><input type="radio" name="trainDays" value="0" onchange="selectRadio(this)"><span data-ar="مش بتمرن" data-en="Not training">مش بتمرن</span></label>
+          <label class="radio-opt"><input type="radio" name="trainDays" value="2-3" onchange="selectRadio(this)"><span>2-3</span></label>
+          <label class="radio-opt"><input type="radio" name="trainDays" value="4-5" onchange="selectRadio(this)"><span>4-5</span></label>
+          <label class="radio-opt"><input type="radio" name="trainDays" value="6-7" onchange="selectRadio(this)"><span>6-7</span></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="مكان التمرين" data-en="Training Location">مكان التمرين</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="trainPlace" value="gym" onchange="selectRadio(this)"><span data-ar="جيم" data-en="Gym">جيم</span></label>
+          <label class="radio-opt"><input type="radio" name="trainPlace" value="home" onchange="selectRadio(this)"><span data-ar="البيت" data-en="Home">البيت</span></label>
+          <label class="radio-opt"><input type="radio" name="trainPlace" value="both" onchange="selectRadio(this)"><span data-ar="الاتنين" data-en="Both">الاتنين</span></label>
+        </div>
+      </div>
+
+      <!-- HEALTH -->
+      <div class="section-divider" data-ar="🩺 التاريخ الصحي والطبي" data-en="🩺 HEALTH &amp; MEDICAL HISTORY">🩺 التاريخ الصحي والطبي</div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="هل عندك أمراض مزمنة؟" data-en="Do you have chronic diseases?">هل عندك أمراض مزمنة؟</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="chronic" value="no" onchange="selectRadio(this);toggleField(&#39;chronicDetails&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+          <label class="radio-opt"><input type="radio" name="chronic" value="yes" onchange="selectRadio(this);toggleField(&#39;chronicDetails&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+        </div>
+      </div>
+      <div class="form-group" id="chronicDetails" style="display:none">
+        <label class="form-label"><span data-ar="اذكر الأمراض المزمنة" data-en="List chronic diseases">اذكر الأمراض المزمنة</span></label>
+        <textarea class="form-textarea" id="chronicText" placeholder="مثال: سكري، ضغط، قلب..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="هل عندك حساسية من أطعمة؟" data-en="Any food allergies?">هل عندك حساسية من أطعمة؟</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="allergy" value="no" onchange="selectRadio(this);toggleField(&#39;allergyDetails&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+          <label class="radio-opt"><input type="radio" name="allergy" value="yes" onchange="selectRadio(this);toggleField(&#39;allergyDetails&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+        </div>
+      </div>
+      <div class="form-group" id="allergyDetails" style="display:none">
+        <label class="form-label"><span data-ar="اذكر الحساسية" data-en="List allergies">اذكر الحساسية</span></label>
+        <textarea class="form-textarea" id="allergyText" placeholder="مثال: لاكتوز، جلوتين، مكسرات..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="هل تأخذ أدوية بشكل منتظم؟" data-en="Do you take medications regularly?">هل تأخذ أدوية بشكل منتظم؟</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="meds" value="no" onchange="selectRadio(this);toggleField(&#39;medsDetails&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+          <label class="radio-opt"><input type="radio" name="meds" value="yes" onchange="selectRadio(this);toggleField(&#39;medsDetails&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+        </div>
+      </div>
+      <div class="form-group" id="medsDetails" style="display:none">
+        <label class="form-label"><span data-ar="اذكر الأدوية" data-en="List medications">اذكر الأدوية</span></label>
+        <textarea class="form-textarea" id="medsText" placeholder="اسم الدواء والجرعة..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="هل عندك تحاليل حديثة؟ (آخر 6 شهور)" data-en="Recent lab results? (last 6 months)">هل عندك تحاليل حديثة؟ (آخر 6 شهور)</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="labs" value="no" onchange="selectRadio(this);toggleField(&#39;labsDetails&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+          <label class="radio-opt"><input type="radio" name="labs" value="yes" onchange="selectRadio(this);toggleField(&#39;labsDetails&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+        </div>
+      </div>
+      <div class="form-group" id="labsDetails" style="display:none">
+        <label class="form-label"><span data-ar="اذكر أبرز نتائج التحاليل" data-en="List key lab results">اذكر أبرز نتائج التحاليل</span></label>
+        <textarea class="form-textarea" id="labsText" placeholder="مثال: هرمونات، سكر، دهون، فيتامينات..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="هل سبق وعملت عمليات جراحية؟" data-en="Any previous surgeries?">هل سبق وعملت عمليات جراحية؟</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="surgery" value="no" onchange="selectRadio(this);toggleField(&#39;surgeryDetails&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+          <label class="radio-opt"><input type="radio" name="surgery" value="yes" onchange="selectRadio(this);toggleField(&#39;surgeryDetails&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+        </div>
+      </div>
+      <div class="form-group" id="surgeryDetails" style="display:none">
+        <label class="form-label"><span data-ar="اذكر نوع العملية" data-en="Describe the surgery">اذكر نوع العملية</span></label>
+        <textarea class="form-textarea" id="surgeryText" placeholder="نوع العملية وتاريخها..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="هل عندك إصابات أو آلام مزمنة في المفاصل؟" data-en="Any joint injuries or chronic pain?">هل عندك إصابات أو آلام مزمنة؟</span></label>
+        <textarea class="form-textarea" id="injuries" placeholder="مثال: ألم ركبة، ظهر، كتف... أو اكتب لا يوجد"></textarea>
+      </div>
+
+      <!-- NUTRITION -->
+      <div class="section-divider" data-ar="🥗 العادات الغذائية" data-en="🥗 EATING HABITS">🥗 العادات الغذائية</div>
+      <div class="form-group">
+        <label class="form-label"><span class="required">*</span><span data-ar="كام وجبة بتاكل في اليوم؟" data-en="How many meals per day?">كام وجبة بتاكل في اليوم؟</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="meals" value="1-2" onchange="selectRadio(this)"><span>1-2</span></label>
+          <label class="radio-opt"><input type="radio" name="meals" value="3" onchange="selectRadio(this)"><span>3</span></label>
+          <label class="radio-opt"><input type="radio" name="meals" value="4-5" onchange="selectRadio(this)"><span>4-5</span></label>
+          <label class="radio-opt"><input type="radio" name="meals" value="6+" onchange="selectRadio(this)"><span>6+</span></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="أطعمة لا تحبها أو لا تأكلها" data-en="Foods you dislike or don&#39;t eat">أطعمة لا تحبها أو لا تأكلها</span></label>
+        <textarea class="form-textarea" id="dislikes" placeholder="مثال: كبدة، سمك، بروكلي... أو اكتب لا يوجد"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="هل تتناول مكملات غذائية حالياً؟" data-en="Currently taking supplements?">هل تتناول مكملات غذائية حالياً؟</span></label>
+        <textarea class="form-textarea" id="supplements" placeholder="مثال: واي بروتين، كرياتين، فيتامينات... أو اكتب لا يوجد"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="هل سبق واتبعت نظام غذائي قبل؟ ما النتيجة؟" data-en="Previous diet experience? What were the results?">هل سبق واتبعت نظام غذائي قبل؟</span></label>
+        <textarea class="form-textarea" id="prevDiet" placeholder="اذكر تجربتك السابقة والنتيجة... أو اكتب لا يوجد"></textarea>
+      </div>
+
+      <!-- PHOTOS -->
+      <div class="section-divider" data-ar="📸 صور القياس (لمتابعة التقدم)" data-en="📸 PROGRESS PHOTOS">📸 صور القياس (لمتابعة التقدم)</div>
+      <div class="female-only-note" id="femaleNote" data-ar="🔒 للبنات: رفع الصور اختياري بالكامل ومش شرط للتسجيل. الصور محمية وسرية تماماً ولا يطلع عليها إلا الكوتش." data-en="🔒 For females: uploading photos is completely optional and not required for registration. Photos are fully private and only seen by the coach.">🔒 للبنات: رفع الصور اختياري بالكامل ومش شرط للتسجيل. الصور محمية وسرية تماماً ولا يطلع عليها إلا الكوتش.</div>
+      <div class="form-group">
+        <label class="form-label">
+          <span class="optional-tag" data-ar="اختياري" data-en="OPTIONAL">اختياري</span>
+          <span data-ar="صورة أمامية" data-en="Front Photo">صورة أمامية</span>
+        </label>
+        <div class="photo-upload" onclick="document.getElementById(&#39;photoFront&#39;).click()">
+          <div class="upload-icon">📷</div>
+          <p data-ar="اضغط لرفع صورة أمامية" data-en="Click to upload front photo">اضغط لرفع صورة أمامية</p>
+          <input type="file" id="photoFront" accept="image/*" style="display:none" onchange="previewPhoto(this,&#39;prevFront&#39;)">
+          <div class="photo-preview" id="prevFront"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <span class="optional-tag" data-ar="اختياري" data-en="OPTIONAL">اختياري</span>
+          <span data-ar="صورة جانبية" data-en="Side Photo">صورة جانبية</span>
+        </label>
+        <div class="photo-upload" onclick="document.getElementById(&#39;photoSide&#39;).click()">
+          <div class="upload-icon">📷</div>
+          <p data-ar="اضغط لرفع صورة جانبية" data-en="Click to upload side photo">اضغط لرفع صورة جانبية</p>
+          <input type="file" id="photoSide" accept="image/*" style="display:none" onchange="previewPhoto(this,&#39;prevSide&#39;)">
+          <div class="photo-preview" id="prevSide"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <span class="optional-tag" data-ar="اختياري" data-en="OPTIONAL">اختياري</span>
+          <span data-ar="صورة خلفية" data-en="Back Photo">صورة خلفية</span>
+        </label>
+        <div class="photo-upload" onclick="document.getElementById(&#39;photoBack&#39;).click()">
+          <div class="upload-icon">📷</div>
+          <p data-ar="اضغط لرفع صورة خلفية" data-en="Click to upload back photo">اضغط لرفع صورة خلفية</p>
+          <input type="file" id="photoBack" accept="image/*" style="display:none" onchange="previewPhoto(this,&#39;prevBack&#39;)">
+          <div class="photo-preview" id="prevBack"></div>
+        </div>
+      </div>
+
+      <!-- DISCOUNT + NOTES -->
+      <div class="section-divider" data-ar="🎟️ الكود والملاحظات" data-en="🎟️ CODE &amp; NOTES">🎟️ الكود والملاحظات</div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="كود الخصم (اختياري)" data-en="Discount Code (Optional)">كود الخصم (اختياري)</span></label>
+        <input type="text" class="form-input" id="regDiscount" placeholder="VIP100" maxlength="10" style="text-transform:uppercase;letter-spacing:3px" oninput="this.value=this.value.toUpperCase()">
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span data-ar="أي ملاحظات إضافية تريد إضافتها؟" data-en="Any additional notes?">أي ملاحظات إضافية؟</span></label>
+        <textarea class="form-textarea" id="notes" placeholder="أي معلومة إضافية تعتقد إنها مهمة للكوتش..."></textarea>
+      </div>
+
+      <button class="submit-btn" onclick="submitForm()" data-ar="أرسل بياناتي وابدأ رحلتي! ←" data-en="SEND MY DATA &amp; START! →">أرسل بياناتي وابدأ رحلتي! ←</button>
+      <p class="register-note" data-ar="✅ مجاناً تماماً مع كود &lt;span&gt;VIP100&lt;/span&gt;" data-en="✅ Completely free with code &lt;span&gt;VIP100&lt;/span&gt;">✅ مجاناً تماماً مع كود <span>VIP100</span></p>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <span class="big-emoji">🎉</span>
+      <h3 id="successTitle" style="font-family:&#39;Bangers&#39;,cursive;font-size:28px;letter-spacing:2px;color:var(--green);margin-bottom:10px" data-ar="تم التسجيل بنجاح!" data-en="REGISTRATION SUCCESSFUL!">تم التسجيل بنجاح!</h3>
+      <p id="successText" style="color:var(--text2);font-size:15px;line-height:1.7"></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo-footer">🏐 HAIKYUU FIT</div>
+  <p data-ar="© 2025 Haikyuu Fitness Coach — جميع الحقوق محفوظة" data-en="© 2025 Haikyuu Fitness Coach — All Rights Reserved">© 2025 Haikyuu Fitness Coach — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+let isAr = true;
+const DISCOUNT_CODE = 'VIP100';
+const ORIGINAL_PRICE = 50;
+
+function toggleLang(){
+  isAr = !isAr;
+  const body = document.body;
+  const btn = document.getElementById('langBtn');
+  if(isAr){body.classList.remove('en');body.setAttribute('dir','rtl');body.setAttribute('lang','ar');btn.textContent='EN';}
+  else{body.classList.add('en');body.setAttribute('dir','ltr');body.setAttribute('lang','en');btn.textContent='ع';}
+  document.querySelectorAll('[data-ar]').forEach(el=>{
+    const val = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    if(!val) return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=val;}
+    else{el.innerHTML=val;}
+  });
+  document.querySelectorAll('option[data-ar]').forEach(el=>{
+    el.textContent=isAr?el.getAttribute('data-ar'):el.getAttribute('data-en');
+  });
+}
+
+function selectRadio(el){
+  const name = el.name;
+  document.querySelectorAll(`input[name="${name}"]`).forEach(r=>{
+    r.closest('.radio-opt').classList.remove('selected');
+  });
+  el.closest('.radio-opt').classList.add('selected');
+}
+
+function toggleField(id, show){
+  document.getElementById(id).style.display = show ? 'block' : 'none';
+}
+
+function handleGender(val){
+  const note = document.getElementById('femaleNote');
+  note.style.display = val === 'female' ? 'block' : 'none';
+}
+
+function previewPhoto(input, previewId){
+  const preview = document.getElementById(previewId);
+  preview.innerHTML = '';
+  if(input.files && input.files[0]){
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(input.files[0]);
+    input.closest('.photo-upload').style.borderColor = 'var(--green)';
+  }
+}
+
+function applyDiscount(){
+  const input = document.getElementById('discountInput').value.trim().toUpperCase();
+  const result = document.getElementById('discountResult');
+  if(input === DISCOUNT_CODE){
+    result.className='discount-result success';
+    result.innerHTML = isAr
+      ? `🎉 كود صحيح! خصم 100% — الاشتراك مجاناً (قيمته $${ORIGINAL_PRICE})`
+      : `🎉 Valid! 100% discount — free subscription (value: $${ORIGINAL_PRICE})`;
+    document.getElementById('regDiscount').value = DISCOUNT_CODE;
+  } else if(!input){
+    result.className='discount-result error';
+    result.innerHTML = isAr ? '⚠️ من فضلك ادخل الكود' : '⚠️ Please enter the code';
+  } else {
+    result.className='discount-result error';
+    result.innerHTML = isAr
+      ? '❌ الكود غير صحيح — تواصل مع الكوتش للحصول على كودك'
+      : '❌ Invalid code — contact the coach to get yours';
+  }
+}
+
+function submitForm(){
+  const req = ['firstName','lastName','email','phone','age','gender','weight','height','goal','timeline','activity'];
+  const radios = ['trainDays','chronic','allergy','meds','meals'];
+  let ok = true;
+
+  req.forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el.value.trim()){ok=false;el.style.borderColor='var(--accent)';}
+    else{el.style.borderColor='';}
+  });
+  radios.forEach(name=>{
+    if(!document.querySelector(`input[name="${name}"]:checked`)){ok=false;}
+  });
+
+  if(!ok){
+    alert(isAr ? '⚠️ من فضلك أكمل جميع الحقول الإلزامية (*)' : '⚠️ Please complete all required fields (*)');
+    return;
+  }
+
+  const discount = document.getElementById('regDiscount').value.trim().toUpperCase();
+  const isFree = discount === DISCOUNT_CODE;
+  const name = document.getElementById('firstName').value;
+
+  document.getElementById('regForm').style.display = 'none';
+  const msg = document.getElementById('successMsg');
+  msg.style.display = 'block';
+  document.getElementById('successTitle').textContent = isAr ? `🎉 أهلاً ${name}! تم التسجيل بنجاح!` : `🎉 Welcome ${name}! Registration Successful!`;
+  document.getElementById('successText').innerHTML = isFree
+    ? (isAr
+        ? `✅ تم تطبيق كود <strong style="color:var(--green)">VIP100</strong> — خصم 100%<br><br>السعر الأصلي: <s>$${ORIGINAL_PRICE}/شهر</s><br><strong style="color:var(--green);font-size:20px">السعر بعد الخصم: $0 🎁</strong><br><br>سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب 📱`
+        : `✅ Code <strong style="color:var(--green)">VIP100</strong> applied — 100% off<br><br>Original: <s>$${ORIGINAL_PRICE}/mo</s><br><strong style="color:var(--green);font-size:20px">After discount: $0 🎁</strong><br><br>The coach will contact you within <strong>24 hours</strong> on WhatsApp 📱`)
+    : (isAr
+        ? `سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب لإرسال برنامجك وتفاصيل الدفع 📱`
+        : `The coach will contact you within <strong>24 hours</strong> on WhatsApp with your program and payment details 📱`);
+}
+
+document.getElementById('discountInput').addEventListener('input',function(){this.value=this.value.toUpperCase();});
+</script>
+
+
+</body></html>
