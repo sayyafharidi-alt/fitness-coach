@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/drsei/Downloads/index_6.html -->
+<!-- saved from url=(0045)file:///C:/Users/drsei/Downloads/index_7.html -->
 <html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,10 +45,18 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 5%;height:64px;display
 .nav-cta:hover{background:var(--accent2)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:64px 5% 0;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0;position:relative;overflow:hidden}
+.hero-left{padding:100px 5% 60px 5%;z-index:2}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,169,110,0.03) 0%,transparent 50%,rgba(200,169,110,0.02) 100%);pointer-events:none}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,110,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
-.hero-content{max-width:680px;z-index:2}
+.hero-content{max-width:560px;z-index:2}
+.hero-image-wrap{position:relative;height:100vh;overflow:hidden;z-index:2}
+.hero-image-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(15%) contrast(1.1) brightness(0.85)}
+.hero-image-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 40%);z-index:1}
+.hero-image-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,var(--bg),transparent);z-index:1}
+.hero-img-tag{position:absolute;bottom:48px;left:24px;background:rgba(10,10,10,0.8);border:1px solid rgba(200,169,110,0.3);padding:12px 18px;z-index:3;backdrop-filter:blur(10px)}
+.hero-img-tag-num{font-family:Montserrat,sans-serif;font-size:22px;font-weight:800;color:var(--accent);display:block}
+.hero-img-tag-lbl{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
 .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
 .eyebrow-line{width:32px;height:1px;background:var(--accent)}
 .eyebrow-text{font-size:11px;font-weight:600;letter-spacing:4px;color:var(--accent);text-transform:uppercase}
@@ -293,6 +301,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
 
 @media(max-width:768px){
 .nav-links{display:none}
+.hero{grid-template-columns:1fr}
+.hero-image-wrap{display:none}
+.hero-left{padding:90px 5% 40px}
 .hero-stats{grid-template-columns:repeat(2,1fr)}
 .frow{grid-template-columns:1fr}
 .nut-grid{grid-template-columns:1fr}
@@ -314,19 +325,20 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
 <nav>
   <div class="logo">HAIKYU<span>U</span> FIT</div>
   <ul class="nav-links">
-    <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#workouts" data-ar="التمارين" data-en="WORKOUTS">التمارين</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#nutrition" data-ar="التغذية" data-en="NUTRITION">التغذية</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#testimonials" data-ar="النتائج" data-en="RESULTS">النتائج</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#workouts" data-ar="التمارين" data-en="WORKOUTS">التمارين</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#nutrition" data-ar="التغذية" data-en="NUTRITION">التغذية</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#testimonials" data-ar="النتائج" data-en="RESULTS">النتائج</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a></li>
   </ul>
-  <a href="file:///C:/Users/drsei/Downloads/index_6.html#register" class="nav-cta" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
+  <a href="file:///C:/Users/drsei/Downloads/index_7.html#register" class="nav-cta" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+  <div class="hero-left">
   <div class="hero-content">
     <div class="hero-eyebrow">
       <div class="eyebrow-line"></div>
@@ -339,8 +351,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
     </h1>
     <p class="hero-sub" data-ar="برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية. لأن النتائج تحتاج نظاماً لا تمنيات." data-en="A fully personalized nutrition and workout program — precise calories, scientific macros, professional video exercises, and real weekly coaching. Because results need a system, not wishes.">برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية.</p>
     <div class="hero-btns">
-      <a href="file:///C:/Users/drsei/Downloads/index_6.html#register" class="btn-gold" data-ar="ابدأ رحلتك الآن" data-en="START YOUR JOURNEY">ابدأ رحلتك الآن</a>
-      <a href="file:///C:/Users/drsei/Downloads/index_6.html#workouts" class="btn-outline" data-ar="استكشف البرنامج" data-en="EXPLORE PROGRAM">استكشف البرنامج</a>
+      <a href="file:///C:/Users/drsei/Downloads/index_7.html#register" class="btn-gold" data-ar="ابدأ رحلتك الآن" data-en="START YOUR JOURNEY">ابدأ رحلتك الآن</a>
+      <a href="file:///C:/Users/drsei/Downloads/index_7.html#workouts" class="btn-outline" data-ar="استكشف البرنامج" data-en="EXPLORE PROGRAM">استكشف البرنامج</a>
     </div>
     <div class="hero-stats">
       <div class="stat-box"><span class="stat-num">+50</span><span class="stat-lbl" data-ar="مشترك نشط" data-en="MEMBERS">مشترك نشط</span></div>
@@ -349,7 +361,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
       <div class="stat-box"><span class="stat-num">24h</span><span class="stat-lbl" data-ar="تستلم برنامجك" data-en="GET PROGRAM">تستلم برنامجك</span></div>
     </div>
   </div>
-</section>
+</div></section>
 
 <!-- TICKER -->
 <div class="ticker">
@@ -550,6 +562,19 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
     </div>
   </div>
 
+  <!-- FOOD CALORIE AI CALCULATOR -->
+  <div class="food-calc-wrap reveal" style="margin-top:48px">
+    <div class="sec-eyebrow" style="margin-bottom:20px"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-ar="حاسبة سعرات الأكل" data-en="FOOD CALORIE CALCULATOR">حاسبة سعرات الأكل</span></div>
+    <h3 style="font-size:clamp(20px,3vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px" data-ar="احسب سعرات &lt;span style=&quot;color:var(--accent)&quot;&gt;أي أكل&lt;/span&gt;" data-en="Calculate Calories of &lt;span style=&quot;color:var(--accent)&quot;&gt;Any Food&lt;/span&gt;">احسب سعرات <span style="color:var(--accent)">أي أكل</span></h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px;font-weight:300" data-ar="اكتب اسم الأكل والكمية وهيحسبلك السعرات والماكروز فوراً" data-en="Write the food name and quantity and get calories and macros instantly">اكتب اسم الأكل والكمية وهيحسبلك السعرات والماكروز فوراً</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+      <input type="text" id="foodInput" class="fi" style="flex:1;min-width:200px" placeholder="مثال: 200 جرام صدر دجاج مشوي" data-ar-placeholder="مثال: 200 جرام صدر دجاج مشوي" data-en-placeholder="e.g. 200g grilled chicken breast">
+      <button onclick="calcFoodCals()" style="background:var(--accent);color:#0a0a0a;padding:11px 24px;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:var(--transition);white-space:nowrap" data-ar="احسب" data-en="CALCULATE">احسب</button>
+    </div>
+    <div id="foodCalcResult" style="display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px"></div>
+    <div id="foodCalcLoading" style="display:none;color:var(--muted);font-size:13px;padding:12px 0" data-ar="⏳ جاري الحساب..." data-en="⏳ Calculating...">⏳ جاري الحساب...</div>
+  </div>
+
   <!-- LOCK OVERLAY -->
   <div class="lock-overlay" id="nutritionLock">
     <div class="lock-box">
@@ -599,10 +624,10 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
   <div class="pricing-wrap">
     <div class="price-card">
       <div class="price-badge" data-ar="الأكثر طلباً" data-en="MOST POPULAR">الأكثر طلباً</div>
-      <span class="price-orig" data-ar="السعر الأصلي: $50 / شهر" data-en="Original Price: $50 / month">السعر الأصلي: $50 / شهر</span>
+      <span class="price-orig" data-ar="السعر الأصلي: $100 / شهر" data-en="Original Price: $100 / month">السعر الأصلي: $100 / شهر</span>
       <div class="price-main">
         <span class="price-curr">$</span>
-        <span class="price-num" id="pNum">50</span>
+        <span class="price-num" id="pNum">100</span>
         <span class="price-per" data-ar="/ شهر" data-en="/ month">/ شهر</span>
       </div>
       <div class="price-disc-badge" id="pBadge" style="display:none" data-ar="✓ خصم 100% مفعّل — مجاناً تماماً" data-en="✓ 100% Discount Active — Completely Free">✓ خصم 100% مفعّل — مجاناً تماماً</div>
@@ -614,7 +639,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
         <li><span class="fchk">✓</span><span data-ar="تواصل مباشر على واتساب" data-en="Direct WhatsApp communication">تواصل مباشر على واتساب</span></li>
         <li><span class="fchk">✓</span><span data-ar="استلام البرنامج كامل خلال 24 ساعة" data-en="Full program delivered within 24 hours">استلام البرنامج كامل خلال 24 ساعة</span></li>
       </ul>
-      <a href="file:///C:/Users/drsei/Downloads/index_6.html#register" class="btn-gold" style="width:100%;text-align:center;display:block;font-size:12px;letter-spacing:3px" data-ar="سجّل الآن مجاناً" data-en="REGISTER FREE NOW">سجّل الآن مجاناً</a>
+      <a href="file:///C:/Users/drsei/Downloads/index_7.html#register" class="btn-gold" style="width:100%;text-align:center;display:block;font-size:12px;letter-spacing:3px" data-ar="سجّل الآن مجاناً" data-en="REGISTER FREE NOW">سجّل الآن مجاناً</a>
     </div>
     <div class="disc-box">
       <div class="disc-title" data-ar="كود الخصم" data-en="DISCOUNT CODE">كود الخصم</div>
@@ -787,7 +812,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
         <div class="fg"><label class="fl" data-ar="ملاحظات إضافية" data-en="Additional Notes">ملاحظات إضافية</label><textarea class="ft" id="nt" placeholder="أي معلومة إضافية مهمة للكوتش..."></textarea></div>
 
         <button class="sub-btn" onclick="submitReg()" data-ar="أرسل بياناتي وابدأ الآن" data-en="SEND MY DATA &amp; START NOW">أرسل بياناتي وابدأ الآن</button>
-        <p class="sub-note" data-ar="✓ مجاناً تماماً مع كود &lt;strong&gt;VIP100&lt;/strong&gt;" data-en="✓ Completely free with code &lt;strong&gt;VIP100&lt;/strong&gt;">✓ مجاناً تماماً مع كود <strong>VIP100</strong></p>
+        <p class="sub-note" data-ar="✓ ادخل كود الخصم الخاص بك" data-en="✓ Enter your exclusive discount code">✓ ادخل كود الخصم الخاص بك</p>
       </div>
       <div class="success-box" id="sucBox">
         <div style="font-size:48px;margin-bottom:16px">✓</div>
@@ -839,11 +864,11 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
     <div class="footer-col">
       <h4 data-ar="روابط" data-en="LINKS">روابط</h4>
       <ul>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#workouts" data-ar="التمارين" data-en="Workouts">التمارين</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#nutrition" data-ar="التغذية" data-en="Nutrition">التغذية</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#register" data-ar="التسجيل" data-en="Register">التسجيل</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_6.html#faq" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#workouts" data-ar="التمارين" data-en="Workouts">التمارين</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#nutrition" data-ar="التغذية" data-en="Nutrition">التغذية</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#register" data-ar="التسجيل" data-en="Register">التسجيل</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_7.html#faq" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -863,7 +888,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
 <script>
 // ═══ DATA ═══
 const DISC_CODE = 'VIP100';
-const PRICE = 50;
+const PRICE = 100;
 const WA_NUM = '201121460552';
 
 const muscleData = {
@@ -1209,13 +1234,103 @@ BMI تقريبي:   ${Math.round(memberWeight / Math.pow(memberHeight/100, 2) * 
   box.style.display='block';
   document.getElementById('sucTitle').innerHTML=isAr?`أهلاً ${name} ✓`:`WELCOME ${name} ✓`;
   document.getElementById('sucText').innerHTML=isFree
-    ?(isAr?`كود <strong style="color:var(--accent)">VIP100</strong> مفعّل — خصم 100%<br><br><span style="text-decoration:line-through;color:var(--muted2)">$${PRICE}/شهر</span><br><strong style="color:var(--green);font-size:20px">$0 🎁</strong><br><br>سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب`
-      :`Code <strong style="color:var(--accent)">VIP100</strong> active — 100% off<br><br><s style="color:var(--muted2)">$${PRICE}/mo</s><br><strong style="color:var(--green);font-size:20px">$0 🎁</strong><br><br>Coach will contact you within <strong>24 hours</strong> on WhatsApp`)
-    :(isAr?`سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب لإرسال برنامجك وتفاصيل الدفع`
-      :`Coach will contact you within <strong>24 hours</strong> on WhatsApp with your program and payment details`);
+    ?(isAr
+      ?`<div style="background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.15);border-radius:4px;padding:16px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--muted);text-decoration:line-through">$\${PRICE} / شهر</div>
+        <div style="font-size:28px;font-weight:800;color:var(--green);font-family:Montserrat,sans-serif">$0 <span style="font-size:14px">مجاناً 🎁</span></div>
+       </div>
+       <p style="margin-bottom:16px">سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted);text-align:right">
+         📸 <strong style="color:var(--accent)">مهم:</strong> ابعت صور القياس على واتساب بعد ما تتواصل مع الكوتش عشان نكمّل برنامجك
+       </div>`
+      :`<div style="background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.15);border-radius:4px;padding:16px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--muted);text-decoration:line-through">$\${PRICE} / month</div>
+        <div style="font-size:28px;font-weight:800;color:var(--green);font-family:Montserrat,sans-serif">$0 <span style="font-size:14px">Free 🎁</span></div>
+       </div>
+       <p style="margin-bottom:16px">Coach will contact you within <strong>24 hours</strong> on WhatsApp 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted)">
+         📸 <strong style="color:var(--accent)">Important:</strong> Send your progress photos on WhatsApp after the coach contacts you to complete your program
+       </div>`)
+    :(isAr
+      ?`<p style="margin-bottom:16px">سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب لإرسال برنامجك وتفاصيل الدفع 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted);text-align:right">
+         📸 <strong style="color:var(--accent)">مهم:</strong> ابعت صور القياس على واتساب بعد ما تتواصل مع الكوتش
+       </div>`
+      :`<p style="margin-bottom:16px">Coach will contact you within <strong>24 hours</strong> on WhatsApp with your program and payment details 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted)">
+         📸 <strong style="color:var(--accent)">Important:</strong> Send your progress photos on WhatsApp after the coach contacts you
+       </div>`);
 }
 
 document.getElementById('discIn').addEventListener('input',function(){this.value=this.value.toUpperCase();});
+
+// ═══ FOOD CALORIE AI CALCULATOR ═══
+async function calcFoodCals(){
+  const food = document.getElementById('foodInput').value.trim();
+  const result = document.getElementById('foodCalcResult');
+  const loading = document.getElementById('foodCalcLoading');
+  if(!food){
+    result.style.display='block';
+    result.innerHTML=`<p style="color:var(--red);font-size:13px">${isAr?'⚠ اكتب اسم الأكل والكمية':'⚠ Enter food name and quantity'}</p>`;
+    return;
+  }
+  result.style.display='none';
+  loading.style.display='block';
+  try {
+    const prompt = isAr
+      ? `أنت خبير تغذية. احسب السعرات الحرارية والماكروز لـ: "${food}". أجب بالعربي فقط بهذا الشكل الدقيق بدون أي نص إضافي:
+السعرات: [رقم] كيلوكالوري
+بروتين: [رقم] جرام
+كارب: [رقم] جرام
+دهون: [رقم] جرام
+ملاحظة: [جملة واحدة مفيدة]`
+      : `You are a nutrition expert. Calculate calories and macros for: "${food}". Reply in English only in this exact format with no extra text:
+Calories: [number] kcal
+Protein: [number]g
+Carbs: [number]g
+Fat: [number]g
+Note: [one useful sentence]`;
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,messages:[{role:'user',content:prompt}]})
+    });
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '';
+    loading.style.display='none';
+    if(text){
+      const lines = text.split('
+').filter(l=>l.trim());
+      let html = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">`;
+      const colors=['var(--accent)','var(--green)','var(--blue)','#e0a055'];
+      const labels = isAr
+        ? ['السعرات','بروتين','كارب','دهون']
+        : ['Calories','Protein','Carbs','Fat'];
+      lines.slice(0,4).forEach((line,i)=>{
+        const val = line.split(':')[1]?.trim() || '—';
+        html += `<div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center">
+          <div style="font-family:Montserrat,sans-serif;font-size:20px;font-weight:800;color:${colors[i]}">${val}</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px">${labels[i]}</div>
+        </div>`;
+      });
+      html += `</div>`;
+      if(lines[4]){
+        const note = lines[4].split(':').slice(1).join(':').trim();
+        html += `<p style="font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:12px">💡 ${note}</p>`;
+      }
+      result.style.display='block';
+      result.innerHTML=html;
+    } else {
+      result.style.display='block';
+      result.innerHTML=`<p style="color:var(--red);font-size:13px">${isAr?'حدث خطأ، حاول مرة أخرى':'Error, please try again'}</p>`;
+    }
+  } catch(e){
+    loading.style.display='none';
+    result.style.display='block';
+    result.innerHTML=`<p style="color:var(--red);font-size:13px">${isAr?'حدث خطأ، حاول مرة أخرى':'Error, please try again'}</p>`;
+  }
+}
+document.getElementById('foodInput').addEventListener('keypress',function(e){if(e.key==='Enter')calcFoodCals();});
 </script>
 
 
