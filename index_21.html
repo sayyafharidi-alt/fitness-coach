@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/drsei/Downloads/index_2.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haikyuu Fit — كوتشينج احترافي</title>
+<link href="./index_21_files/css2" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#05050f;
+--card:#0d0d1f;
+--card2:#111128;
+--orange:#ff5722;
+--yellow:#ffc107;
+--white:#f0f0f0;
+--muted:#6b6b8a;
+--green:#00e5a0;
+--blue:#3d8ef8;
+--font-ar:'Tajawal',sans-serif;
+--font-en:'Outfit',sans-serif;
+--font-display:'Bebas Neue',cursive;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font-ar);overflow-x:hidden;cursor:none}
+body.en{font-family:var(--font-en);direction:ltr}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:12px;height:12px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;mix-blend-mode:difference}
+.cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(255,87,34,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease}
+
+/* NOISE OVERLAY */
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4}
+
+/* LANG BTN */
+.lang-btn{position:fixed;top:24px;left:24px;z-index:500;background:rgba(255,87,34,0.15);border:1px solid rgba(255,87,34,0.4);color:var(--orange);padding:8px 20px;border-radius:2px;cursor:none;font-size:13px;font-family:inherit;font-weight:700;letter-spacing:2px;transition:all 0.3s;backdrop-filter:blur(10px)}
+.lang-btn:hover{background:var(--orange);color:white}
+body.en .lang-btn{left:auto;right:24px}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 6%;height:70px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,15,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,87,34,0.1)}
+.logo{font-family:var(--font-display);font-size:26px;color:var(--white);letter-spacing:4px}
+.logo em{color:var(--orange);font-style:normal}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;transition:color 0.3s;cursor:none}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{background:var(--orange);color:white;padding:10px 24px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;cursor:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.nav-cta:hover{background:#e64a19}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:70px 6% 0;position:relative;overflow:hidden}
+body.en .hero{direction:ltr}
+
+/* HINATA BG — باهت في الخلفية */
+.hinata-bg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.hinata-bg svg{position:absolute;right:-2%;bottom:0;height:95%;opacity:0.07;filter:blur(0.5px)}
+body.en .hinata-bg svg{right:auto;left:-2%}
+
+/* SPEED LINES */
+.speed-lines{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;opacity:0.04}
+.speed-lines::before{content:'';position:absolute;top:50%;left:50%;width:200%;height:200%;transform:translate(-50%,-50%);background:repeating-conic-gradient(rgba(255,87,34,0.8) 0deg,transparent 0.3deg,transparent 5deg)}
+
+/* GLOW BLOBS */
+.blob1{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(255,87,34,0.08) 0%,transparent 70%);top:-100px;right:10%;pointer-events:none;z-index:0;animation:blobFloat 8s ease-in-out infinite}
+.blob2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(255,193,7,0.05) 0%,transparent 70%);bottom:-100px;left:5%;pointer-events:none;z-index:0;animation:blobFloat 10s ease-in-out infinite reverse}
+@keyframes blobFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+
+.hero-left{z-index:2;position:relative}
+.hero-right{z-index:2;position:relative;display:flex;justify-content:center;align-items:flex-end}
+
+/* MANGA PANEL EFFECT */
+.manga-panel{position:relative;width:100%;max-width:420px}
+.manga-panel::before{content:'';position:absolute;inset:-3px;background:linear-gradient(135deg,var(--orange),transparent,var(--yellow));z-index:-1;opacity:0.4}
+
+/* HINATA ILLUSTRATION — foreground */
+.hinata-svg{width:100%;max-width:400px;filter:drop-shadow(0 0 40px rgba(255,87,34,0.2));animation:hinataFloat 4s ease-in-out infinite}
+@keyframes hinataFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-15px) rotate(1deg)}}
+
+/* IMPACT TEXT */
+.impact-label{font-family:var(--font-display);font-size:13px;letter-spacing:6px;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.impact-label::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--orange),transparent);max-width:60px}
+body.en .impact-label{flex-direction:row-reverse}
+body.en .impact-label::before{background:linear-gradient(270deg,var(--orange),transparent)}
+
+.hero-title{font-family:var(--font-display);font-size:clamp(52px,7vw,100px);line-height:0.9;letter-spacing:2px;margin-bottom:24px}
+.hero-title .line1{display:block;color:var(--white)}
+.hero-title .line2{display:block;color:var(--orange);-webkit-text-stroke:0px;text-shadow:0 0 60px rgba(255,87,34,0.5)}
+.hero-title .line3{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.2);font-size:0.7em}
+
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.8;max-width:440px;margin-bottom:36px;font-weight:300}
+.hero-sub strong{color:var(--white);font-weight:500}
+
+/* SPEECH BUBBLE — مانجا ستايل */
+.speech{background:var(--white);color:#05050f;padding:16px 22px;max-width:380px;margin-bottom:32px;position:relative;border-radius:2px;box-shadow:6px 6px 0 var(--orange)}
+.speech::after{content:'';position:absolute;bottom:-18px;right:28px;border:9px solid transparent;border-top-color:var(--white)}
+body.en .speech::after{right:auto;left:28px}
+.speech p{font-size:14px;font-weight:700;line-height:1.6;color:#111}
+.speech cite{font-size:11px;color:#888;font-style:normal;display:block;margin-top:6px;letter-spacing:1px}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-fire{background:var(--orange);color:white;padding:15px 36px;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;cursor:none;position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.btn-fire::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s}
+.btn-fire:hover::before{left:100%}
+.btn-fire:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,87,34,0.4)}
+.btn-ghost{background:transparent;color:var(--white);padding:15px 36px;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.15);transition:all 0.3s;cursor:none}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.06)}
+.stat-item{flex:1;padding:20px 0;border-left:1px solid rgba(255,255,255,0.06);text-align:center}
+.stat-item:last-child{border-right:1px solid rgba(255,255,255,0.06)}
+body.en .stat-item{border-right:1px solid rgba(255,255,255,0.06);border-left:none}
+body.en .stat-item:last-child{border-left:1px solid rgba(255,255,255,0.06);border-right:none}
+.stat-num{font-family:var(--font-display);font-size:32px;color:var(--orange);letter-spacing:2px;display:block}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block}
+
+/* ═══ MARQUEE ═══ */
+.marquee-wrap{background:var(--orange);padding:14px 0;overflow:hidden;position:relative;z-index:10}
+.marquee-track{display:flex;width:max-content;animation:marqueeScroll 20s linear infinite}
+body.en .marquee-track{animation-direction:reverse}
+.marquee-item{font-family:var(--font-display);font-size:16px;letter-spacing:4px;color:white;padding:0 32px;white-space:nowrap;display:flex;align-items:center;gap:16px}
+.marquee-dot{width:6px;height:6px;background:rgba(255,255,255,0.4);border-radius:50%;flex-shrink:0}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SECTIONS ═══ */
+section{padding:100px 6%;position:relative;z-index:1}
+.sec-label{font-family:var(--font-display);font-size:11px;letter-spacing:6px;color:var(--orange);margin-bottom:14px;display:block}
+.sec-title{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:2px;margin-bottom:16px}
+.sec-title em{color:var(--orange);font-style:normal}
+.sec-sub{color:var(--muted);font-size:15px;max-width:500px;line-height:1.7;font-weight:300}
+
+/* ═══ WORKOUT LIBRARY ═══ */
+.workouts-section{background:var(--card)}
+.workouts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:56px}
+.workout-card{background:var(--bg);position:relative;overflow:hidden;cursor:none;group:true}
+.workout-thumb{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;background:#0a0a1a}
+.workout-thumb iframe{width:100%;height:100%;border:none;pointer-events:none}
+.workout-thumb .play-overlay{position:absolute;inset:0;background:rgba(5,5,15,0.6);display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.workout-card:hover .play-overlay{background:rgba(255,87,34,0.3)}
+.play-btn{width:56px;height:56px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform 0.3s}
+.workout-card:hover .play-btn{transform:scale(1.15)}
+.workout-info{padding:20px}
+.workout-tag{font-size:10px;letter-spacing:3px;color:var(--orange);text-transform:uppercase;margin-bottom:8px;display:block}
+.workout-name{font-size:16px;font-weight:700;margin-bottom:6px}
+.workout-meta{display:flex;gap:16px;font-size:12px;color:var(--muted)}
+.workout-meta span{display:flex;align-items:center;gap:4px}
+.muscle-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.muscle-tag{background:rgba(255,87,34,0.08);border:1px solid rgba(255,87,34,0.2);color:var(--orange);padding:3px 10px;font-size:11px;letter-spacing:1px}
+.watch-btn{display:inline-block;margin-top:14px;padding:8px 20px;background:var(--orange);color:white;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;cursor:none}
+.watch-btn:hover{background:#e64a19}
+
+/* ═══ NUTRITION ═══ */
+.nutrition-section{background:var(--bg)}
+.nutrition-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:56px}
+@media(max-width:900px){.nutrition-grid{grid-template-columns:1fr}}
+
+/* MACRO CALCULATOR */
+.calc-card{background:var(--card);border:1px solid rgba(255,87,34,0.1);padding:36px}
+.calc-title{font-family:var(--font-display);font-size:22px;letter-spacing:2px;margin-bottom:24px;color:var(--white)}
+.calc-group{margin-bottom:18px}
+.calc-label{font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;display:block}
+.calc-input,.calc-select{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:12px 16px;font-size:14px;font-family:inherit;outline:none;transition:border 0.3s;border-radius:0;appearance:none}
+.calc-input:focus,.calc-select:focus{border-color:var(--orange)}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-btn{width:100%;background:var(--orange);color:white;padding:14px;border:none;font-family:var(--font-display);font-size:18px;letter-spacing:3px;cursor:none;transition:all 0.3s;margin-top:8px;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.calc-btn:hover{background:#e64a19}
+.calc-results{margin-top:24px;display:none}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.result-box{background:var(--bg);border:1px solid rgba(255,255,255,0.06);padding:16px;text-align:center}
+.result-val{font-family:var(--font-display);font-size:28px;letter-spacing:1px}
+.result-lbl{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block}
+.r-cal{color:var(--orange)}
+.r-pro{color:var(--green)}
+.r-carb{color:var(--blue)}
+.r-fat{color:var(--yellow)}
+
+/* MEAL PLANS */
+.meals-list{display:flex;flex-direction:column;gap:16px}
+.meal-card{background:var(--card);border:1px solid rgba(255,255,255,0.04);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.3s;cursor:none}
+.meal-card:hover{border-color:rgba(255,87,34,0.3)}
+.meal-left{}
+.meal-name{font-size:16px;font-weight:700;margin-bottom:4px}
+.meal-desc{font-size:13px;color:var(--muted)}
+.meal-right{text-align:center;flex-shrink:0}
+body.en .meal-right{text-align:left}
+.meal-cal{font-family:var(--font-display);font-size:24px;color:var(--orange);letter-spacing:1px}
+.meal-unit{font-size:11px;color:var(--muted);letter-spacing:1px}
+.meal-macros{display:flex;gap:12px;margin-top:8px}
+.macro-pill{font-size:11px;padding:3px 10px;border-radius:1px;font-weight:600}
+.mp-p{background:rgba(0,229,160,0.1);color:var(--green)}
+.mp-c{background:rgba(61,142,248,0.1);color:var(--blue)}
+.mp-f{background:rgba(255,193,7,0.1);color:var(--yellow)}
+
+/* ═══ TRANSFORMATION ═══ */
+.transform-section{background:var(--card)}
+.transform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;margin-top:56px}
+.transform-card{background:var(--bg);padding:36px;border-top:3px solid transparent;transition:border-color 0.3s}
+.transform-card:hover{border-color:var(--orange)}
+.t-icon{font-size:36px;margin-bottom:20px;display:block}
+.t-title{font-family:var(--font-display);font-size:22px;letter-spacing:2px;margin-bottom:12px}
+.t-desc{color:var(--muted);font-size:14px;line-height:1.8;font-weight:300}
+.t-list{list-style:none;margin-top:16px}
+.t-list li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.t-list li::before{content:'→';color:var(--orange);flex-shrink:0}
+.t-list li:last-child{border:none}
+
+/* ═══ TESTIMONIALS ═══ */
+.testimonials-section{background:var(--bg)}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:56px}
+.test-card{background:var(--card);border:1px solid rgba(255,255,255,0.04);padding:32px;position:relative;overflow:hidden}
+.test-card::before{content:'"';font-family:var(--font-display);font-size:120px;color:rgba(255,87,34,0.05);position:absolute;top:-20px;right:16px;line-height:1}
+body.en .test-card::before{right:auto;left:16px}
+.test-text{font-size:15px;line-height:1.8;color:var(--white);font-weight:300;margin-bottom:20px;position:relative}
+.test-author{display:flex;align-items:center;gap:14px}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--yellow));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;color:white;flex-shrink:0}
+.test-name{font-weight:700;font-size:14px}
+.test-result{font-size:12px;color:var(--orange);letter-spacing:1px;margin-top:2px}
+.test-stars{color:var(--yellow);font-size:12px;letter-spacing:2px;margin-bottom:12px}
+
+/* ═══ PRICING ═══ */
+.pricing-section{background:var(--card)}
+.pricing-wrap{max-width:520px;margin:56px auto 0}
+.price-card{background:var(--bg);border:1px solid rgba(255,87,34,0.2);padding:48px;position:relative;overflow:hidden}
+.price-card::before{content:'HAIKYUU';font-family:var(--font-display);font-size:120px;position:absolute;top:-10px;left:-10px;color:rgba(255,87,34,0.03);letter-spacing:8px;line-height:1;pointer-events:none}
+.price-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--orange);color:white;padding:6px 28px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
+.price-original{font-size:16px;color:var(--muted);text-decoration:line-through;margin-top:32px;display:block}
+.price-main{font-family:var(--font-display);font-size:80px;line-height:1;color:var(--green);letter-spacing:2px;display:flex;align-items:flex-start;gap:8px}
+.price-main sup{font-size:28px;margin-top:16px}
+.price-per{font-size:15px;color:var(--muted);align-self:flex-end;margin-bottom:10px;font-family:var(--font-ar)}
+.price-discount{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:var(--green);padding:8px 18px;font-size:13px;font-weight:700;letter-spacing:1px;margin:14px 0 28px}
+.features-ul{list-style:none;margin-bottom:32px}
+.features-ul li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted)}
+.features-ul li:last-child{border:none}
+.features-ul .chk{color:var(--green);font-size:16px;flex-shrink:0}
+
+/* DISCOUNT BOX */
+.disc-box{background:var(--card2);border:1px solid rgba(255,193,7,0.2);padding:28px;margin-top:24px}
+.disc-title{font-family:var(--font-display);font-size:20px;letter-spacing:2px;margin-bottom:6px;color:var(--yellow)}
+.disc-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+.disc-row{display:flex;gap:10px}
+.disc-input{flex:1;background:var(--bg);border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:12px 18px;font-size:14px;font-family:inherit;outline:none;letter-spacing:3px;text-transform:uppercase;transition:border 0.3s;border-radius:0}
+.disc-input:focus{border-color:var(--yellow)}
+.disc-apply{background:var(--yellow);color:#05050f;padding:12px 22px;border:none;font-size:13px;font-weight:800;letter-spacing:2px;cursor:none;font-family:inherit;white-space:nowrap;text-transform:uppercase;transition:all 0.3s}
+.disc-apply:hover{background:#e6ac00}
+.disc-result{margin-top:12px;padding:10px 16px;font-size:13px;display:none;border-right:3px solid}
+.disc-result.ok{background:rgba(0,229,160,0.06);border-color:var(--green);color:var(--green);display:block}
+.disc-result.err{background:rgba(255,87,34,0.06);border-color:var(--orange);color:#ff8a65;display:block}
+
+/* ═══ REGISTER ═══ */
+.register-section{background:var(--bg)}
+.register-wrap{max-width:680px;margin:56px auto 0}
+.form-box{background:var(--card);border:1px solid rgba(255,87,34,0.1);padding:48px}
+.form-divider{font-family:var(--font-display);font-size:14px;letter-spacing:4px;color:var(--orange);border-bottom:1px solid rgba(255,87,34,0.15);padding-bottom:10px;margin:28px 0 20px;text-transform:uppercase}
+.fg{margin-bottom:18px}
+.fl{display:block;font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+.req{color:var(--orange)}
+.fi,.fs,.ft{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:13px 16px;font-size:14px;font-family:inherit;outline:none;transition:border 0.3s;border-radius:0;appearance:none}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--orange)}
+.ft{resize:vertical;min-height:80px;line-height:1.6}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.radio-row{display:flex;gap:10px;flex-wrap:wrap}
+.ro{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid rgba(255,255,255,0.06);padding:10px 16px;cursor:none;transition:all 0.3s;flex:1;min-width:90px}
+.ro:hover,.ro.on{border-color:var(--orange);background:rgba(255,87,34,0.06)}
+.ro input{accent-color:var(--orange);width:15px;height:15px;cursor:none}
+.ro span{font-size:13px;color:var(--muted)}
+.ro.on span{color:var(--white)}
+.opt-tag{background:rgba(61,142,248,0.1);color:var(--blue);padding:2px 8px;font-size:10px;font-weight:700;letter-spacing:1px;margin-left:6px}
+.female-note{background:rgba(255,87,34,0.05);border:1px solid rgba(255,87,34,0.15);padding:12px 16px;font-size:13px;color:#ff8a65;margin-bottom:14px;display:none;line-height:1.6}
+.upload-zone{background:var(--bg);border:2px dashed rgba(255,87,34,0.2);padding:28px;text-align:center;cursor:none;transition:all 0.3s}
+.upload-zone:hover{border-color:var(--orange);background:rgba(255,87,34,0.03)}
+.upload-zone .up-icon{font-size:32px;display:block;margin-bottom:8px}
+.upload-zone p{color:var(--muted);font-size:13px}
+.photo-prev{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.photo-prev img{width:72px;height:72px;object-fit:cover;border:2px solid var(--orange)}
+.sub-btn{width:100%;background:var(--orange);color:white;padding:18px;border:none;font-family:var(--font-display);font-size:20px;letter-spacing:4px;cursor:none;transition:all 0.3s;margin-top:12px;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.sub-btn:hover{background:#e64a19;transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,87,34,0.3)}
+.sub-note{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
+.sub-note span{color:var(--green);font-weight:700}
+.success-box{display:none;text-align:center;padding:48px 32px;background:rgba(0,229,160,0.04);border:1px solid rgba(0,229,160,0.15)}
+
+/* ═══ FAQ ═══ */
+.faq-section{background:var(--card)}
+.faq-list{max-width:700px;margin:56px auto 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.05)}
+.faq-q{padding:20px 0;font-size:15px;font-weight:600;cursor:none;display:flex;justify-content:space-between;align-items:center;transition:color 0.3s;user-select:none}
+.faq-q:hover{color:var(--orange)}
+.faq-arrow{color:var(--orange);font-size:18px;transition:transform 0.3s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;font-size:14px;color:var(--muted);line-height:1.8;font-weight:300}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+
+/* ═══ WHATSAPP BTN ═══ */
+.wa-float{position:fixed;bottom:32px;left:32px;z-index:500;background:#25d366;color:white;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all 0.3s;cursor:none;animation:waPulse 2s ease-in-out infinite}
+body.en .wa-float{left:auto;right:32px}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 40px rgba(37,211,102,0.7)}}
+.wa-float:hover{transform:scale(1.1);background:#20b858}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--bg);padding:48px 6% 32px;border-top:1px solid rgba(255,255,255,0.04);position:relative;z-index:1}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;flex-wrap:gap}
+.footer-logo{font-family:var(--font-display);font-size:32px;letter-spacing:4px}
+.footer-logo em{color:var(--orange);font-style:normal}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.8;max-width:280px;margin-top:8px}
+.footer-links h4{font-family:var(--font-display);font-size:14px;letter-spacing:3px;margin-bottom:16px;color:var(--white)}
+.footer-links ul{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color 0.3s;cursor:none}
+.footer-links a:hover{color:var(--orange)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:var(--muted);letter-spacing:1px}
+.footer-made{font-size:12px;color:var(--muted)}
+.footer-made span{color:var(--orange)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{animation:fadeUp 0.8s ease both}
+.hero-left>*:nth-child(1){animation-delay:0.1s}
+.hero-left>*:nth-child(2){animation-delay:0.2s}
+.hero-left>*:nth-child(3){animation-delay:0.3s}
+.hero-left>*:nth-child(4){animation-delay:0.4s}
+.hero-left>*:nth-child(5){animation-delay:0.5s}
+.hero-right{animation:fadeUp 1s ease 0.3s both}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;padding-top:90px}
+.hero-right{display:none}
+.nav-links{display:none}
+.frow{grid-template-columns:1fr}
+.nutrition-grid{grid-template-columns:1fr}
+.footer-top{flex-direction:column;gap:32px}
+.form-box{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor" style="left: 730px; top: 1px;"></div>
+<div class="cursor-ring" id="cursorRing" style="left: 730px; top: 1px;"></div>
+
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/966599664880" class="wa-float" target="_blank" title="تواصل على واتساب">💬</a>
+
+<nav>
+  <div class="logo">HAIKYU<em>U</em> FIT</div>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#workouts" data-ar="التمارين" data-en="WORKOUTS">التمارين</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#nutrition" data-ar="التغذية" data-en="NUTRITION">التغذية</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#transform" data-ar="التحول" data-en="TRANSFORM">التحول</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a></li>
+  </ul>
+  <a href="file:///C:/Users/drsei/Downloads/index_2.html#register" class="nav-cta" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <!-- HINATA GHOST BG -->
+  <div class="hinata-bg">
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hinata jumping silhouette — dynamic leap pose -->
+      <g fill="white">
+        <!-- body -->
+        <ellipse cx="200" cy="280" rx="35" ry="50"></ellipse>
+        <!-- head -->
+        <circle cx="200" cy="200" r="38"></circle>
+        <!-- spiky hair -->
+        <polygon points="170,185 155,140 180,170"></polygon>
+        <polygon points="180,178 168,128 190,165"></polygon>
+        <polygon points="192,173 185,118 205,160"></polygon>
+        <polygon points="205,172 202,118 218,162"></polygon>
+        <polygon points="216,175 218,130 228,168"></polygon>
+        <polygon points="226,182 235,138 238,175"></polygon>
+        <!-- right arm up — spiking motion -->
+        <ellipse cx="245" cy="240" rx="14" ry="40" transform="rotate(-40 245 240)"></ellipse>
+        <ellipse cx="272" cy="195" rx="12" ry="28" transform="rotate(-55 272 195)"></ellipse>
+        <!-- left arm -->
+        <ellipse cx="158" cy="265" rx="12" ry="35" transform="rotate(25 158 265)"></ellipse>
+        <!-- right leg bent -->
+        <ellipse cx="220" cy="340" rx="14" ry="38" transform="rotate(15 220 340)"></ellipse>
+        <ellipse cx="240" cy="390" rx="12" ry="30" transform="rotate(40 240 390)"></ellipse>
+        <!-- left leg extended back -->
+        <ellipse cx="180" cy="345" rx="13" ry="40" transform="rotate(-20 180 345)"></ellipse>
+        <ellipse cx="160" cy="400" rx="11" ry="32" transform="rotate(-35 160 400)"></ellipse>
+        <!-- volleyball above hand -->
+        <circle cx="295" cy="155" r="32" fill="none" stroke="white" stroke-width="3"></circle>
+        <path d="M275 140 Q295 125 315 140" stroke="white" stroke-width="2" fill="none"></path>
+        <path d="M275 170 Q295 155 315 170" stroke="white" stroke-width="2" fill="none"></path>
+        <path d="M285 125 Q278 155 285 180" stroke="white" stroke-width="2" fill="none"></path>
+        <path d="M305 125 Q312 155 305 180" stroke="white" stroke-width="2" fill="none"></path>
+        <!-- jersey #10 -->
+        <text x="190" y="290" font-family="Bebas Neue,serif" font-size="28" fill="#05050f" text-anchor="middle">10</text>
+        <!-- speed lines from jump -->
+        <line x1="80" y1="350" x2="140" y2="320" stroke="white" stroke-width="2" opacity="0.5"></line>
+        <line x1="70" y1="380" x2="135" y2="360" stroke="white" stroke-width="1.5" opacity="0.4"></line>
+        <line x1="85" y1="410" x2="145" y2="395" stroke="white" stroke-width="1" opacity="0.3"></line>
+        <line x1="310" y1="290" x2="370" y2="270" stroke="white" stroke-width="2" opacity="0.5"></line>
+        <line x1="315" y1="320" x2="378" y2="310" stroke="white" stroke-width="1.5" opacity="0.4"></line>
+      </g>
+    </svg>
+  </div>
+
+  <div class="speed-lines"></div>
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+
+  <div class="hero-left">
+    <div class="impact-label" data-ar="كوتشينج احترافي متخصص" data-en="PROFESSIONAL SPECIALIST COACHING">كوتشينج احترافي متخصص</div>
+    <h1 class="hero-title">
+      <span class="line1" data-ar="حوّل" data-en="TRANSFORM">حوّل</span>
+      <span class="line2" data-ar="جسمك" data-en="YOUR BODY">جسمك</span>
+      <span class="line3" data-ar="زي بطل الأنمي" data-en="LIKE AN ANIME HERO">زي بطل الأنمي</span>
+    </h1>
+
+    <div class="speech">
+      <p data-ar="&quot;الفائز والخاسر يُحددان بأدائهم — قرار واحد يغير كل شيء.&quot;" data-en="&quot;Winners and losers are decided by their actions — one decision changes everything.&quot;">"الفائز والخاسر يُحددان بأدائهم — قرار واحد يغير كل شيء."</p>
+      <cite data-ar="— هيناتا شويو | هايكيو" data-en="— Hinata Shoyo | Haikyuu">— هيناتا شويو | هايكيو</cite>
+    </div>
+
+    <p class="hero-sub" data-ar="برنامج &lt;strong&gt;غذائي وتمريني مخصص&lt;/strong&gt; بالكامل — سعرات، ماكروز، تمارين بفيديوهات، ومتابعة أسبوعية مع كوتش متخصص. لأن كل بطل يحتاج مدرب." data-en="A fully &lt;strong&gt;custom nutrition and workout program&lt;/strong&gt; — calories, macros, exercises with videos, and weekly coaching. Because every hero needs a coach.">برنامج <strong>غذائي وتمريني مخصص</strong> بالكامل — سعرات، ماكروز، تمارين بفيديوهات، ومتابعة أسبوعية مع كوتش متخصص. لأن كل بطل يحتاج مدرب.</p>
+
+    <div class="hero-btns">
+      <a href="file:///C:/Users/drsei/Downloads/index_2.html#register" class="btn-fire" data-ar="ابدأ رحلتك الآن" data-en="START YOUR JOURNEY">ابدأ رحلتك الآن</a>
+      <a href="file:///C:/Users/drsei/Downloads/index_2.html#workouts" class="btn-ghost" data-ar="شوف التمارين" data-en="SEE WORKOUTS">شوف التمارين</a>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">+50</span><span class="stat-label" data-ar="مشترك" data-en="MEMBERS">مشترك</span></div>
+      <div class="stat-item"><span class="stat-num">98%</span><span class="stat-label" data-ar="رضا" data-en="SATISFACTION">رضا</span></div>
+      <div class="stat-item"><span class="stat-num">12kg</span><span class="stat-label" data-ar="متوسط خسارة" data-en="AVG LOSS">متوسط خسارة</span></div>
+      <div class="stat-item"><span class="stat-num">24h</span><span class="stat-label" data-ar="استلم برنامجك" data-en="GET PROGRAM">استلم برنامجك</span></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="manga-panel">
+      <svg class="hinata-svg" viewBox="0 0 380 520" xmlns="http://www.w3.org/2000/svg">
+        <!-- glow -->
+        <defs>
+          <radialgradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ff5722" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#ff5722" stop-opacity="0"></stop>
+          </radialgradient>
+          <radialgradient id="skinGrad" cx="40%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#ffd5a8"></stop>
+            <stop offset="100%" stop-color="#f0b070"></stop>
+          </radialgradient>
+        </defs>
+        <ellipse cx="190" cy="300" rx="160" ry="200" fill="url(#glow)"></ellipse>
+
+        <!-- SPEED LINES BURST -->
+        <g opacity="0.15" stroke="#ff5722" stroke-width="1">
+          <line x1="190" y1="260" x2="20" y2="100"></line><line x1="190" y1="260" x2="360" y2="100"></line>
+          <line x1="190" y1="260" x2="10" y2="260"></line><line x1="190" y1="260" x2="370" y2="260"></line>
+          <line x1="190" y1="260" x2="50" y2="480"></line><line x1="190" y1="260" x2="330" y2="480"></line>
+          <line x1="190" y1="260" x2="80" y2="30"></line><line x1="190" y1="260" x2="300" y2="30"></line>
+        </g>
+
+        <!-- JERSEY BODY -->
+        <ellipse cx="190" cy="360" rx="55" ry="70" fill="#ff5722"></ellipse>
+        <ellipse cx="190" cy="360" rx="50" ry="65" fill="#e64a19"></ellipse>
+        <!-- jersey number -->
+        <text x="190" y="380" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="42" fill="white" letter-spacing="3" opacity="0.9">10</text>
+        <!-- jersey lines -->
+        <rect x="165" y="300" width="6" height="80" fill="white" opacity="0.15" rx="3"></rect>
+        <rect x="209" y="300" width="6" height="80" fill="white" opacity="0.15" rx="3"></rect>
+
+        <!-- ARMS -->
+        <!-- right arm UP spiking -->
+        <ellipse cx="255" cy="310" rx="18" ry="52" fill="#ff5722" transform="rotate(-35 255 310)"></ellipse>
+        <ellipse cx="290" cy="255" rx="16" ry="38" fill="url(#skinGrad)" transform="rotate(-50 290 255)"></ellipse>
+        <!-- left arm -->
+        <ellipse cx="128" cy="330" rx="16" ry="45" fill="#ff5722" transform="rotate(20 128 330)"></ellipse>
+        <ellipse cx="108" cy="378" rx="14" ry="32" fill="url(#skinGrad)" transform="rotate(30 108 378)"></ellipse>
+
+        <!-- LEGS -->
+        <ellipse cx="212" cy="450" rx="22" ry="55" fill="#333" transform="rotate(12 212 450)"></ellipse>
+        <ellipse cx="238" cy="500" rx="18" ry="32" fill="#222" transform="rotate(25 238 500)"></ellipse>
+        <ellipse cx="168" cy="455" rx="20" ry="52" fill="#333" transform="rotate(-15 168 455)"></ellipse>
+        <ellipse cx="148" cy="502" rx="17" ry="30" fill="#222" transform="rotate(-28 148 502)"></ellipse>
+        <!-- shoes -->
+        <ellipse cx="255" cy="514" rx="26" ry="12" fill="#ff5722"></ellipse>
+        <ellipse cx="138" cy="514" rx="26" ry="12" fill="#ff5722"></ellipse>
+
+        <!-- NECK -->
+        <rect x="178" y="278" width="24" height="30" fill="url(#skinGrad)" rx="4"></rect>
+
+        <!-- HEAD -->
+        <ellipse cx="190" cy="240" rx="52" ry="56" fill="url(#skinGrad)"></ellipse>
+
+        <!-- SPIKY HAIR — orange and wild -->
+        <g fill="#e64a19">
+          <polygon points="155,225 135,160 165,205"></polygon>
+          <polygon points="162,210 148,145 172,198"></polygon>
+          <polygon points="172,200 162,130 182,192"></polygon>
+          <polygon points="184,196 180,125 198,188"></polygon>
+          <polygon points="197,197 198,128 212,190"></polygon>
+          <polygon points="210,202 218,138 222,196"></polygon>
+          <polygon points="220,210 232,152 230,205"></polygon>
+          <polygon points="228,222 244,170 235,218"></polygon>
+        </g>
+        <!-- hair detail -->
+        <g fill="#ff7043" opacity="0.6">
+          <polygon points="160,215 143,165 168,202"></polygon>
+          <polygon points="186,196 183,132 200,188"></polygon>
+          <polygon points="215,205 222,145 224,200"></polygon>
+        </g>
+
+        <!-- EYES — big anime eyes -->
+        <ellipse cx="172" cy="238" rx="13" ry="15" fill="#1a0a00"></ellipse>
+        <ellipse cx="208" cy="238" rx="13" ry="15" fill="#1a0a00"></ellipse>
+        <!-- eye shine -->
+        <ellipse cx="167" cy="232" rx="5" ry="6" fill="white"></ellipse>
+        <ellipse cx="203" cy="232" rx="5" ry="6" fill="white"></ellipse>
+        <circle cx="170" cy="235" r="2" fill="white"></circle>
+        <circle cx="206" cy="235" r="2" fill="white"></circle>
+        <!-- iris -->
+        <ellipse cx="172" cy="239" rx="7" ry="8" fill="#3d1f00"></ellipse>
+        <ellipse cx="208" cy="239" rx="7" ry="8" fill="#3d1f00"></ellipse>
+
+        <!-- EYEBROWS — determined -->
+        <path d="M158 222 Q172 215 186 220" stroke="#6b3a1f" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M194 220 Q208 215 222 222" stroke="#6b3a1f" stroke-width="3" fill="none" stroke-linecap="round"></path>
+
+        <!-- NOSE -->
+        <path d="M187 255 Q190 260 193 255" stroke="#c88040" stroke-width="1.5" fill="none"></path>
+
+        <!-- MOUTH — big grin -->
+        <path d="M174 270 Q190 285 206 270" stroke="#a0522d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+        <path d="M176 272 Q190 282 204 272" stroke="#ff8a65" stroke-width="1" fill="none" opacity="0.5"></path>
+
+        <!-- CHEEK BLUSH -->
+        <ellipse cx="158" cy="258" rx="14" ry="8" fill="#ff8a65" opacity="0.25"></ellipse>
+        <ellipse cx="222" cy="258" rx="14" ry="8" fill="#ff8a65" opacity="0.25"></ellipse>
+
+        <!-- VOLLEYBALL above right hand -->
+        <circle cx="315" cy="185" r="38" fill="none" stroke="#ff5722" stroke-width="3"></circle>
+        <circle cx="315" cy="185" r="38" fill="rgba(255,87,34,0.08)"></circle>
+        <path d="M290 168 Q315 150 340 168" stroke="#ff5722" stroke-width="2" fill="none"></path>
+        <path d="M290 202 Q315 184 340 202" stroke="#ff5722" stroke-width="2" fill="none"></path>
+        <path d="M300 152 Q292 185 300 218" stroke="#ff5722" stroke-width="2" fill="none"></path>
+        <path d="M330 152 Q338 185 330 218" stroke="#ff5722" stroke-width="2" fill="none"></path>
+        <!-- ball shine -->
+        <ellipse cx="302" cy="168" rx="8" ry="5" fill="white" opacity="0.3" transform="rotate(-20 302 168)"></ellipse>
+
+        <!-- IMPACT MARKS -->
+        <g fill="none" stroke="#ff5722" stroke-width="1.5" opacity="0.4">
+          <path d="M50 180 L70 160 M55 160 L75 180"></path>
+          <path d="M320 400 L340 380 M325 380 L345 400"></path>
+        </g>
+        <!-- dots accent -->
+        <circle cx="45" cy="320" r="3" fill="#ff5722" opacity="0.4"></circle>
+        <circle cx="55" cy="310" r="2" fill="#ff5722" opacity="0.3"></circle>
+        <circle cx="335" cy="100" r="3" fill="#ffc107" opacity="0.5"></circle>
+        <circle cx="348" cy="112" r="2" fill="#ffc107" opacity="0.4"></circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item"><span data-ar="تمارين بفيديو" data-en="VIDEO WORKOUTS">تمارين بفيديو</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="حاسبة ماكروز" data-en="MACRO CALCULATOR">حاسبة ماكروز</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="متابعة أسبوعية" data-en="WEEKLY TRACKING">متابعة أسبوعية</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="برنامج مخصص" data-en="CUSTOM PROGRAM">برنامج مخصص</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="تواصل مباشر" data-en="DIRECT COACHING">تواصل مباشر</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="تاريخ صحي" data-en="HEALTH HISTORY">تاريخ صحي</span><span class="marquee-dot"></span></div>
+    <!-- duplicate for loop -->
+    <div class="marquee-item"><span data-ar="تمارين بفيديو" data-en="VIDEO WORKOUTS">تمارين بفيديو</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="حاسبة ماكروز" data-en="MACRO CALCULATOR">حاسبة ماكروز</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="متابعة أسبوعية" data-en="WEEKLY TRACKING">متابعة أسبوعية</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="برنامج مخصص" data-en="CUSTOM PROGRAM">برنامج مخصص</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="تواصل مباشر" data-en="DIRECT COACHING">تواصل مباشر</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span data-ar="تاريخ صحي" data-en="HEALTH HISTORY">تاريخ صحي</span><span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- ═══ WORKOUTS ═══ -->
+<section class="workouts-section reveal" id="workouts">
+  <span class="sec-label" data-ar="مكتبة التمارين" data-en="EXERCISE LIBRARY">مكتبة التمارين</span>
+  <h2 class="sec-title" data-ar="تمارين بـ &lt;em&gt;فيديو&lt;/em&gt; احترافي" data-en="Exercises with &lt;em&gt;PRO&lt;/em&gt; Videos">تمارين بـ <em>فيديو</em> احترافي</h2>
+  <p class="sec-sub" data-ar="كل تمرين موضح بفيديو يوتيوب مع شرح الطريقة الصحيحة، العضلات المستهدفة، وعدد الجُلَس والتكرارات" data-en="Every exercise shown with a YouTube video explaining correct form, target muscles, sets and reps">كل تمرين موضح بفيديو مع شرح الطريقة الصحيحة والعضلات المستهدفة</p>
+
+  <div class="workouts-grid">
+    <!-- CHEST -->
+    <div class="workout-card reveal">
+      <div class="workout-thumb">
+        <iframe src="./index_21_files/rxD321l2svE.html" loading="lazy" title="Bench Press"></iframe>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="workout-info">
+        <span class="workout-tag" data-ar="صدر" data-en="CHEST">صدر</span>
+        <div class="workout-name" data-ar="بنش برس بالبار" data-en="Barbell Bench Press">بنش برس بالبار</div>
+        <div class="workout-meta">
+          <span>💪 <span data-ar="4 جُلَس × 8-12" data-en="4 Sets × 8-12">4 جُلَس × 8-12</span></span>
+          <span>⏱ 90<span data-ar="ث راحة" data-en="s rest">ث راحة</span></span>
+        </div>
+        <div class="muscle-tags">
+          <span class="muscle-tag" data-ar="صدر كبير" data-en="Pectoralis Major">صدر كبير</span>
+          <span class="muscle-tag" data-ar="دلتا أمامي" data-en="Anterior Deltoid">دلتا أمامي</span>
+          <span class="muscle-tag" data-ar="ترايسبس" data-en="Triceps">ترايسبس</span>
+        </div>
+        <a href="https://www.youtube.com/watch?v=rxD321l2svE" target="_blank" class="watch-btn" data-ar="شاهد الفيديو كامل" data-en="Watch Full Video">شاهد الفيديو كامل</a>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="workout-card reveal">
+      <div class="workout-thumb">
+        <iframe src="./index_21_files/1XMaks2udtU.html" loading="lazy" title="Pull Up"></iframe>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="workout-info">
+        <span class="workout-tag" data-ar="ظهر" data-en="BACK">ظهر</span>
+        <div class="workout-name" data-ar="برول أب — سحب للأعلى" data-en="Pull Up">برول أب — سحب للأعلى</div>
+        <div class="workout-meta">
+          <span>💪 <span data-ar="4 جُلَس × 6-10" data-en="4 Sets × 6-10">4 جُلَس × 6-10</span></span>
+          <span>⏱ 90<span data-ar="ث راحة" data-en="s rest">ث راحة</span></span>
+        </div>
+        <div class="muscle-tags">
+          <span class="muscle-tag" data-ar="لاتيسيموس" data-en="Latissimus Dorsi">لاتيسيموس</span>
+          <span class="muscle-tag" data-ar="بايسبس" data-en="Biceps">بايسبس</span>
+          <span class="muscle-tag" data-ar="ريوس" data-en="Rhomboids">ريوس</span>
+        </div>
+        <a href="https://www.youtube.com/watch?v=1XMaks2udtU" target="_blank" class="watch-btn" data-ar="شاهد الفيديو كامل" data-en="Watch Full Video">شاهد الفيديو كامل</a>
+      </div>
+    </div>
+
+    <!-- LEGS -->
+    <div class="workout-card reveal">
+      <div class="workout-thumb">
+        <iframe src="./index_21_files/ultWZbUMPL8.html" loading="lazy" title="Squat"></iframe>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="workout-info">
+        <span class="workout-tag" data-ar="أرجل" data-en="LEGS">أرجل</span>
+        <div class="workout-name" data-ar="سكوات بالبار" data-en="Barbell Squat">سكوات بالبار</div>
+        <div class="workout-meta">
+          <span>💪 <span data-ar="4 جُلَس × 8-12" data-en="4 Sets × 8-12">4 جُلَس × 8-12</span></span>
+          <span>⏱ 2<span data-ar="د راحة" data-en="m rest">د راحة</span></span>
+        </div>
+        <div class="muscle-tags">
+          <span class="muscle-tag" data-ar="كوادريسبس" data-en="Quadriceps">كوادريسبس</span>
+          <span class="muscle-tag" data-ar="جلوتس" data-en="Glutes">جلوتس</span>
+          <span class="muscle-tag" data-ar="هامسترينج" data-en="Hamstrings">هامسترينج</span>
+        </div>
+        <a href="https://www.youtube.com/watch?v=ultWZbUMPL8" target="_blank" class="watch-btn" data-ar="شاهد الفيديو كامل" data-en="Watch Full Video">شاهد الفيديو كامل</a>
+      </div>
+    </div>
+
+    <!-- SHOULDERS -->
+    <div class="workout-card reveal">
+      <div class="workout-thumb">
+        <iframe src="./index_21_files/qEwKCR5JCog.html" loading="lazy" title="OHP"></iframe>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="workout-info">
+        <span class="workout-tag" data-ar="كتف" data-en="SHOULDERS">كتف</span>
+        <div class="workout-name" data-ar="أوفر هيد برس" data-en="Overhead Press">أوفر هيد برس</div>
+        <div class="workout-meta">
+          <span>💪 <span data-ar="4 جُلَس × 8-10" data-en="4 Sets × 8-10">4 جُلَس × 8-10</span></span>
+          <span>⏱ 90<span data-ar="ث راحة" data-en="s rest">ث راحة</span></span>
+        </div>
+        <div class="muscle-tags">
+          <span class="muscle-tag" data-ar="دلتا" data-en="Deltoid">دلتا</span>
+          <span class="muscle-tag" data-ar="ترايسبس" data-en="Triceps">ترايسبس</span>
+          <span class="muscle-tag" data-ar="تراب" data-en="Trapezius">تراب</span>
+        </div>
+        <a href="https://www.youtube.com/watch?v=qEwKCR5JCog" target="_blank" class="watch-btn" data-ar="شاهد الفيديو كامل" data-en="Watch Full Video">شاهد الفيديو كامل</a>
+      </div>
+    </div>
+
+    <!-- BICEPS -->
+    <div class="workout-card reveal">
+      <div class="workout-thumb">
+        <iframe src="./index_21_files/kwG2ipFRgfo.html" loading="lazy" title="Curl"></iframe>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="workout-info">
+        <span class="workout-tag" data-ar="بايسبس" data-en="BICEPS">بايسبس</span>
+        <div class="workout-name" data-ar="بايسبس كيرل بالبار" data-en="Barbell Bicep Curl">بايسبس كيرل بالبار</div>
+        <div class="workout-meta">
+          <span>💪 <span data-ar="3 جُلَس × 10-12" data-en="3 Sets × 10-12">3 جُلَس × 10-12</span></span>
+          <span>⏱ 60<span data-ar="ث راحة" data-en="s rest">ث راحة</span></span>
+        </div>
+        <div class="muscle-tags">
+          <span class="muscle-tag" data-ar="بايسبس براكي" data-en="Biceps Brachii">بايسبس براكي</span>
+          <span class="muscle-tag" data-ar="براكياليس" data-en="Brachialis">براكياليس</span>
+        </div>
+        <a href="https://www.youtube.com/watch?v=kwG2ipFRgfo" target="_blank" class="watch-btn" data-ar="شاهد الفيديو كامل" data-en="Watch Full Video">شاهد الفيديو كامل</a>
+      </div>
+    </div>
+
+    <!-- CARDIO -->
+    <div class="workout-card reveal">
+      <div class="workout-thumb">
+        <iframe src="./index_21_files/IODxDxX7oi4.html" loading="lazy" title="HIIT"></iframe>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="workout-info">
+        <span class="workout-tag" data-ar="كارديو" data-en="CARDIO">كارديو</span>
+        <div class="workout-name" data-ar="HIIT — حرق دهون مكثف" data-en="HIIT — Intense Fat Burn">HIIT — حرق دهون مكثف</div>
+        <div class="workout-meta">
+          <span>🔥 <span data-ar="20 دقيقة" data-en="20 Minutes">20 دقيقة</span></span>
+          <span>⚡ <span data-ar="مستوى عالي" data-en="High Intensity">مستوى عالي</span></span>
+        </div>
+        <div class="muscle-tags">
+          <span class="muscle-tag" data-ar="حرق كامل" data-en="Full Body Burn">حرق كامل</span>
+          <span class="muscle-tag" data-ar="قلب ولياقة" data-en="Cardio Fitness">قلب ولياقة</span>
+        </div>
+        <a href="https://www.youtube.com/watch?v=IODxDxX7oi4" target="_blank" class="watch-btn" data-ar="شاهد الفيديو كامل" data-en="Watch Full Video">شاهد الفيديو كامل</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NUTRITION ═══ -->
+<section class="nutrition-section reveal" id="nutrition">
+  <span class="sec-label" data-ar="التغذية والماكروز" data-en="NUTRITION &amp; MACROS">التغذية والماكروز</span>
+  <h2 class="sec-title" data-ar="احسب &lt;em&gt;ماكروزك&lt;/em&gt; دلوقتي" data-en="Calculate Your &lt;em&gt;MACROS&lt;/em&gt; Now">احسب <em>ماكروزك</em> دلوقتي</h2>
+  <p class="sec-sub" data-ar="حاسبة دقيقة لحساب السعرات والبروتين والكارب والدهون حسب جسمك وهدفك" data-en="Precise calculator for calories, protein, carbs, and fat based on your body and goal">حاسبة دقيقة لحساب السعرات والماكروز حسب جسمك وهدفك</p>
+
+  <div class="nutrition-grid">
+    <!-- CALCULATOR -->
+    <div class="calc-card reveal">
+      <div class="calc-title" data-ar="🔢 حاسبة الماكروز" data-en="🔢 MACRO CALCULATOR">🔢 حاسبة الماكروز</div>
+      <div class="calc-row">
+        <div class="calc-group">
+          <label class="calc-label" data-ar="الوزن (كجم)" data-en="Weight (kg)">الوزن (كجم)</label>
+          <input type="number" class="calc-input" id="cWeight" placeholder="75">
+        </div>
+        <div class="calc-group">
+          <label class="calc-label" data-ar="الطول (سم)" data-en="Height (cm)">الطول (سم)</label>
+          <input type="number" class="calc-input" id="cHeight" placeholder="175">
+        </div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-group">
+          <label class="calc-label" data-ar="العمر" data-en="Age">العمر</label>
+          <input type="number" class="calc-input" id="cAge" placeholder="25">
+        </div>
+        <div class="calc-group">
+          <label class="calc-label" data-ar="الجنس" data-en="Gender">الجنس</label>
+          <select class="calc-select" id="cGender">
+            <option value="m" data-ar="ذكر" data-en="Male">ذكر</option>
+            <option value="f" data-ar="أنثى" data-en="Female">أنثى</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-group">
+        <label class="calc-label" data-ar="مستوى النشاط" data-en="Activity Level">مستوى النشاط</label>
+        <select class="calc-select" id="cActivity">
+          <option value="1.2" data-ar="خامل" data-en="Sedentary">خامل</option>
+          <option value="1.375" data-ar="خفيف (1-3 أيام)" data-en="Light (1-3 days)">خفيف</option>
+          <option value="1.55" selected="" data-ar="متوسط (3-5 أيام)" data-en="Moderate (3-5 days)">متوسط</option>
+          <option value="1.725" data-ar="نشيط (6-7 أيام)" data-en="Active (6-7 days)">نشيط</option>
+          <option value="1.9" data-ar="نشيط جداً" data-en="Very Active">نشيط جداً</option>
+        </select>
+      </div>
+      <div class="calc-group">
+        <label class="calc-label" data-ar="الهدف" data-en="Goal">الهدف</label>
+        <select class="calc-select" id="cGoal">
+          <option value="cut" data-ar="تنشيف (-300 سعر)" data-en="Cutting (-300 cal)">تنشيف</option>
+          <option value="maintain" data-ar="ثبات الوزن" data-en="Maintain Weight">ثبات الوزن</option>
+          <option value="bulk" data-ar="ضخامة (+300 سعر)" data-en="Bulking (+300 cal)">ضخامة</option>
+        </select>
+      </div>
+      <button class="calc-btn" onclick="calcMacros()" data-ar="احسب الآن" data-en="CALCULATE NOW">احسب الآن</button>
+
+      <div class="calc-results" id="calcResults">
+        <div class="result-grid">
+          <div class="result-box"><div class="result-val r-cal" id="rCal">0</div><span class="result-lbl" data-ar="سعرة / يوم" data-en="cal / day">سعرة / يوم</span></div>
+          <div class="result-box"><div class="result-val r-pro" id="rPro">0g</div><span class="result-lbl" data-ar="بروتين" data-en="Protein">بروتين</span></div>
+          <div class="result-box"><div class="result-val r-carb" id="rCarb">0g</div><span class="result-lbl" data-ar="كارب" data-en="Carbs">كارب</span></div>
+          <div class="result-box"><div class="result-val r-fat" id="rFat">0g</div><span class="result-lbl" data-ar="دهون" data-en="Fat">دهون</span></div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center;letter-spacing:1px" data-ar="* سجّل الآن وهيبعتلك الكوتش برنامجك الدقيق" data-en="* Register now and the coach will send your precise program">* سجّل الآن وهيبعتلك الكوتش برنامجك الدقيق</p>
+      </div>
+    </div>
+
+    <!-- MEAL PLANS -->
+    <div class="reveal">
+      <h3 style="font-family:var(--font-display);font-size:22px;letter-spacing:2px;margin-bottom:24px" data-ar="🍽️ أمثلة وجبات يومية" data-en="🍽️ DAILY MEAL EXAMPLES">🍽️ أمثلة وجبات يومية</h3>
+      <div class="meals-list">
+        <div class="meal-card">
+          <div class="meal-left">
+            <div class="meal-name" data-ar="وجبة الإفطار — بيض وشوفان" data-en="Breakfast — Eggs &amp; Oats">وجبة الإفطار — بيض وشوفان</div>
+            <div class="meal-desc" data-ar="3 بيض مسلوق + 60جم شوفان + موز" data-en="3 boiled eggs + 60g oats + banana">3 بيض + 60جم شوفان + موز</div>
+            <div class="meal-macros">
+              <span class="macro-pill mp-p">P: 28g</span>
+              <span class="macro-pill mp-c">C: 52g</span>
+              <span class="macro-pill mp-f">F: 14g</span>
+            </div>
+          </div>
+          <div class="meal-right">
+            <div class="meal-cal">450</div>
+            <div class="meal-unit" data-ar="سعرة" data-en="cal">سعرة</div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-left">
+            <div class="meal-name" data-ar="وجبة الغداء — صدر دجاج وأرز" data-en="Lunch — Chicken Breast &amp; Rice">وجبة الغداء — صدر دجاج وأرز</div>
+            <div class="meal-desc" data-ar="200جم دجاج مشوي + 150جم أرز + سلطة" data-en="200g grilled chicken + 150g rice + salad">200جم دجاج + 150جم أرز + سلطة</div>
+            <div class="meal-macros">
+              <span class="macro-pill mp-p">P: 48g</span>
+              <span class="macro-pill mp-c">C: 58g</span>
+              <span class="macro-pill mp-f">F: 8g</span>
+            </div>
+          </div>
+          <div class="meal-right">
+            <div class="meal-cal">500</div>
+            <div class="meal-unit" data-ar="سعرة" data-en="cal">سعرة</div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-left">
+            <div class="meal-name" data-ar="ما بعد التمرين — واي بروتين" data-en="Post-Workout — Whey Protein">ما بعد التمرين — واي بروتين</div>
+            <div class="meal-desc" data-ar="1 سكوب واي + موز + لبن قليل الدسم" data-en="1 scoop whey + banana + low-fat milk">1 سكوب واي + موز + لبن</div>
+            <div class="meal-macros">
+              <span class="macro-pill mp-p">P: 35g</span>
+              <span class="macro-pill mp-c">C: 40g</span>
+              <span class="macro-pill mp-f">F: 4g</span>
+            </div>
+          </div>
+          <div class="meal-right">
+            <div class="meal-cal">340</div>
+            <div class="meal-unit" data-ar="سعرة" data-en="cal">سعرة</div>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-left">
+            <div class="meal-name" data-ar="العشاء — تونة وخضار" data-en="Dinner — Tuna &amp; Vegetables">العشاء — تونة وخضار</div>
+            <div class="meal-desc" data-ar="185جم تونة + خضار مشوية + زيت زيتون" data-en="185g tuna + grilled vegetables + olive oil">185جم تونة + خضار + زيت زيتون</div>
+            <div class="meal-macros">
+              <span class="macro-pill mp-p">P: 40g</span>
+              <span class="macro-pill mp-c">C: 18g</span>
+              <span class="macro-pill mp-f">F: 10g</span>
+            </div>
+          </div>
+          <div class="meal-right">
+            <div class="meal-cal">330</div>
+            <div class="meal-unit" data-ar="سعرة" data-en="cal">سعرة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRANSFORM ═══ -->
+<section class="transform-section reveal" id="transform">
+  <span class="sec-label" data-ar="رحلة التحول" data-en="TRANSFORMATION JOURNEY">رحلة التحول</span>
+  <h2 class="sec-title" data-ar="ليه &lt;em&gt;هايكيو فت&lt;/em&gt;؟" data-en="Why &lt;em&gt;HAIKYUU FIT&lt;/em&gt;?">ليه <em>هايكيو فت</em>؟</h2>
+  <p class="sec-sub" data-ar="مش مجرد برنامج — ده نظام متكامل مبني على العلم والمتابعة الحقيقية" data-en="Not just a program — a complete system built on science and real coaching">مش مجرد برنامج — ده نظام متكامل مبني على العلم</p>
+
+  <div class="transform-grid">
+    <div class="transform-card reveal">
+      <span class="t-icon">🧬</span>
+      <div class="t-title" data-ar="مخصص 100%" data-en="100% PERSONALIZED">مخصص 100%</div>
+      <p class="t-desc" data-ar="مش برنامج جاهز — كل شيء مبني على جسمك وتاريخك الصحي وهدفك الشخصي" data-en="Not a ready-made program — everything built on your body, health history, and personal goal">مش برنامج جاهز — كل شيء مبني على جسمك وتاريخك الصحي</p>
+      <ul class="t-list">
+        <li data-ar="سعرات محسوبة بدقة" data-en="Precisely calculated calories">سعرات محسوبة بدقة</li>
+        <li data-ar="ماكروز حسب جسمك" data-en="Macros based on your body">ماكروز حسب جسمك</li>
+        <li data-ar="تمارين حسب مستواك" data-en="Exercises based on your level">تمارين حسب مستواك</li>
+      </ul>
+    </div>
+    <div class="transform-card reveal">
+      <span class="t-icon">📈</span>
+      <div class="t-title" data-ar="متابعة أسبوعية" data-en="WEEKLY TRACKING">متابعة أسبوعية</div>
+      <p class="t-desc" data-ar="كل أسبوع بتبعت وزنك وقياساتك والكوتش يعدّل البرنامج على أساسها" data-en="Every week you send your weight and measurements and the coach adjusts the program">كل أسبوع بتبعت وزنك والكوتش يعدّل البرنامج</p>
+      <ul class="t-list">
+        <li data-ar="تتبع الوزن أسبوعياً" data-en="Weekly weight tracking">تتبع الوزن أسبوعياً</li>
+        <li data-ar="تعديل السعرات تلقائياً" data-en="Automatic calorie adjustment">تعديل السعرات تلقائياً</li>
+        <li data-ar="تقارير تقدم شهرية" data-en="Monthly progress reports">تقارير تقدم شهرية</li>
+      </ul>
+    </div>
+    <div class="transform-card reveal">
+      <span class="t-icon">🩺</span>
+      <div class="t-title" data-ar="مبني على صحتك" data-en="HEALTH-BASED">مبني على صحتك</div>
+      <p class="t-desc" data-ar="بنأخذ تاريخك المرضي والتحاليل عشان نضمن إن البرنامج آمن وفعّال" data-en="We take your medical history and lab results to ensure the program is safe and effective">بنأخذ تاريخك المرضي والتحاليل لضمان الأمان</p>
+      <ul class="t-list">
+        <li data-ar="مراعاة الأمراض المزمنة" data-en="Chronic disease consideration">مراعاة الأمراض المزمنة</li>
+        <li data-ar="مراعاة التحاليل الطبية" data-en="Lab results consideration">مراعاة التحاليل الطبية</li>
+        <li data-ar="تمارين آمنة للإصابات" data-en="Safe exercises for injuries">تمارين آمنة للإصابات</li>
+      </ul>
+    </div>
+    <div class="transform-card reveal">
+      <span class="t-icon">💬</span>
+      <div class="t-title" data-ar="تواصل مباشر" data-en="DIRECT CONTACT">تواصل مباشر</div>
+      <p class="t-desc" data-ar="الكوتش متاح على واتساب للرد على أي سؤال في أي وقت خلال أيام الأسبوع" data-en="Coach available on WhatsApp to answer any question anytime during the week">الكوتش متاح على واتساب لأي سؤال</p>
+      <ul class="t-list">
+        <li data-ar="رد خلال 24 ساعة" data-en="Reply within 24 hours">رد خلال 24 ساعة</li>
+        <li data-ar="تعديل البرنامج عند الحاجة" data-en="Program adjustment when needed">تعديل البرنامج عند الحاجة</li>
+        <li data-ar="دعم نفسي ومحفز" data-en="Psychological support &amp; motivation">دعم نفسي ومحفز</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials-section reveal" id="testimonials">
+  <span class="sec-label" data-ar="آراء المشتركين" data-en="MEMBER REVIEWS">آراء المشتركين</span>
+  <h2 class="sec-title" data-ar="نتائج &lt;em&gt;حقيقية&lt;/em&gt;" data-en="&lt;em&gt;REAL&lt;/em&gt; Results">نتائج <em>حقيقية</em></h2>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text" data-ar="&quot;في 8 أسابيع خسرت 9 كيلو مع الحفاظ على العضل — البرنامج كان مخصص تماماً لجسمي وما شعرت بأي جوع شديد.&quot;" data-en="&quot;In 8 weeks I lost 9kg while preserving muscle — the program was perfectly customized for my body and I never felt extreme hunger.&quot;">"في 8 أسابيع خسرت 9 كيلو مع الحفاظ على العضل — البرنامج كان مخصص تماماً لجسمي."</p>
+      <div class="test-author">
+        <div class="test-avatar">أح</div>
+        <div><div class="test-name" data-ar="أحمد السعيد" data-en="Ahmed Al-Said">أحمد السعيد</div><div class="test-result" data-ar="خسر 9 كيلو في 8 أسابيع" data-en="Lost 9kg in 8 weeks">خسر 9 كيلو في 8 أسابيع</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text" data-ar="&quot;أول كوتش يراعي إن عندي مشكلة في الركبة ويعملي برنامج آمن. نزلت 12 كيلو بدون أي ألم.&quot;" data-en="&quot;First coach to consider my knee problem and make a safe program. I lost 12kg without any pain.&quot;">"أول كوتش يراعي إن عندي مشكلة في الركبة ويعملي برنامج آمن. نزلت 12 كيلو!"</p>
+      <div class="test-author">
+        <div class="test-avatar">سم</div>
+        <div><div class="test-name" data-ar="سارة المطيري" data-en="Sara Al-Mutairi">سارة المطيري</div><div class="test-result" data-ar="خسرت 12 كيلو في 3 شهور" data-en="Lost 12kg in 3 months">خسرت 12 كيلو في 3 شهور</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text" data-ar="&quot;الكوتش فاهم معناه كوتشينج حقيقي — ماكروز دقيقة، تمارين بالفيديو، ورد سريع على أي سؤال. أنصح به 100%.&quot;" data-en="&quot;The coach understands what real coaching means — precise macros, video exercises, and fast replies to any question. 100% recommended.&quot;">"الكوتش فاهم معناه كوتشينج حقيقي — ماكروز دقيقة وتمارين بالفيديو. أنصح به 100%."</p>
+      <div class="test-author">
+        <div class="test-avatar">خع</div>
+        <div><div class="test-name" data-ar="خالد العتيبي" data-en="Khalid Al-Otaibi">خالد العتيبي</div><div class="test-result" data-ar="بنى 5 كيلو عضل في 4 شهور" data-en="Built 5kg muscle in 4 months">بنى 5 كيلو عضل في 4 شهور</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="pricing-section reveal" id="pricing">
+  <span class="sec-label" data-ar="الاشتراك" data-en="SUBSCRIPTION">الاشتراك</span>
+  <h2 class="sec-title" data-ar="سعر &lt;em&gt;واحد&lt;/em&gt; — كل شيء" data-en="&lt;em&gt;ONE&lt;/em&gt; Price — Everything">سعر <em>واحد</em> — كل شيء</h2>
+  <div class="pricing-wrap">
+    <div class="price-card">
+      <div class="price-badge" data-ar="⭐ الأكثر طلباً" data-en="⭐ MOST POPULAR">⭐ الأكثر طلباً</div>
+      <span class="price-original" id="origPrice" data-ar="السعر الأصلي: $50 / شهر" data-en="Original Price: $50 / month">السعر الأصلي: $50 / شهر</span>
+      <div class="price-main"><sup>$</sup><span id="pVal">0</span><span class="price-per" data-ar="/ شهر" data-en="/ month">/ شهر</span></div>
+      <div class="price-discount" id="pDiscount" data-ar="🎉 خصم 100% — مجاناً تماماً!" data-en="🎉 100% OFF — Completely Free!">🎉 خصم 100% — مجاناً تماماً!</div>
+      <ul class="features-ul">
+        <li><span class="chk">✓</span><span data-ar="برنامج غذائي مخصص بالماكروز" data-en="Custom nutrition program with macros">برنامج غذائي مخصص بالماكروز</span></li>
+        <li><span class="chk">✓</span><span data-ar="برنامج تمرين مع فيديوهات يوتيوب" data-en="Workout program with YouTube videos">برنامج تمرين مع فيديوهات يوتيوب</span></li>
+        <li><span class="chk">✓</span><span data-ar="مراعاة التاريخ الصحي والتحاليل" data-en="Health history and lab results considered">مراعاة التاريخ الصحي والتحاليل</span></li>
+        <li><span class="chk">✓</span><span data-ar="متابعة أسبوعية وتعديل البرنامج" data-en="Weekly tracking and program adjustments">متابعة أسبوعية وتعديل البرنامج</span></li>
+        <li><span class="chk">✓</span><span data-ar="تواصل مباشر على واتساب" data-en="Direct WhatsApp communication">تواصل مباشر على واتساب</span></li>
+        <li><span class="chk">✓</span><span data-ar="استلام البرنامج خلال 24 ساعة" data-en="Receive program within 24 hours">استلام البرنامج خلال 24 ساعة</span></li>
+      </ul>
+      <a href="file:///C:/Users/drsei/Downloads/index_2.html#register" class="btn-fire" style="width:100%;text-align:center;display:block;font-family:var(--font-display);font-size:18px;letter-spacing:3px" data-ar="انضم للفريق مجاناً" data-en="JOIN THE TEAM FREE">انضم للفريق مجاناً</a>
+    </div>
+
+    <div class="disc-box">
+      <div class="disc-title" data-ar="🎟️ كود الخصم" data-en="🎟️ DISCOUNT CODE">🎟️ كود الخصم</div>
+      <div class="disc-sub" data-ar="ادخل الكود وشوف خصمك" data-en="Enter the code to see your discount">ادخل الكود وشوف خصمك</div>
+      <div class="disc-row">
+        <input type="text" class="disc-input" id="discIn" placeholder="VIP100" maxlength="10" oninput="this.value=this.value.toUpperCase()">
+        <button class="disc-apply" onclick="applyDiscount()" data-ar="تطبيق" data-en="APPLY">تطبيق</button>
+      </div>
+      <div class="disc-result" id="discResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REGISTER ═══ -->
+<section class="register-section reveal" id="register">
+  <span class="sec-label" data-ar="التسجيل" data-en="REGISTRATION">التسجيل</span>
+  <h2 class="sec-title" data-ar="سجّل &lt;em&gt;بياناتك&lt;/em&gt; الآن" data-en="Register &lt;em&gt;NOW&lt;/em&gt;">سجّل <em>بياناتك</em> الآن</h2>
+  <p class="sec-sub" style="margin:0 auto 0" data-ar="معلوماتك تساعدنا نصمم برنامجك المثالي خلال 24 ساعة" data-en="Your info helps us design your perfect program within 24 hours">معلوماتك تساعدنا نصمم برنامجك المثالي خلال 24 ساعة</p>
+
+  <div class="register-wrap">
+    <div class="form-box">
+      <div id="regForm">
+        <div class="form-divider" data-ar="⚡ المعلومات الأساسية" data-en="⚡ BASIC INFO">⚡ المعلومات الأساسية</div>
+        <div class="frow">
+          <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="الاسم الأول" data-en="First Name">الاسم الأول</span></label><input type="text" class="fi" id="fn" placeholder="محمد"></div>
+          <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="الاسم الأخير" data-en="Last Name">الاسم الأخير</span></label><input type="text" class="fi" id="ln" placeholder="أحمد"></div>
+        </div>
+        <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span></label><input type="email" class="fi" id="em" placeholder="example@email.com"></div>
+        <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="رقم الواتساب" data-en="WhatsApp Number">رقم الواتساب</span></label><input type="tel" class="fi" id="ph" placeholder="+966 5X XXX XXXX"></div>
+        <div class="frow">
+          <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="العمر" data-en="Age">العمر</span></label><input type="number" class="fi" id="ag" placeholder="25" min="16" max="70"></div>
+          <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="الجنس" data-en="Gender">الجنس</span></label>
+            <select class="fs" id="gn" onchange="handleGender(this.value)">
+              <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
+              <option value="male" data-ar="ذكر" data-en="Male">ذكر</option>
+              <option value="female" data-ar="أنثى" data-en="Female">أنثى</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="الوزن (كجم)" data-en="Weight (kg)">الوزن (كجم)</span></label><input type="number" class="fi" id="wt" placeholder="75"></div>
+          <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="الطول (سم)" data-en="Height (cm)">الطول (سم)</span></label><input type="number" class="fi" id="ht" placeholder="175"></div>
+        </div>
+
+        <div class="form-divider" data-ar="🎯 الهدف والنشاط" data-en="🎯 GOAL &amp; ACTIVITY">🎯 الهدف والنشاط</div>
+        <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="هدفك الأساسي" data-en="Main Goal">هدفك الأساسي</span></label>
+          <select class="fs" id="gl">
+            <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
+            <option value="cut" data-ar="تنشيف وخسارة دهون" data-en="Cutting &amp; Fat Loss">تنشيف وخسارة دهون</option>
+            <option value="bulk" data-ar="بناء عضل وزيادة وزن" data-en="Muscle Building">بناء عضل وزيادة وزن</option>
+            <option value="maintain" data-ar="ثبات الوزن وتحسين القوام" data-en="Maintain &amp; Tone">ثبات الوزن وتحسين القوام</option>
+            <option value="health" data-ar="تحسين الصحة العامة" data-en="General Health">تحسين الصحة العامة</option>
+            <option value="athlete" data-ar="تحسين الأداء الرياضي" data-en="Athletic Performance">تحسين الأداء الرياضي</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="مستوى النشاط" data-en="Activity Level">مستوى النشاط</span></label>
+          <select class="fs" id="ac">
+            <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
+            <option value="sedentary" data-ar="خامل — عمل مكتبي" data-en="Sedentary — desk job">خامل — عمل مكتبي</option>
+            <option value="light" data-ar="خفيف — 1-3 أيام/أسبوع" data-en="Light — 1-3 days/week">خفيف — 1-3 أيام/أسبوع</option>
+            <option value="moderate" data-ar="متوسط — 3-5 أيام/أسبوع" data-en="Moderate — 3-5 days/week">متوسط — 3-5 أيام/أسبوع</option>
+            <option value="active" data-ar="نشيط — 6-7 أيام/أسبوع" data-en="Active — 6-7 days/week">نشيط — 6-7 أيام/أسبوع</option>
+            <option value="veryactive" data-ar="نشيط جداً — رياضي" data-en="Very Active — athlete">نشيط جداً — رياضي</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl"><span data-ar="مكان التمرين" data-en="Training Location">مكان التمرين</span></label>
+          <div class="radio-row">
+            <label class="ro"><input type="radio" name="pl" value="gym" onchange="selRo(this)"><span data-ar="جيم" data-en="Gym">جيم</span></label>
+            <label class="ro"><input type="radio" name="pl" value="home" onchange="selRo(this)"><span data-ar="البيت" data-en="Home">البيت</span></label>
+            <label class="ro"><input type="radio" name="pl" value="both" onchange="selRo(this)"><span data-ar="الاتنين" data-en="Both">الاتنين</span></label>
+          </div>
+        </div>
+
+        <div class="form-divider" data-ar="🩺 التاريخ الصحي" data-en="🩺 HEALTH HISTORY">🩺 التاريخ الصحي</div>
+        <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="هل عندك أمراض مزمنة؟" data-en="Chronic diseases?">هل عندك أمراض مزمنة؟</span></label>
+          <div class="radio-row">
+            <label class="ro"><input type="radio" name="ch" value="no" onchange="selRo(this);tog(&#39;chD&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+            <label class="ro"><input type="radio" name="ch" value="yes" onchange="selRo(this);tog(&#39;chD&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+          </div>
+        </div>
+        <div class="fg" id="chD" style="display:none"><label class="fl" data-ar="اذكر الأمراض" data-en="List diseases">اذكر الأمراض</label><textarea class="ft" placeholder="سكري، ضغط، قلب..."></textarea></div>
+
+        <div class="fg"><label class="fl"><span class="req">*</span><span data-ar="حساسية من أطعمة؟" data-en="Food allergies?">حساسية من أطعمة؟</span></label>
+          <div class="radio-row">
+            <label class="ro"><input type="radio" name="al" value="no" onchange="selRo(this);tog(&#39;alD&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+            <label class="ro"><input type="radio" name="al" value="yes" onchange="selRo(this);tog(&#39;alD&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+          </div>
+        </div>
+        <div class="fg" id="alD" style="display:none"><label class="fl" data-ar="اذكر الحساسية" data-en="List allergies">اذكر الحساسية</label><textarea class="ft" placeholder="لاكتوز، جلوتين..."></textarea></div>
+
+        <div class="fg"><label class="fl"><span data-ar="تأخذ أدوية؟" data-en="Taking medications?">تأخذ أدوية؟</span></label>
+          <div class="radio-row">
+            <label class="ro"><input type="radio" name="md" value="no" onchange="selRo(this);tog(&#39;mdD&#39;,false)"><span data-ar="لا" data-en="No">لا</span></label>
+            <label class="ro"><input type="radio" name="md" value="yes" onchange="selRo(this);tog(&#39;mdD&#39;,true)"><span data-ar="نعم" data-en="Yes">نعم</span></label>
+          </div>
+        </div>
+        <div class="fg" id="mdD" style="display:none"><label class="fl" data-ar="اذكر الأدوية" data-en="List medications">اذكر الأدوية</label><textarea class="ft" placeholder="اسم الدواء والجرعة..."></textarea></div>
+
+        <div class="fg"><label class="fl"><span data-ar="إصابات أو آلام مزمنة؟" data-en="Injuries or chronic pain?">إصابات أو آلام مزمنة؟</span></label><textarea class="ft" id="inj" placeholder="ألم ركبة، ظهر، كتف... أو لا يوجد"></textarea></div>
+        <div class="fg"><label class="fl"><span data-ar="تحاليل حديثة؟ (اذكر أبرزها)" data-en="Recent lab results?">تحاليل حديثة؟</span></label><textarea class="ft" id="lab" placeholder="هرمونات، سكر، دهون... أو لا يوجد"></textarea></div>
+
+        <div class="form-divider" data-ar="🥗 العادات الغذائية" data-en="🥗 EATING HABITS">🥗 العادات الغذائية</div>
+        <div class="fg"><label class="fl"><span data-ar="أطعمة لا تحبها" data-en="Foods you dislike">أطعمة لا تحبها</span></label><textarea class="ft" id="dis" placeholder="كبدة، سمك، بروكلي... أو لا يوجد"></textarea></div>
+        <div class="fg"><label class="fl"><span data-ar="مكملات غذائية حالية" data-en="Current supplements">مكملات غذائية حالية</span></label><textarea class="ft" id="sup" placeholder="واي بروتين، كرياتين... أو لا يوجد"></textarea></div>
+        <div class="fg"><label class="fl"><span data-ar="تجربة سابقة مع دايت؟" data-en="Previous diet experience?">تجربة سابقة مع دايت؟</span></label><textarea class="ft" id="prev" placeholder="اذكر تجربتك والنتيجة... أو لا يوجد"></textarea></div>
+
+        <div class="form-divider" data-ar="📸 صور القياس (اختيارية)" data-en="📸 PROGRESS PHOTOS (Optional)">📸 صور القياس (اختيارية)</div>
+        <div class="female-note" id="fnote" data-ar="🔒 للبنات: رفع الصور اختياري تماماً. الصور سرية ولا يراها إلا الكوتش." data-en="🔒 For females: photos are completely optional. Photos are private and only seen by the coach.">🔒 للبنات: رفع الصور اختياري تماماً. الصور سرية ولا يراها إلا الكوتش.</div>
+        <div class="frow">
+          <div class="fg">
+            <label class="fl"><span class="opt-tag" data-ar="اختياري" data-en="OPT">اختياري</span><span data-ar="أمامي" data-en="Front">أمامي</span></label>
+            <div class="upload-zone" onclick="document.getElementById(&#39;pf&#39;).click()"><span class="up-icon">📷</span><p data-ar="اضغط لرفع صورة" data-en="Click to upload">اضغط لرفع صورة</p><input type="file" id="pf" accept="image/*" style="display:none" onchange="prevPhoto(this,&#39;ppf&#39;)"><div class="photo-prev" id="ppf"></div></div>
+          </div>
+          <div class="fg">
+            <label class="fl"><span class="opt-tag" data-ar="اختياري" data-en="OPT">اختياري</span><span data-ar="جانبي" data-en="Side">جانبي</span></label>
+            <div class="upload-zone" onclick="document.getElementById(&#39;ps&#39;).click()"><span class="up-icon">📷</span><p data-ar="اضغط لرفع صورة" data-en="Click to upload">اضغط لرفع صورة</p><input type="file" id="ps" accept="image/*" style="display:none" onchange="prevPhoto(this,&#39;pps&#39;)"><div class="photo-prev" id="pps"></div></div>
+          </div>
+        </div>
+
+        <div class="form-divider" data-ar="🎟️ الكود والملاحظات" data-en="🎟️ CODE &amp; NOTES">🎟️ الكود والملاحظات</div>
+        <div class="fg"><label class="fl" data-ar="كود الخصم" data-en="Discount Code">كود الخصم</label><input type="text" class="fi" id="dc" placeholder="VIP100" maxlength="10" style="letter-spacing:3px;text-transform:uppercase" oninput="this.value=this.value.toUpperCase()"></div>
+        <div class="fg"><label class="fl" data-ar="ملاحظات إضافية" data-en="Additional Notes">ملاحظات إضافية</label><textarea class="ft" id="nt" placeholder="أي معلومة إضافية تعتقد إنها مهمة..."></textarea></div>
+
+        <button class="sub-btn" onclick="submitReg()" data-ar="أرسل بياناتي وابدأ رحلتي ←" data-en="SEND MY DATA &amp; START →">أرسل بياناتي وابدأ رحلتي ←</button>
+        <p class="sub-note" data-ar="✅ مجاناً تماماً مع كود &lt;span&gt;VIP100&lt;/span&gt;" data-en="✅ Completely free with code &lt;span&gt;VIP100&lt;/span&gt;">✅ مجاناً تماماً مع كود <span>VIP100</span></p>
+      </div>
+
+      <div class="success-box" id="sucBox">
+        <div style="font-size:56px;margin-bottom:16px">🎉</div>
+        <div id="sucTitle" style="font-family:var(--font-display);font-size:28px;letter-spacing:3px;color:var(--green);margin-bottom:12px"></div>
+        <div id="sucText" style="color:var(--muted);font-size:15px;line-height:1.8"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-section reveal" id="faq">
+  <span class="sec-label" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</span>
+  <h2 class="sec-title" data-ar="عندك &lt;em&gt;سؤال&lt;/em&gt;؟" data-en="Have a &lt;em&gt;QUESTION&lt;/em&gt;?">عندك <em>سؤال</em>؟</h2>
+  <div class="faq-list">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="كيف أستلم برنامجي بعد التسجيل؟" data-en="How do I receive my program after registration?">كيف أستلم برنامجي بعد التسجيل؟</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a" data-ar="بعد ملء الاستمارة، الكوتش بيراجع بياناتك ويبعتلك برنامجك الكامل على واتساب خلال 24 ساعة." data-en="After filling the form, the coach reviews your data and sends your complete program on WhatsApp within 24 hours.">بعد ملء الاستمارة، الكوتش بيراجع بياناتك ويبعتلك برنامجك الكامل على واتساب خلال 24 ساعة.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل المتابعة مستمرة أم لمرة واحدة؟" data-en="Is coaching ongoing or one-time?">هل المتابعة مستمرة أم لمرة واحدة؟</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a" data-ar="المتابعة مستمرة طول مدة الاشتراك — كل أسبوع بتبعت وزنك والكوتش يعدّل البرنامج على أساسه." data-en="Coaching is ongoing throughout the subscription — every week you send your weight and the coach adjusts the program accordingly.">المتابعة مستمرة — كل أسبوع بتبعت وزنك والكوتش يعدّل البرنامج على أساسه.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل البرنامج مناسب للمبتدئين؟" data-en="Is the program suitable for beginners?">هل البرنامج مناسب للمبتدئين؟</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a" data-ar="نعم! البرنامج بيتعمل حسب مستواك سواء كنت مبتدئ أو متقدم — كل التمارين بفيديوهات توضيحية." data-en="Yes! The program is made according to your level whether you&#39;re a beginner or advanced — all exercises have explanatory videos.">نعم! البرنامج حسب مستواك — سواء مبتدئ أو متقدم — مع فيديوهات توضيحية لكل التمارين.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل أحتاج معدات جيم؟" data-en="Do I need gym equipment?">هل أحتاج معدات جيم؟</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a" data-ar="لا! تقدر تتمرن في الجيم أو في البيت — بتحدد في الاستمارة وبناءً عليه بيتعمل برنامجك." data-en="No! You can train in the gym or at home — you specify in the form and your program is made accordingly.">لا! بتحدد في الاستمارة الجيم أو البيت وبناءً عليه بيتعمل برنامجك.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل البرنامج مناسب للبنات؟" data-en="Is the program suitable for females?">هل البرنامج مناسب للبنات؟</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a" data-ar="بالطبع! للبنات خيار رفع الصور اختياري تماماً، والبرنامج مصمم حسب احتياجات المرأة الجسمية والصحية." data-en="Absolutely! For females, photo uploads are completely optional, and the program is designed according to women&#39;s physical and health needs.">بالطبع! للبنات رفع الصور اختياري تماماً، والبرنامج مصمم حسب احتياجات المرأة.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">HAIKYU<em>U</em> FIT</div>
+      <p class="footer-desc" data-ar="كوتشينج احترافي مخصص — غذاء، تمرين، ومتابعة حقيقية لتحقيق أهدافك." data-en="Professional personalized coaching — nutrition, training, and real tracking to achieve your goals.">كوتشينج احترافي مخصص — غذاء، تمرين، ومتابعة حقيقية.</p>
+    </div>
+    <div class="footer-links">
+      <h4 data-ar="روابط سريعة" data-en="QUICK LINKS">روابط سريعة</h4>
+      <ul>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#workouts" data-ar="التمارين" data-en="Workouts">التمارين</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#nutrition" data-ar="التغذية" data-en="Nutrition">التغذية</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#register" data-ar="سجّل الآن" data-en="Register">سجّل الآن</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_2.html#faq" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4 data-ar="تواصل معنا" data-en="CONTACT">تواصل معنا</h4>
+      <ul>
+        <li><a href="https://wa.me/966599664880">💬 WhatsApp</a></li>
+        <li><a href="mailto:sayyafharidi@gmail.com">📧 Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-ar="© 2025 Haikyuu Fit — جميع الحقوق محفوظة" data-en="© 2025 Haikyuu Fit — All Rights Reserved">© 2025 Haikyuu Fit — جميع الحقوق محفوظة</div>
+    <div class="footer-made">www.<span>haikyuufit</span>.it.com</div>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+  ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+});
+
+// SCROLL REVEAL
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// LANG
+let isAr = true;
+const DISC = 'VIP100', PRICE = 50;
+function toggleLang(){
+  isAr = !isAr;
+  const b = document.body, btn = document.getElementById('langBtn');
+  if(isAr){b.classList.remove('en');b.setAttribute('dir','rtl');b.setAttribute('lang','ar');btn.textContent='EN';}
+  else{b.classList.add('en');b.setAttribute('dir','ltr');b.setAttribute('lang','en');btn.textContent='ع';}
+  document.querySelectorAll('[data-ar]').forEach(el=>{
+    const v = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    if(!v) return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=v;
+    else el.innerHTML=v;
+  });
+  document.querySelectorAll('option[data-ar]').forEach(el=>{
+    el.textContent=isAr?el.getAttribute('data-ar'):el.getAttribute('data-en');
+  });
+}
+
+// MACRO CALC
+function calcMacros(){
+  const w=+document.getElementById('cWeight').value;
+  const h=+document.getElementById('cHeight').value;
+  const a=+document.getElementById('cAge').value;
+  const g=document.getElementById('cGender').value;
+  const ac=+document.getElementById('cActivity').value;
+  const goal=document.getElementById('cGoal').value;
+  if(!w||!h||!a){alert(isAr?'أدخل الوزن والطول والعمر':'Enter weight, height and age');return;}
+  let bmr = g==='m' ? 88.36+(13.4*w)+(4.8*h)-(5.7*a) : 447.6+(9.2*w)+(3.1*h)-(4.3*a);
+  let tdee = Math.round(bmr * ac);
+  let cals = goal==='cut' ? tdee-300 : goal==='bulk' ? tdee+300 : tdee;
+  let pro = Math.round(w * 2.2);
+  let fat = Math.round(cals * 0.25 / 9);
+  let carb = Math.round((cals - (pro*4) - (fat*9)) / 4);
+  document.getElementById('rCal').textContent = cals;
+  document.getElementById('rPro').textContent = pro+'g';
+  document.getElementById('rCarb').textContent = carb+'g';
+  document.getElementById('rFat').textContent = fat+'g';
+  document.getElementById('calcResults').style.display = 'block';
+}
+
+// DISCOUNT
+function applyDiscount(){
+  const v = document.getElementById('discIn').value.trim().toUpperCase();
+  const r = document.getElementById('discResult');
+  if(v===DISC){
+    r.className='disc-result ok';
+    r.innerHTML = isAr ? `🎉 كود صحيح! خصم 100% — الاشتراك مجاناً (قيمته $${PRICE})` : `🎉 Valid! 100% off — free subscription (value: $${PRICE})`;
+    document.getElementById('dc').value=DISC;
+  } else if(!v){
+    r.className='disc-result err'; r.innerHTML=isAr?'⚠️ ادخل الكود':'⚠️ Enter the code';
+  } else {
+    r.className='disc-result err'; r.innerHTML=isAr?'❌ كود غير صحيح — تواصل مع الكوتش':'❌ Invalid code — contact the coach';
+  }
+}
+
+// FORM HELPERS
+function selRo(el){
+  document.querySelectorAll(`input[name="${el.name}"]`).forEach(r=>r.closest('.ro').classList.remove('on'));
+  el.closest('.ro').classList.add('on');
+}
+function tog(id, show){ document.getElementById(id).style.display=show?'block':'none'; }
+function handleGender(v){ document.getElementById('fnote').style.display=v==='female'?'block':'none'; }
+function prevPhoto(input, pid){
+  const p=document.getElementById(pid); p.innerHTML='';
+  if(input.files[0]){
+    const r=new FileReader();
+    r.onload=e=>{const img=document.createElement('img');img.src=e.target.result;p.appendChild(img);};
+    r.readAsDataURL(input.files[0]);
+    input.closest('.upload-zone').style.borderColor='var(--green)';
+  }
+}
+
+// FAQ
+function toggleFaq(item){
+  item.classList.toggle('open');
+}
+
+// SUBMIT
+function submitReg(){
+  const req=[
+    {id:'fn',n:isAr?'الاسم الأول':'First Name'},
+    {id:'em',n:isAr?'البريد الإلكتروني':'Email'},
+    {id:'ph',n:isAr?'رقم الواتساب':'WhatsApp'},
+    {id:'ag',n:isAr?'العمر':'Age'},
+    {id:'gn',n:isAr?'الجنس':'Gender'},
+    {id:'wt',n:isAr?'الوزن':'Weight'},
+    {id:'ht',n:isAr?'الطول':'Height'},
+    {id:'gl',n:isAr?'الهدف':'Goal'},
+    {id:'ac',n:isAr?'مستوى النشاط':'Activity'},
+  ];
+  let ok=true;
+  req.forEach(r=>{
+    const el=document.getElementById(r.id);
+    if(!el.value.trim()){ok=false;el.style.borderColor='var(--orange)';}
+    else el.style.borderColor='';
+  });
+  if(!ok){alert(isAr?'⚠️ أكمل جميع الحقول الإلزامية (*)':'⚠️ Complete all required fields (*)');return;}
+  const disc=document.getElementById('dc').value.trim().toUpperCase();
+  const isFree=disc===DISC;
+  const name=document.getElementById('fn').value;
+  document.getElementById('regForm').style.display='none';
+  const box=document.getElementById('sucBox');
+  box.style.display='block';
+  document.getElementById('sucTitle').textContent=isAr?`أهلاً ${name}! تم التسجيل ✓`:`Welcome ${name}! Registered ✓`;
+  document.getElementById('sucText').innerHTML=isFree
+    ?(isAr?`✅ كود <strong style="color:var(--green)">VIP100</strong> — خصم 100%<br><br><s style="color:var(--muted)">$${PRICE}/شهر</s><br><strong style="color:var(--green);font-size:22px">$0 🎁</strong><br><br>الكوتش سيتواصل معك خلال <strong>24 ساعة</strong> على واتساب 📱`
+      :`✅ Code <strong style="color:var(--green)">VIP100</strong> — 100% off<br><br><s style="color:var(--muted)">$${PRICE}/mo</s><br><strong style="color:var(--green);font-size:22px">$0 🎁</strong><br><br>Coach will contact you within <strong>24 hours</strong> on WhatsApp 📱`)
+    :(isAr?`الكوتش سيتواصل معك خلال <strong>24 ساعة</strong> على واتساب 📱`
+      :`Coach will contact you within <strong>24 hours</strong> on WhatsApp 📱`);
+}
+
+document.getElementById('discIn').addEventListener('input',function(){this.value=this.value.toUpperCase();});
+</script>
+
+
+</body></html>
