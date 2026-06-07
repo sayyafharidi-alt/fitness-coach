@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/drsei/Downloads/coach.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haikyuu Fit — Coach Dashboard</title>
+<link href="./coach_files/css2" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:#2a2a2a;
+--accent:#c8a96e;--accent2:#e8c98e;--white:#f5f5f0;--muted:#888;
+--green:#4caf7d;--blue:#4a90d9;--red:#e05555;--yellow:#ffc107;
+--font-ar:'Tajawal',sans-serif;--font-en:'Montserrat',sans-serif;
+--radius:4px;--transition:0.3s ease;
+}
+body{background:var(--bg);color:var(--white);font-family:var(--font-ar);min-height:100vh}
+
+.loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:16px}
+.loading-spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* AUTH */
+.auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.auth-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;width:100%;max-width:400px;position:relative}
+.auth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--accent))}
+.auth-logo{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;letter-spacing:4px;text-align:center;margin-bottom:4px}
+.auth-logo span{color:var(--accent)}
+.coach-badge{text-align:center;font-size:11px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:24px;font-weight:700}
+.fg{margin-bottom:16px}
+.fl{display:block;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--muted);margin-bottom:7px;text-transform:uppercase}
+.fi{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:12px 14px;font-size:14px;font-family:inherit;outline:none;border-radius:var(--radius);transition:border var(--transition)}
+.fi:focus{border-color:var(--accent)}
+.auth-btn{width:100%;background:var(--accent);color:#0a0a0a;padding:13px;border:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:3px;cursor:pointer;border-radius:var(--radius);text-transform:uppercase;transition:var(--transition)}
+.auth-btn:hover{background:var(--accent2)}
+.auth-err{background:rgba(224,85,85,0.08);border:1px solid rgba(224,85,85,0.2);color:var(--red);padding:10px 14px;font-size:13px;border-radius:var(--radius);margin-bottom:14px;display:none}
+
+/* COACH DASHBOARD */
+.coach-wrap{display:none;min-height:100vh}
+.coach-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 5%;height:60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;letter-spacing:3px}
+.nav-logo span{color:var(--accent)}
+.nav-badge{background:rgba(224,85,85,0.1);border:1px solid rgba(224,85,85,0.2);color:var(--red);padding:4px 10px;font-size:10px;font-weight:700;letter-spacing:2px;border-radius:2px}
+.logout-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 14px;font-size:11px;font-family:inherit;cursor:pointer;border-radius:var(--radius);letter-spacing:1px;transition:var(--transition)}
+.logout-btn:hover{border-color:var(--red);color:var(--red)}
+
+.coach-body{padding:40px 5%;max-width:1200px;margin:0 auto}
+
+/* STATS */
+.coach-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px}
+.cs-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+.cs-num{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;color:var(--accent)}
+.cs-lbl{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+
+/* MEMBERS TABLE */
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.section-title{font-size:16px;font-weight:700;letter-spacing:1px}
+.search-input{background:var(--surface);border:1px solid var(--border);color:var(--white);padding:9px 14px;font-size:13px;font-family:inherit;outline:none;border-radius:var(--radius);width:220px;transition:border var(--transition)}
+.search-input:focus{border-color:var(--accent)}
+.search-input::placeholder{color:var(--muted)}
+
+.members-list{display:flex;flex-direction:column;gap:0}
+.member-row{background:var(--surface);border:1px solid var(--border);border-bottom:none;padding:16px 20px;display:grid;grid-template-columns:2fr 2fr 1.5fr 1fr 1fr 1.5fr;align-items:center;gap:12px;transition:background var(--transition);cursor:pointer}
+.member-row:last-child{border-bottom:1px solid var(--border)}
+.member-row:first-child{border-radius:var(--radius) var(--radius) 0 0}
+.member-row:last-child{border-radius:0 0 var(--radius) var(--radius)}
+.member-row:hover{background:var(--surface2)}
+.member-row.header{background:var(--surface2);cursor:default;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.member-row.header:hover{background:var(--surface2)}
+.m-name{font-weight:600;font-size:14px}
+.m-email{font-size:12px;color:var(--muted)}
+.m-phone{font-size:13px}
+.m-goal{font-size:12px;color:var(--blue)}
+.m-date{font-size:12px;color:var(--muted)}
+.m-status{}
+.status-pill{display:inline-block;padding:3px 10px;border-radius:2px;font-size:10px;font-weight:700;letter-spacing:1px}
+.sp-pending{background:rgba(255,193,7,0.1);color:var(--yellow);border:1px solid rgba(255,193,7,0.2)}
+.sp-ready{background:rgba(76,175,125,0.1);color:var(--green);border:1px solid rgba(76,175,125,0.2)}
+
+/* MEMBER DETAIL MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);width:100%;max-width:600px;max-height:85vh;overflow-y:auto;position:relative}
+.modal-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface);z-index:1}
+.modal-title{font-size:17px;font-weight:700}
+.modal-close{background:transparent;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:var(--radius);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-body{padding:24px}
+.modal-section{margin-bottom:20px}
+.modal-section-title{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modal-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px}
+.modal-item-label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.modal-item-val{font-size:14px;font-weight:600}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.action-btn{padding:10px 20px;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:var(--transition)}
+.btn-wa{background:#25d366;color:white}
+.btn-wa:hover{background:#20b858}
+.btn-ready{background:var(--green);color:white}
+.btn-ready:hover{background:#3d9e66}
+.btn-email{background:var(--blue);color:white}
+.btn-email:hover{background:#3a7bc4}
+
+.empty-state{text-align:center;padding:60px;color:var(--muted);font-size:14px}
+.empty-icon{font-size:40px;display:block;margin-bottom:14px;opacity:0.3}
+
+@media(max-width:768px){
+.member-row{grid-template-columns:1fr 1fr;font-size:12px}
+.m-phone,.m-date,.member-row.header .h-phone,.member-row.header .h-date{display:none}
+.coach-body{padding:20px 4%}
+}
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay" style="display: none;">
+  <div class="loading-spinner"></div>
+  <div style="font-size:12px;color:#888;letter-spacing:2px">COACH PORTAL</div>
+</div>
+
+<!-- AUTH -->
+<div class="auth-wrap" id="authWrap" style="display: flex;">
+  <div class="auth-card">
+    <div class="auth-logo">HAIKYU<span>U</span> FIT</div>
+    <div class="coach-badge">⚡ COACH ACCESS ONLY</div>
+    <div class="auth-err" id="coachErr"></div>
+    <div class="fg"><label class="fl">COACH EMAIL</label><input type="email" class="fi" id="coachEmail" placeholder="sayyafharidi@gmail.com"></div>
+    <div class="fg"><label class="fl">PASSWORD</label><input type="password" class="fi" id="coachPass" placeholder="••••••••"></div>
+    <button class="auth-btn" onclick="coachLogin()">COACH LOGIN</button>
+  </div>
+</div>
+
+<!-- COACH DASHBOARD -->
+<div class="coach-wrap" id="coachWrap">
+  <nav class="coach-nav">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="nav-logo">HAIKYU<span>U</span> FIT</div>
+      <div class="nav-badge">COACH</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:12px;color:var(--muted)" id="coachName">Coach</span>
+      <button class="logout-btn" onclick="coachLogout()">LOGOUT</button>
+    </div>
+  </nav>
+
+  <div class="coach-body">
+    <div style="margin-bottom:32px">
+      <h1 style="font-size:26px;font-weight:800;margin-bottom:6px">Coach Dashboard <span style="color:var(--accent)">⚡</span></h1>
+      <p style="font-size:13px;color:var(--muted)">إدارة المشتركين ومتابعة تقدمهم</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="coach-stats">
+      <div class="cs-card"><div class="cs-num" id="totalMembers">0</div><div class="cs-lbl">إجمالي المشتركين</div></div>
+      <div class="cs-card"><div class="cs-num" id="pendingCount" style="color:var(--yellow)">0</div><div class="cs-lbl">قيد الإعداد</div></div>
+      <div class="cs-card"><div class="cs-num" id="readyCount" style="color:var(--green)">0</div><div class="cs-lbl">برنامج جاهز</div></div>
+      <div class="cs-card"><div class="cs-num" id="todayCount" style="color:var(--blue)">0</div><div class="cs-lbl">مشتركين اليوم</div></div>
+    </div>
+
+    <!-- MEMBERS LIST -->
+    <div>
+      <div class="section-header">
+        <div class="section-title">👥 المشتركين</div>
+        <input type="text" class="search-input" id="searchInput" placeholder="🔍 ابحث باسم أو إيميل..." oninput="filterMembers()">
+      </div>
+      <div class="members-list" id="membersList">
+        <div class="member-row header">
+          <div>الاسم</div>
+          <div>البريد الإلكتروني</div>
+          <div class="h-phone">الواتساب</div>
+          <div>الهدف</div>
+          <div class="h-date">تاريخ التسجيل</div>
+          <div>الحالة</div>
+        </div>
+        <div class="empty-state"><span class="empty-icon">👥</span>جاري تحميل المشتركين...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBER DETAIL MODAL -->
+<div class="modal-overlay" id="memberModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">تفاصيل المشترك</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, collection, getDocs, doc, updateDoc, query, orderBy, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBQuHfPQ4n-nAv81MU9Aybl4AUd2C8Zmr8",
+  authDomain: "haikyuu-fit.firebaseapp.com",
+  projectId: "haikyuu-fit",
+  storageBucket: "haikyuu-fit.firebasestorage.app",
+  messagingSenderId: "536486143647",
+  appId: "1:536486143647:web:9d6769f56331692d0164aa"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const COACH_EMAIL = 'sayyafharidi@gmail.com';
+let allMembers = [];
+
+window.coachLogin = async function() {
+  const email = document.getElementById('coachEmail').value.trim();
+  const pass = document.getElementById('coachPass').value;
+  const err = document.getElementById('coachErr');
+  err.style.display='none';
+  if(!email||!pass){err.textContent='أدخل الإيميل وكلمة المرور';err.style.display='block';return;}
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch(e) {
+    err.textContent='إيميل أو كلمة مرور غلط';err.style.display='block';
+  }
+};
+
+window.coachLogout = async function() { await signOut(auth); };
+
+window.closeModal = function() {
+  document.getElementById('memberModal').classList.remove('open');
+};
+
+window.openMember = async function(uid) {
+  const snap = await getDoc(doc(db,'members',uid));
+  if(!snap.exists()) return;
+  const d = snap.data();
+
+  // Load weights
+  const wSnap = await getDocs(collection(db,'members',uid,'weights'));
+  const weights = [];
+  wSnap.forEach(w => weights.push(w.data()));
+  weights.sort((a,b) => b.timestamp?.seconds - a.timestamp?.seconds);
+
+  document.getElementById('modalTitle').textContent = d.name || 'مشترك';
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-section">
+      <div class="modal-section-title">المعلومات الأساسية</div>
+      <div class="modal-grid">
+        <div class="modal-item"><div class="modal-item-label">الاسم</div><div class="modal-item-val">${d.name||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">البريد</div><div class="modal-item-val" style="font-size:12px">${d.email||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">الواتساب</div><div class="modal-item-val">${d.phone||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">البلد</div><div class="modal-item-val">${d.country||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">العمر</div><div class="modal-item-val">${d.age||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">الجنس</div><div class="modal-item-val">${d.gender||'—'}</div></div>
+      </div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">القياسات والهدف</div>
+      <div class="modal-grid">
+        <div class="modal-item"><div class="modal-item-label">الوزن</div><div class="modal-item-val">${d.weight||'—'} كجم</div></div>
+        <div class="modal-item"><div class="modal-item-label">الطول</div><div class="modal-item-val">${d.height||'—'} سم</div></div>
+        <div class="modal-item"><div class="modal-item-label">الهدف</div><div class="modal-item-val">${d.goal||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">مستوى النشاط</div><div class="modal-item-val">${d.activity||'—'}</div></div>
+      </div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">التاريخ الصحي</div>
+      <div class="modal-grid">
+        <div class="modal-item"><div class="modal-item-label">أمراض مزمنة</div><div class="modal-item-val">${d.chronic||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">حساسية</div><div class="modal-item-val">${d.allergy||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">أدوية</div><div class="modal-item-val">${d.medications||'—'}</div></div>
+        <div class="modal-item"><div class="modal-item-label">إصابات</div><div class="modal-item-val">${d.injuries||'—'}</div></div>
+      </div>
+    </div>
+    ${weights.length>0?`
+    <div class="modal-section">
+      <div class="modal-section-title">سجل الوزن (${weights.length} قراءة)</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${weights.slice(0,5).map(w=>`<div style="display:flex;justify-content:space-between;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
+          <span style="font-size:12px;color:var(--muted)">${w.date||'—'}</span>
+          <span style="font-family:Montserrat,sans-serif;font-weight:700;color:var(--accent)">${w.weight} كجم</span>
+        </div>`).join('')}
+      </div>
+    </div>`:''}
+    <div class="modal-actions">
+      ${d.phone?`<button class="action-btn btn-wa" onclick="window.open('https://wa.me/${d.phone?.replace(/[^0-9]/g,'')}?text=أهلاً ${d.name}! هنا الكوتش من Haikyuu Fit 💪','_blank')">💬 واتساب</button>`:''}
+      <button class="action-btn btn-ready" onclick="markReady('${uid}')">✅ برنامج جاهز</button>
+      <button class="action-btn btn-email" onclick="window.open('mailto:${d.email}?subject=برنامجك جاهز - Haikyuu Fit&body=أهلاً ${d.name}،%0Aبرنامجك الغذائي والتمريني جاهز!','_blank')">📧 إيميل</button>
+    </div>
+  `;
+  document.getElementById('memberModal').classList.add('open');
+};
+
+window.markReady = async function(uid) {
+  await updateDoc(doc(db,'members',uid), {programStatus:'ready'});
+  alert('✅ تم تحديث حالة البرنامج إلى جاهز!');
+  closeModal();
+  loadMembers();
+};
+
+window.filterMembers = function() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = allMembers.filter(m =>
+    (m.name||'').toLowerCase().includes(q) ||
+    (m.email||'').toLowerCase().includes(q) ||
+    (m.phone||'').includes(q)
+  );
+  renderMembers(filtered);
+};
+
+function renderMembers(members) {
+  const list = document.getElementById('membersList');
+  const header = `<div class="member-row header">
+    <div>الاسم</div><div>البريد الإلكتروني</div>
+    <div class="h-phone">الواتساب</div><div>الهدف</div>
+    <div class="h-date">تاريخ التسجيل</div><div>الحالة</div>
+  </div>`;
+  if(members.length===0){
+    list.innerHTML=header+'<div class="empty-state"><span class="empty-icon">👥</span>لا يوجد مشتركين</div>';
+    return;
+  }
+  list.innerHTML = header + members.map(m=>`
+    <div class="member-row" onclick="window.openMember('${m.uid}')">
+      <div class="m-name">${m.name||'—'}</div>
+      <div class="m-email">${m.email||'—'}</div>
+      <div class="m-phone">${m.phone||'—'}</div>
+      <div class="m-goal" style="font-size:12px">${m.goal||'—'}</div>
+      <div class="m-date">${m.createdAt?.toDate?.().toLocaleDateString('ar-EG')||'—'}</div>
+      <div><span class="status-pill ${m.programStatus==='ready'?'sp-ready':'sp-pending'}">${m.programStatus==='ready'?'جاهز':'قيد الإعداد'}</span></div>
+    </div>`).join('');
+}
+
+async function loadMembers() {
+  const snap = await getDocs(collection(db,'members'));
+  allMembers = [];
+  snap.forEach(d => allMembers.push({...d.data(), uid:d.id}));
+  allMembers.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+
+  const today = new Date().toDateString();
+  const todayCount = allMembers.filter(m => m.createdAt?.toDate?.().toDateString()===today).length;
+  const pendingCount = allMembers.filter(m => m.programStatus!=='ready').length;
+  const readyCount = allMembers.filter(m => m.programStatus==='ready').length;
+
+  document.getElementById('totalMembers').textContent = allMembers.length;
+  document.getElementById('pendingCount').textContent = pendingCount;
+  document.getElementById('readyCount').textContent = readyCount;
+  document.getElementById('todayCount').textContent = todayCount;
+
+  renderMembers(allMembers);
+}
+
+onAuthStateChanged(auth, user => {
+  document.getElementById('loadingOverlay').style.display='none';
+  if(user && user.email === COACH_EMAIL) {
+    document.getElementById('authWrap').style.display='none';
+    document.getElementById('coachWrap').style.display='block';
+    document.getElementById('coachName').textContent = 'Coach Sayyaf';
+    loadMembers();
+  } else if(user && user.email !== COACH_EMAIL) {
+    signOut(auth);
+    document.getElementById('authWrap').style.display='flex';
+  } else {
+    document.getElementById('authWrap').style.display='flex';
+  }
+});
+
+document.getElementById('memberModal').addEventListener('click', function(e) {
+  if(e.target === this) closeModal();
+});
+document.getElementById('coachPass').addEventListener('keypress', e => { if(e.key==='Enter') window.coachLogin(); });
+</script>
+
+
+</body></html>

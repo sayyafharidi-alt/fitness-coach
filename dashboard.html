@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///C:/Users/drsei/Downloads/dashboard.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haikyuu Fit — داشبورد المشترك</title>
+<link href="./dashboard_files/css2" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--border:#2a2a2a;
+--accent:#c8a96e;--accent2:#e8c98e;--white:#f5f5f0;--muted:#888;
+--green:#4caf7d;--blue:#4a90d9;--red:#e05555;
+--font-ar:'Tajawal',sans-serif;--font-en:'Montserrat',sans-serif;
+--radius:4px;--transition:0.3s ease;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font-ar);min-height:100vh}
+body.en{font-family:var(--font-en);direction:ltr}
+
+/* AUTH SCREENS */
+.auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--bg)}
+.auth-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;width:100%;max-width:440px;position:relative}
+.auth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.auth-logo{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;letter-spacing:4px;text-align:center;margin-bottom:8px}
+.auth-logo span{color:var(--accent)}
+.auth-sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:28px;letter-spacing:1px}
+.auth-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.auth-tab{flex:1;padding:10px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;transition:var(--transition);letter-spacing:1px;background:transparent;border:none;color:var(--muted);font-family:inherit}
+.auth-tab.active{background:var(--accent);color:#0a0a0a}
+.auth-form{display:none}
+.auth-form.active{display:block}
+.fg{margin-bottom:16px}
+.fl{display:block;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--muted);margin-bottom:7px;text-transform:uppercase}
+.fi,.fs{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:12px 14px;font-size:14px;font-family:inherit;outline:none;border-radius:var(--radius);transition:border var(--transition)}
+.fi:focus,.fs:focus{border-color:var(--accent)}
+.auth-btn{width:100%;background:var(--accent);color:#0a0a0a;padding:13px;border:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:3px;cursor:pointer;border-radius:var(--radius);text-transform:uppercase;transition:var(--transition);margin-top:4px}
+.auth-btn:hover{background:var(--accent2)}
+.auth-err{background:rgba(224,85,85,0.08);border:1px solid rgba(224,85,85,0.2);color:var(--red);padding:10px 14px;font-size:13px;border-radius:var(--radius);margin-bottom:14px;display:none}
+.auth-msg{background:rgba(76,175,125,0.08);border:1px solid rgba(76,175,125,0.2);color:var(--green);padding:10px 14px;font-size:13px;border-radius:var(--radius);margin-bottom:14px;display:none}
+.auth-divider{text-align:center;font-size:12px;color:var(--muted);margin:16px 0}
+.loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:16px}
+.loading-spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:13px;color:var(--muted);letter-spacing:2px}
+
+/* DASHBOARD */
+.dash-wrap{display:none;min-height:100vh}
+.dash-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 5%;height:60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.dash-logo{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;letter-spacing:3px}
+.dash-logo span{color:var(--accent)}
+.dash-user{display:flex;align-items:center;gap:12px}
+.dash-avatar{width:36px;height:36px;border-radius:50%;background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent)}
+.dash-username{font-size:13px;font-weight:600}
+.logout-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 14px;font-size:11px;font-family:inherit;cursor:pointer;border-radius:var(--radius);letter-spacing:1px;transition:var(--transition)}
+.logout-btn:hover{border-color:var(--red);color:var(--red)}
+
+.dash-body{padding:40px 5%;max-width:1100px;margin:0 auto}
+.dash-greeting{margin-bottom:36px}
+.dash-greeting h1{font-size:28px;font-weight:800;margin-bottom:6px}
+.dash-greeting h1 span{color:var(--accent)}
+.dash-greeting p{font-size:14px;color:var(--muted)}
+
+/* STATUS CARD */
+.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:36px}
+.status-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:var(--transition)}
+.status-card:hover{border-color:rgba(200,169,110,0.3)}
+.status-card-icon{font-size:24px;margin-bottom:10px}
+.status-card-val{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.status-card-lbl{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+
+/* PROGRAM CARD */
+.program-section{margin-bottom:32px}
+.section-title{font-size:16px;font-weight:700;letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.program-status{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;text-align:center}
+.program-status.pending{border-color:rgba(255,193,7,0.3)}
+.program-status.ready{border-color:rgba(76,175,125,0.3)}
+.prog-icon{font-size:40px;margin-bottom:12px;display:block}
+.prog-title{font-size:17px;font-weight:700;margin-bottom:8px}
+.prog-sub{font-size:13px;color:var(--muted);line-height:1.7}
+.prog-badge{display:inline-block;padding:5px 14px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:12px}
+.badge-pending{background:rgba(255,193,7,0.1);color:#ffc107;border:1px solid rgba(255,193,7,0.2)}
+.badge-ready{background:rgba(76,175,125,0.1);color:var(--green);border:1px solid rgba(76,175,125,0.2)}
+
+/* WEIGHT LOG */
+.weight-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.weight-input-row{display:flex;gap:10px;flex-wrap:wrap}
+.weight-input{flex:1;min-width:120px;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:11px 14px;font-size:15px;font-family:inherit;outline:none;border-radius:var(--radius);transition:border var(--transition)}
+.weight-input:focus{border-color:var(--accent)}
+.weight-btn{background:var(--accent);color:#0a0a0a;padding:11px 24px;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:var(--transition);white-space:nowrap}
+.weight-btn:hover{background:var(--accent2)}
+.weight-history{display:flex;flex-direction:column;gap:8px}
+.weight-entry{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;transition:var(--transition)}
+.weight-entry:hover{border-color:rgba(200,169,110,0.2)}
+.we-date{font-size:12px;color:var(--muted)}
+.we-val{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--accent)}
+.we-change{font-size:12px;padding:2px 8px;border-radius:2px;font-weight:600}
+.we-down{background:rgba(76,175,125,0.1);color:var(--green)}
+.we-up{background:rgba(224,85,85,0.1);color:var(--red)}
+.we-same{background:rgba(136,136,136,0.1);color:var(--muted)}
+
+/* CHART */
+.chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:32px}
+.chart-canvas{width:100%;height:200px;position:relative}
+.chart-svg{width:100%;height:100%}
+
+/* PROFILE SECTION */
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.profile-grid{grid-template-columns:1fr}}
+.profile-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.pi-label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.pi-val{font-size:15px;font-weight:600}
+
+/* WA CONTACT */
+.wa-card{background:linear-gradient(135deg,rgba(37,211,102,0.08),rgba(37,211,102,0.03));border:1px solid rgba(37,211,102,0.2);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:16px;margin-bottom:32px;cursor:pointer;transition:var(--transition);text-decoration:none}
+.wa-card:hover{border-color:rgba(37,211,102,0.4);transform:translateY(-2px)}
+.wa-icon{font-size:32px;flex-shrink:0}
+.wa-text h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px}
+.wa-text p{font-size:13px;color:var(--muted)}
+
+/* EMPTY STATE */
+.empty{text-align:center;padding:40px;color:var(--muted);font-size:14px}
+.empty-icon{font-size:36px;display:block;margin-bottom:12px;opacity:0.4}
+
+@media(max-width:768px){
+.dash-body{padding:24px 4%}
+.status-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay" style="display: none;">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">HAIKYUU FIT</div>
+</div>
+
+<!-- AUTH -->
+<div class="auth-wrap" id="authWrap" style="display: flex;">
+  <div class="auth-card">
+    <div class="auth-logo">HAIKYU<span>U</span> FIT</div>
+    <div class="auth-sub">MEMBER PORTAL</div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchTab(&#39;login&#39;)" id="loginTab" data-ar="تسجيل الدخول" data-en="LOGIN">تسجيل الدخول</button>
+      <button class="auth-tab" onclick="switchTab(&#39;register&#39;)" id="registerTab" data-ar="حساب جديد" data-en="REGISTER">حساب جديد</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="auth-form active" id="loginForm">
+      <div class="auth-err" id="loginErr"></div>
+      <div class="fg"><label class="fl" data-ar="البريد الإلكتروني" data-en="EMAIL">البريد الإلكتروني</label><input type="email" class="fi" id="loginEmail" placeholder="example@email.com"></div>
+      <div class="fg"><label class="fl" data-ar="كلمة المرور" data-en="PASSWORD">كلمة المرور</label><input type="password" class="fi" id="loginPass" placeholder="••••••••"></div>
+      <button class="auth-btn" onclick="doLogin()" data-ar="دخول" data-en="LOGIN">دخول</button>
+      <div class="auth-divider" data-ar="مش عندك حساب؟ سجّل جديد" data-en="No account? Register now">مش عندك حساب؟ سجّل جديد</div>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="auth-form" id="registerForm">
+      <div class="auth-err" id="registerErr"></div>
+      <div class="auth-msg" id="registerMsg"></div>
+      <div class="fg"><label class="fl" data-ar="الاسم الكامل" data-en="FULL NAME">الاسم الكامل</label><input type="text" class="fi" id="regName" placeholder="محمد أحمد"></div>
+      <div class="fg"><label class="fl" data-ar="البريد الإلكتروني" data-en="EMAIL">البريد الإلكتروني</label><input type="email" class="fi" id="regEmail" placeholder="example@email.com"></div>
+      <div class="fg"><label class="fl" data-ar="كلمة المرور" data-en="PASSWORD">كلمة المرور</label><input type="password" class="fi" id="regPass" placeholder="••••••••  (6 أحرف على الأقل)"></div>
+      <button class="auth-btn" onclick="doRegister()" data-ar="إنشاء حساب" data-en="CREATE ACCOUNT">إنشاء حساب</button>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash-wrap" id="dashWrap" style="display: none;">
+  <nav class="dash-nav">
+    <div class="dash-logo">HAIKYU<span>U</span> FIT</div>
+    <div class="dash-user">
+      <div class="dash-avatar" id="dashAvatar">م</div>
+      <div class="dash-username" id="dashUsername">مشترك</div>
+      <button class="logout-btn" onclick="doLogout()" data-ar="خروج" data-en="LOGOUT">خروج</button>
+    </div>
+  </nav>
+
+  <div class="dash-body">
+    <!-- GREETING -->
+    <div class="dash-greeting">
+      <h1 data-ar-prefix="أهلاً، " data-en-prefix="Welcome, ">أهلاً، <span id="greetName">مشترك</span> 👋</h1>
+      <p id="greetDate" data-ar="متابعتك تبدأ هنا" data-en="Your journey starts here">متابعتك تبدأ هنا</p>
+    </div>
+
+    <!-- STATUS CARDS -->
+    <div class="status-grid">
+      <div class="status-card">
+        <div class="status-card-icon">⚖️</div>
+        <div class="status-card-val" id="currentWeight">—</div>
+        <div class="status-card-lbl" data-ar="الوزن الحالي (كجم)" data-en="Current Weight (kg)">الوزن الحالي (كجم)</div>
+      </div>
+      <div class="status-card">
+        <div class="status-card-icon">📉</div>
+        <div class="status-card-val" id="totalLoss" style="color:var(--green)">—</div>
+        <div class="status-card-lbl" data-ar="إجمالي التغيير (كجم)" data-en="Total Change (kg)">إجمالي التغيير (كجم)</div>
+      </div>
+      <div class="status-card">
+        <div class="status-card-icon">📅</div>
+        <div class="status-card-val" id="weekCount">—</div>
+        <div class="status-card-lbl" data-ar="أسابيع المتابعة" data-en="Tracking Weeks">أسابيع المتابعة</div>
+      </div>
+      <div class="status-card">
+        <div class="status-card-icon">🎯</div>
+        <div class="status-card-val" id="memberGoal" style="font-size:16px">—</div>
+        <div class="status-card-lbl" data-ar="هدفك" data-en="Your Goal">هدفك</div>
+      </div>
+    </div>
+
+    <!-- WA CONTACT -->
+    <a class="wa-card" href="https://wa.me/201121460552?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%83%D9%88%D8%AA%D8%B4!%20%D8%A3%D9%86%D8%A7%20%D9%85%D8%B4%D8%AA%D8%B1%D9%83%20%D9%81%D9%8A%20Haikyuu%20Fit%20%F0%9F%92%AA" target="_blank">
+      <div class="wa-icon">💬</div>
+      <div class="wa-text">
+        <h3 data-ar="تواصل مع الكوتش على واتساب" data-en="Contact Coach on WhatsApp">تواصل مع الكوتش على واتساب</h3>
+        <p data-ar="رد خلال 24 ساعة — لأي سؤال عن برنامجك" data-en="Reply within 24 hours — for any question about your program">رد خلال 24 ساعة — لأي سؤال عن برنامجك</p>
+      </div>
+    </a>
+
+    <!-- PROGRAM STATUS -->
+    <div class="program-section">
+      <div class="section-title" data-ar="📋 برنامجك" data-en="📋 YOUR PROGRAM">📋 برنامجك</div>
+      <div class="program-status pending" id="programCard">
+        <span class="prog-icon">⏳</span>
+        <div class="prog-title" data-ar="برنامجك قيد الإعداد" data-en="Your program is being prepared">برنامجك قيد الإعداد</div>
+        <p class="prog-sub" data-ar="الكوتش يراجع بياناتك ويعد برنامجك المخصص. ستصلك رسالة على واتساب خلال 24 ساعة." data-en="The coach is reviewing your data and preparing your custom program. You&#39;ll receive a WhatsApp message within 24 hours.">الكوتش يراجع بياناتك ويعد برنامجك المخصص. ستصلك رسالة على واتساب خلال 24 ساعة.</p>
+        <span class="prog-badge badge-pending" data-ar="قيد الإعداد" data-en="IN PREPARATION">قيد الإعداد</span>
+      </div>
+    </div>
+
+    <!-- WEIGHT TRACKING -->
+    <div class="program-section">
+      <div class="section-title" data-ar="⚖️ تتبع الوزن الأسبوعي" data-en="⚖️ WEEKLY WEIGHT TRACKING">⚖️ تتبع الوزن الأسبوعي</div>
+      <div class="weight-form">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px" data-ar="سجّل وزنك كل أسبوع لمتابعة تقدمك" data-en="Log your weight every week to track your progress">سجّل وزنك كل أسبوع لمتابعة تقدمك</p>
+        <div class="weight-input-row">
+          <input type="number" class="weight-input" id="weightInput" placeholder="75.5" step="0.1" min="30" max="300">
+          <button class="weight-btn" onclick="logWeight()" data-ar="سجّل الوزن" data-en="LOG WEIGHT">سجّل الوزن</button>
+        </div>
+      </div>
+
+      <!-- CHART -->
+      <div class="chart-wrap">
+        <div style="font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px" data-ar="منحنى تغير الوزن" data-en="WEIGHT PROGRESS CHART">منحنى تغير الوزن</div>
+        <div class="chart-canvas" id="chartCanvas">
+          <div class="empty"><span class="empty-icon">📊</span><span data-ar="سجّل وزنك لتظهر الرسم البياني" data-en="Log your weight to see the chart">سجّل وزنك لتظهر الرسم البياني</span></div>
+        </div>
+      </div>
+
+      <!-- HISTORY -->
+      <div class="section-title" style="font-size:13px" data-ar="السجل الأسبوعي" data-en="WEEKLY LOG">السجل الأسبوعي</div>
+      <div class="weight-history" id="weightHistory">
+        <div class="empty"><span class="empty-icon">📝</span><span data-ar="لا يوجد سجلات بعد" data-en="No records yet">لا يوجد سجلات بعد</span></div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="program-section">
+      <div class="section-title" data-ar="👤 بياناتك" data-en="👤 YOUR DATA">👤 بياناتك</div>
+      <div class="profile-grid" id="profileGrid">
+        <div class="empty"><span class="empty-icon">📋</span><span data-ar="أكمل التسجيل الكامل من الصفحة الرئيسية" data-en="Complete full registration from the main page">أكمل التسجيل الكامل من الصفحة الرئيسية</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, orderBy, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBQuHfPQ4n-nAv81MU9Aybl4AUd2C8Zmr8",
+  authDomain: "haikyuu-fit.firebaseapp.com",
+  projectId: "haikyuu-fit",
+  storageBucket: "haikyuu-fit.firebasestorage.app",
+  messagingSenderId: "536486143647",
+  appId: "1:536486143647:web:9d6769f56331692d0164aa"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Make functions global
+window.doLogin = async function() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginErr');
+  err.style.display='none';
+  if(!email||!pass){err.textContent='أدخل الإيميل وكلمة المرور';err.style.display='block';return;}
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch(e) {
+    err.textContent = e.code==='auth/invalid-credential'?'إيميل أو كلمة مرور غلط':'حدث خطأ، حاول مرة أخرى';
+    err.style.display='block';
+  }
+};
+
+window.doRegister = async function() {
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPass').value;
+  const err = document.getElementById('registerErr');
+  const msg = document.getElementById('registerMsg');
+  err.style.display='none'; msg.style.display='none';
+  if(!name||!email||!pass){err.textContent='أكمل جميع الحقول';err.style.display='block';return;}
+  if(pass.length<6){err.textContent='كلمة المرور لازم تكون 6 أحرف على الأقل';err.style.display='block';return;}
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, email, pass);
+    await updateProfile(cred.user, {displayName: name});
+    await setDoc(doc(db,'members',cred.user.uid), {
+      name, email, uid: cred.user.uid,
+      createdAt: serverTimestamp(),
+      programStatus: 'pending',
+      goal: '—'
+    });
+    msg.textContent='✓ تم إنشاء حسابك بنجاح!';
+    msg.style.display='block';
+  } catch(e) {
+    err.textContent = e.code==='auth/email-already-in-use'?'الإيميل ده مسجل بالفعل':'حدث خطأ، حاول مرة أخرى';
+    err.style.display='block';
+  }
+};
+
+window.doLogout = async function() {
+  await signOut(auth);
+};
+
+window.switchTab = function(tab) {
+  document.getElementById('loginForm').classList.toggle('active', tab==='login');
+  document.getElementById('registerForm').classList.toggle('active', tab==='register');
+  document.getElementById('loginTab').classList.toggle('active', tab==='login');
+  document.getElementById('registerTab').classList.toggle('active', tab==='register');
+};
+
+window.logWeight = async function() {
+  const val = parseFloat(document.getElementById('weightInput').value);
+  if(!val||val<30||val>300){alert('أدخل وزن صحيح');return;}
+  const user = auth.currentUser;
+  if(!user) return;
+  await addDoc(collection(db,'members',user.uid,'weights'), {
+    weight: val, date: new Date().toLocaleDateString('ar-EG'), timestamp: serverTimestamp()
+  });
+  document.getElementById('weightInput').value='';
+  loadWeights(user.uid);
+};
+
+async function loadWeights(uid) {
+  const q = query(collection(db,'members',uid,'weights'), orderBy('timestamp','desc'));
+  const snap = await getDocs(q);
+  const weights = [];
+  snap.forEach(d => weights.push(d.data()));
+
+  // Update stats
+  if(weights.length > 0) {
+    document.getElementById('currentWeight').textContent = weights[0].weight + ' كجم';
+    document.getElementById('weekCount').textContent = weights.length;
+    if(weights.length > 1) {
+      const diff = (weights[0].weight - weights[weights.length-1].weight).toFixed(1);
+      const el = document.getElementById('totalLoss');
+      el.textContent = (diff > 0 ? '+' : '') + diff + ' كجم';
+      el.style.color = diff < 0 ? 'var(--green)' : diff > 0 ? 'var(--red)' : 'var(--muted)';
+    }
+  }
+
+  // History list
+  const hist = document.getElementById('weightHistory');
+  if(weights.length === 0) {
+    hist.innerHTML = '<div class="empty"><span class="empty-icon">📝</span>لا يوجد سجلات بعد</div>';
+    return;
+  }
+  hist.innerHTML = weights.map((w,i) => {
+    let changeHtml = '';
+    if(i < weights.length-1) {
+      const diff = (w.weight - weights[i+1].weight).toFixed(1);
+      const cls = diff < 0 ? 'we-down' : diff > 0 ? 'we-up' : 'we-same';
+      changeHtml = `<span class="we-change ${cls}">${diff > 0 ? '+' : ''}${diff} كجم</span>`;
+    }
+    return `<div class="weight-entry">
+      <div><div class="we-date">${w.date}</div></div>
+      <div style="display:flex;align-items:center;gap:12px">${changeHtml}<div class="we-val">${w.weight}</div></div>
+    </div>`;
+  }).join('');
+
+  // Chart
+  drawChart(weights.reverse());
+}
+
+function drawChart(weights) {
+  if(weights.length < 2) return;
+  const canvas = document.getElementById('chartCanvas');
+  const vals = weights.map(w => w.weight);
+  const min = Math.min(...vals) - 1;
+  const max = Math.max(...vals) + 1;
+  const w = 100, h = 100;
+  const pts = vals.map((v,i) => {
+    const x = (i / (vals.length-1)) * 90 + 5;
+    const y = h - ((v - min) / (max - min)) * 80 - 10;
+    return `${x},${y}`;
+  });
+  const line = pts.join(' ');
+  const area = `5,90 ${line} ${(100*(vals.length-1)/(vals.length-1))*0.9+5},90`;
+
+  canvas.innerHTML = `<svg viewBox="0 0 100 100" class="chart-svg" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c8a96e" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="${area}" fill="url(#chartGrad)"/>
+    <polyline points="${line}" fill="none" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    ${pts.map((p,i) => `<circle cx="${p.split(',')[0]}" cy="${p.split(',')[1]}" r="2" fill="#c8a96e"/>`).join('')}
+    <text x="5" y="8" font-size="5" fill="#888">${max.toFixed(1)}</text>
+    <text x="5" y="95" font-size="5" fill="#888">${min.toFixed(1)}</text>
+  </svg>`;
+}
+
+async function loadProfile(uid) {
+  const snap = await getDoc(doc(db,'members',uid));
+  if(!snap.exists()) return;
+  const data = snap.data();
+  document.getElementById('memberGoal').textContent = data.goal || '—';
+  const grid = document.getElementById('profileGrid');
+  const items = [
+    {label:'الاسم',val:data.name||'—'},
+    {label:'البريد',val:data.email||'—'},
+    {label:'الهدف',val:data.goal||'—'},
+    {label:'حالة البرنامج',val:data.programStatus==='ready'?'✅ جاهز':'⏳ قيد الإعداد'},
+  ];
+  grid.innerHTML = items.map(i=>`<div class="profile-item"><div class="pi-label">${i.label}</div><div class="pi-val">${i.val}</div></div>`).join('');
+  if(data.programStatus === 'ready') {
+    document.getElementById('programCard').className = 'program-status ready';
+    document.getElementById('programCard').innerHTML = `
+      <span class="prog-icon">✅</span>
+      <div class="prog-title">برنامجك جاهز!</div>
+      <p class="prog-sub">تواصل مع الكوتش على واتساب لاستلام برنامجك الكامل.</p>
+      <span class="prog-badge badge-ready">جاهز</span>`;
+  }
+}
+
+// Auth state
+onAuthStateChanged(auth, async (user) => {
+  document.getElementById('loadingOverlay').style.display = 'none';
+  if(user) {
+    document.getElementById('authWrap').style.display = 'none';
+    document.getElementById('dashWrap').style.display = 'block';
+    const name = user.displayName || user.email.split('@')[0];
+    document.getElementById('dashAvatar').textContent = name.charAt(0).toUpperCase();
+    document.getElementById('dashUsername').textContent = name;
+    document.getElementById('greetName').textContent = name;
+    document.getElementById('greetDate').textContent = new Date().toLocaleDateString('ar-EG', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    await loadProfile(user.uid);
+    await loadWeights(user.uid);
+  } else {
+    document.getElementById('authWrap').style.display = 'flex';
+    document.getElementById('dashWrap').style.display = 'none';
+  }
+});
+
+// Enter key support
+document.getElementById('loginPass').addEventListener('keypress', e => { if(e.key==='Enter') window.doLogin(); });
+document.getElementById('regPass').addEventListener('keypress', e => { if(e.key==='Enter') window.doRegister(); });
+</script>
+
+
+</body></html>

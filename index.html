@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/drsei/Downloads/index_33.html -->
+<!-- saved from url=(0046)file:///C:/Users/drsei/Downloads/index_36.html -->
 <html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,8 +45,8 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 5%;height:64px;display
 .nav-cta:hover{background:var(--accent2)}
 
 /* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0;position:relative;overflow:hidden;background:var(--bg)}
-.hero-bg-img{position:absolute;inset:0;background:url('hero-athlete.jpg') center/cover no-repeat;opacity:0.08;filter:grayscale(100%);z-index:0;pointer-events:none}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 5% 60px;position:relative;overflow:hidden;background:var(--bg);text-align:center}
+.hero-bg-img{position:absolute;inset:0;background:url('hero-athlete.jpg') center top/cover no-repeat;opacity:0.55;filter:contrast(1.05) brightness(0.65) saturate(1.4);z-index:0;pointer-events:none}
 .hero-left{padding:100px 40px 60px 5%;z-index:2;position:relative}
 .hero-right{padding:100px 5% 60px 40px;z-index:2;position:relative;display:flex;align-items:center}
 .hero-content{max-width:520px;z-index:2;width:100%}
@@ -277,11 +277,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
 .country-select{width:120px;flex-shrink:0;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:11px 10px;font-size:13px;font-family:inherit;outline:none;border-radius:var(--radius);appearance:none;cursor:pointer;transition:border var(--transition)}
 .country-select:focus{border-color:var(--accent)}
 
-@media(max-width:900px){
+@media(max-width:768px){
 .nav-links{display:none}
-.hero{grid-template-columns:1fr}
-.hero-left{padding:90px 5% 40px}
-.hero-right{padding:20px 5% 40px}
 .hero-stats{grid-template-columns:repeat(2,1fr)}
 .frow{grid-template-columns:1fr}
 .nut-grid{grid-template-columns:1fr}
@@ -303,85 +300,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
 <nav>
   <div class="logo">HAIKYU<span>U</span> FIT</div>
   <ul class="nav-links">
-    <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#workouts" data-ar="التمارين" data-en="WORKOUTS">التمارين</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#nutrition" data-ar="التغذية" data-en="NUTRITION">التغذية</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#testimonials" data-ar="النتائج" data-en="RESULTS">النتائج</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
-    <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#workouts" data-ar="التمارين" data-en="WORKOUTS">التمارين</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#nutrition" data-ar="التغذية" data-en="NUTRITION">التغذية</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#testimonials" data-ar="النتائج" data-en="RESULTS">النتائج</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a></li>
   </ul>
-  <a href="file:///C:/Users/drsei/Downloads/index_33.html#register" class="nav-cta" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
+  <a href="file:///C:/Users/drsei/Downloads/dashboard.html" style="color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1px;margin-left:16px" data-ar="دخول المشتركين" data-en="MEMBER LOGIN">دخول المشتركين</a><a href="file:///C:/Users/drsei/Downloads/index_36.html#register" class="nav-cta" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-img"></div>
+  <!-- dark overlay for text readability -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.7) 60%,var(--bg) 100%);z-index:1;pointer-events:none"></div>
 
-  <!-- LEFT: REGISTER FORM -->
-  <div class="hero-left">
-    <div style="margin-bottom:32px">
-      <div class="hero-eyebrow">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text" data-ar="سجّل الآن وابدأ رحلتك" data-en="REGISTER &amp; START YOUR JOURNEY">سجّل الآن وابدأ رحلتك</span>
-      </div>
+  <div class="hero-content" style="text-align:right;max-width:700px;margin:0 auto">
+    <div class="hero-eyebrow" style="justify-content:flex-end">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text" data-ar="كوتشينج احترافي متخصص" data-en="ELITE PERSONAL COACHING">كوتشينج احترافي متخصص</span>
     </div>
-    <!-- MINI REGISTER FORM -->
-    <div style="background:rgba(17,17,17,0.85);border:1px solid var(--border);border-radius:var(--radius);padding:28px;backdrop-filter:blur(10px)">
-      <div class="frow" style="margin-bottom:14px">
-        <div class="fg" style="margin-bottom:0"><label class="fl"><span class="req">* </span><span data-ar="الاسم الأول" data-en="First Name">الاسم الأول</span></label><input type="text" class="fi" id="fn2" placeholder="محمد"></div>
-        <div class="fg" style="margin-bottom:0"><label class="fl"><span class="req">* </span><span data-ar="الاسم الأخير" data-en="Last Name">الاسم الأخير</span></label><input type="text" class="fi" id="ln2" placeholder="أحمد"></div>
-      </div>
-      <div style="margin-bottom:14px"><label class="fl"><span class="req">* </span><span data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span></label><input type="email" class="fi" id="em2" placeholder="example@email.com"></div>
-      <div style="margin-bottom:14px"><label class="fl"><span class="req">* </span><span data-ar="رقم الواتساب" data-en="WhatsApp">رقم الواتساب</span></label>
-        <div style="display:flex;gap:8px">
-          <select class="country-select" id="cc2">
-            <option value="+966">🇸🇦 +966</option>
-            <option value="+20">🇪🇬 +20</option>
-            <option value="+971">🇦🇪 +971</option>
-            <option value="+965">🇰🇼 +965</option>
-            <option value="+974">🇶🇦 +974</option>
-            <option value="+1">🇺🇸 +1</option>
-            <option value="+44">🇬🇧 +44</option>
-          </select>
-          <input type="tel" class="fi" id="ph2" placeholder="5X XXX XXXX" style="flex:1">
-        </div>
-      </div>
-      <div class="frow" style="margin-bottom:14px">
-        <div class="fg" style="margin-bottom:0"><label class="fl"><span class="req">* </span><span data-ar="الوزن (كجم)" data-en="Weight (kg)">الوزن (كجم)</span></label><input type="number" class="fi" id="wt2" placeholder="75"></div>
-        <div class="fg" style="margin-bottom:0"><label class="fl"><span class="req">* </span><span data-ar="الطول (سم)" data-en="Height (cm)">الطول (سم)</span></label><input type="number" class="fi" id="ht2" placeholder="175"></div>
-      </div>
-      <div style="margin-bottom:14px"><label class="fl" data-ar="الهدف الأساسي" data-en="Main Goal">الهدف الأساسي</label>
-        <select class="fs" id="gl2">
-          <option value="" data-ar="اختر..." data-en="Select...">اختر...</option>
-          <option value="cut" data-ar="تنشيف وخسارة دهون" data-en="Cutting &amp; Fat Loss">تنشيف وخسارة دهون</option>
-          <option value="bulk" data-ar="بناء عضل" data-en="Muscle Building">بناء عضل</option>
-          <option value="maintain" data-ar="ثبات وتحسين القوام" data-en="Maintain &amp; Tone">ثبات وتحسين القوام</option>
-          <option value="health" data-ar="تحسين الصحة العامة" data-en="General Health">تحسين الصحة العامة</option>
-        </select>
-      </div>
-      <button onclick="quickRegister()" style="width:100%;background:var(--accent);color:#0a0a0a;padding:13px;border:none;font-family:&#39;Montserrat&#39;,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);text-transform:uppercase;transition:var(--transition)" data-ar="ابدأ الآن — للتسجيل الكامل ↓" data-en="START NOW — FULL FORM BELOW ↓">ابدأ الآن — للتسجيل الكامل ↓</button>
-      <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:10px" data-ar="أو انتقل للتسجيل الكامل أدناه" data-en="Or scroll down for full registration">أو انتقل للتسجيل الكامل أدناه</p>
+    <h1>
+      <span class="gold" data-ar="حوّل جسمك." data-en="TRANSFORM">حوّل جسمك.</span><br>
+      <span data-ar="ارتقِ بمستواك." data-en="ELEVATE YOUR LEVEL.">ارتقِ بمستواك.</span><br>
+      <span class="outline" data-ar="ابنِ إرثك." data-en="BUILD YOUR LEGACY.">ابنِ إرثك.</span>
+    </h1>
+    <p class="hero-sub" style="margin-right:0;margin-left:auto" data-ar="برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية." data-en="A fully personalized nutrition and workout program — precise calories, scientific macros, professional video exercises, and real weekly coaching.">برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية.</p>
+    <div class="hero-btns" style="justify-content:flex-end">
+      <a href="file:///C:/Users/drsei/Downloads/index_36.html#register" class="btn-gold" data-ar="سجّل الآن — مجاناً" data-en="REGISTER NOW — FREE">سجّل الآن — مجاناً</a>
+      <a href="file:///C:/Users/drsei/Downloads/index_36.html#workouts" class="btn-outline" data-ar="استكشف البرنامج" data-en="EXPLORE PROGRAM">استكشف البرنامج</a>
     </div>
-  </div>
-
-  <!-- RIGHT: HERO CONTENT -->
-  <div class="hero-right">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text" data-ar="كوتشينج احترافي متخصص" data-en="ELITE PERSONAL COACHING">كوتشينج احترافي متخصص</span>
-      </div>
-      <h1>
-        <span class="gold" data-ar="حوّل جسمك." data-en="TRANSFORM">حوّل جسمك.</span><br>
-        <span data-ar="ارتقِ بمستواك." data-en="ELEVATE YOUR LEVEL.">ارتقِ بمستواك.</span><br>
-        <span class="outline" data-ar="ابنِ إرثك." data-en="BUILD YOUR LEGACY.">ابنِ إرثك.</span>
-      </h1>
-      <p class="hero-sub" data-ar="برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية." data-en="A fully personalized nutrition and workout program — precise calories, scientific macros, professional video exercises, and real weekly coaching.">برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية.</p>
-      <div class="hero-stats">
-        <div class="stat-box"><span class="stat-num">+50</span><span class="stat-lbl" data-ar="مشترك نشط" data-en="MEMBERS">مشترك نشط</span></div>
-        <div class="stat-box"><span class="stat-num">98%</span><span class="stat-lbl" data-ar="نسبة الرضا" data-en="SATISFACTION">نسبة الرضا</span></div>
-        <div class="stat-box"><span class="stat-num">12kg</span><span class="stat-lbl" data-ar="متوسط الخسارة" data-en="AVG LOSS">متوسط الخسارة</span></div>
-        <div class="stat-box"><span class="stat-num">24h</span><span class="stat-lbl" data-ar="تستلم برنامجك" data-en="GET PROGRAM">تستلم برنامجك</span></div>
-      </div>
+    <div class="hero-stats">
+      <div class="stat-box"><span class="stat-num">+50</span><span class="stat-lbl" data-ar="مشترك نشط" data-en="MEMBERS">مشترك نشط</span></div>
+      <div class="stat-box"><span class="stat-num">98%</span><span class="stat-lbl" data-ar="نسبة الرضا" data-en="SATISFACTION">نسبة الرضا</span></div>
+      <div class="stat-box"><span class="stat-num">12kg</span><span class="stat-lbl" data-ar="متوسط الخسارة" data-en="AVG LOSS">متوسط الخسارة</span></div>
+      <div class="stat-box"><span class="stat-num">24h</span><span class="stat-lbl" data-ar="تستلم برنامجك" data-en="GET PROGRAM">تستلم برنامجك</span></div>
     </div>
   </div>
 </section>
@@ -662,7 +615,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
         <li><span class="fchk">✓</span><span data-ar="تواصل مباشر على واتساب" data-en="Direct WhatsApp communication">تواصل مباشر على واتساب</span></li>
         <li><span class="fchk">✓</span><span data-ar="استلام البرنامج كامل خلال 24 ساعة" data-en="Full program delivered within 24 hours">استلام البرنامج كامل خلال 24 ساعة</span></li>
       </ul>
-      <a href="file:///C:/Users/drsei/Downloads/index_33.html#register" class="btn-gold" style="width:100%;text-align:center;display:block;font-size:12px;letter-spacing:3px" data-ar="سجّل الآن" data-en="REGISTER NOW">سجّل الآن</a>
+      <a href="file:///C:/Users/drsei/Downloads/index_36.html#register" class="btn-gold" style="width:100%;text-align:center;display:block;font-size:12px;letter-spacing:3px" data-ar="سجّل الآن" data-en="REGISTER NOW">سجّل الآن</a>
     </div>
     <div class="disc-box">
       <div class="disc-title" data-ar="كود الخصم" data-en="DISCOUNT CODE">كود الخصم</div>
@@ -873,11 +826,11 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:56px
     <div class="footer-col">
       <h4 data-ar="روابط" data-en="LINKS">روابط</h4>
       <ul>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#workouts" data-ar="التمارين" data-en="Workouts">التمارين</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#nutrition" data-ar="التغذية" data-en="Nutrition">التغذية</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#register" data-ar="التسجيل" data-en="Register">التسجيل</a></li>
-        <li><a href="file:///C:/Users/drsei/Downloads/index_33.html#faq" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#workouts" data-ar="التمارين" data-en="Workouts">التمارين</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#nutrition" data-ar="التغذية" data-en="Nutrition">التغذية</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#register" data-ar="التسجيل" data-en="Register">التسجيل</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_36.html#faq" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1339,30 +1292,6 @@ Note: [one useful sentence]`;
   }
 }
 document.getElementById('foodInput').addEventListener('keypress',function(e){if(e.key==='Enter')calcFoodCals();});
-
-// QUICK REGISTER from hero
-function quickRegister(){
-  const fn=document.getElementById('fn2').value.trim();
-  const em=document.getElementById('em2').value.trim();
-  const ph=document.getElementById('ph2').value.trim();
-  const wt=document.getElementById('wt2').value.trim();
-  const ht=document.getElementById('ht2').value.trim();
-  if(!fn||!em||!ph||!wt||!ht){
-    alert(isAr?'⚠ أكمل الحقول المطلوبة':'⚠ Complete required fields');
-    return;
-  }
-  // Copy values to main form
-  document.getElementById('fn').value=fn;
-  document.getElementById('ln').value=document.getElementById('ln2').value;
-  document.getElementById('em').value=em;
-  document.getElementById('ph').value=ph;
-  document.getElementById('countryCode').value=document.getElementById('cc2').value;
-  document.getElementById('wt').value=wt;
-  document.getElementById('ht').value=ht;
-  if(document.getElementById('gl2').value) document.getElementById('gl').value=document.getElementById('gl2').value;
-  // Scroll to full form
-  document.getElementById('register').scrollIntoView({behavior:'smooth'});
-}
 </script>
 
 
