@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///C:/Users/drsei/Downloads/index_45.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haikyuu Fit — Elite Coaching</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0a;
+--surface:#111111;
+--surface2:#1a1a1a;
+--border:#2a2a2a;
+--accent:#c8a96e;
+--accent2:#e8c98e;
+--white:#f5f5f0;
+--muted:#888;
+--muted2:#555;
+--green:#4caf7d;
+--blue:#4a90d9;
+--red:#e05555;
+--font-ar:'Tajawal',sans-serif;
+--font-en:'Montserrat',sans-serif;
+--radius:4px;
+--transition:0.3s ease;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font-ar);overflow-x:hidden;line-height:1.6}
+body.en{font-family:var(--font-en);direction:ltr}
+
+/* LANG */
+.lang-btn{position:fixed;top:20px;left:20px;z-index:999;background:transparent;border:1px solid var(--border);color:var(--muted);padding:7px 16px;border-radius:var(--radius);cursor:pointer;font-size:12px;font-family:inherit;font-weight:600;letter-spacing:2px;transition:var(--transition)}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+body.en .lang-btn{left:auto;right:20px}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 5%;height:64px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+.logo{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;letter-spacing:4px;color:var(--white)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;transition:var(--transition)}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--accent);color:#0a0a0a;padding:9px 22px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:var(--transition);border-radius:var(--radius);white-space:nowrap}
+.nav-cta:hover{background:var(--accent2)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden;background:var(--bg);gap:40px}
+.hero-right-col{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:36px;position:relative;overflow:hidden}
+.hero-right-col::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.hero-bg-img{position:absolute;inset:0;background:url('hero-athlete.jpg') center top/cover no-repeat;opacity:0.55;filter:contrast(1.05) brightness(0.65) saturate(1.4);z-index:0;pointer-events:none}
+.hero-left{padding:100px 40px 60px 5%;z-index:2;position:relative}
+.hero-right{padding:100px 5% 60px 40px;z-index:2;position:relative;display:flex;align-items:center}
+.hero-content{max-width:520px;z-index:2;width:100%}
+
+/* TICKER */
+.ticker{background:var(--accent);padding:12px 0;overflow:hidden;position:relative;z-index:10}
+.ticker-track{display:flex;width:max-content;animation:tick 25s linear infinite}
+body.en .ticker-track{animation-direction:reverse}
+.ticker-item{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:#0a0a0a;padding:0 28px;white-space:nowrap;text-transform:uppercase}
+.ticker-dot{margin:0 8px;opacity:0.5}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:96px 5%;position:relative}
+.sec-header{margin-bottom:56px}
+.sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec-eyebrow-line{width:24px;height:1px;background:var(--accent)}
+.sec-eyebrow-text{font-size:10px;font-weight:700;letter-spacing:4px;color:var(--accent);text-transform:uppercase}
+.sec-title{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.1}
+.sec-title .gold{color:var(--accent)}
+.sec-sub{color:var(--muted);font-size:15px;max-width:480px;line-height:1.7;font-weight:300;margin-top:12px}
+
+/* LOCKED OVERLAY */
+.locked-section{position:relative}
+.lock-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,rgba(10,10,10,0.97) 30%);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:60px}
+.lock-box{text-align:center;max-width:400px;padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.lock-icon{font-size:32px;margin-bottom:12px;display:block}
+.lock-title{font-size:18px;font-weight:700;margin-bottom:8px}
+.lock-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.lock-input-row{display:flex;gap:8px}
+.lock-input{flex:1;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:11px 16px;font-size:13px;font-family:inherit;outline:none;border-radius:var(--radius);letter-spacing:2px;text-transform:uppercase;transition:border var(--transition)}
+.lock-input:focus{border-color:var(--accent)}
+.lock-btn{background:var(--accent);color:#0a0a0a;padding:11px 20px;border:none;font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:var(--radius);font-family:inherit;white-space:nowrap;text-transform:uppercase;transition:var(--transition)}
+.lock-btn:hover{background:var(--accent2)}
+.lock-err{color:var(--red);font-size:12px;margin-top:8px;display:none}
+
+/* WORKOUTS */
+.workouts-section{background:var(--surface);position:relative;z-index:5}
+.muscle-map-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start}
+@media(max-width:900px){.muscle-map-wrap{grid-template-columns:1fr}}
+.muscle-map{position:relative;user-select:none}
+.muscle-map svg{width:100%;max-width:280px;display:block;margin:0 auto}
+.muscle-point{cursor:pointer;transition:var(--transition)}
+.muscle-point circle{transition:all var(--transition)}
+.muscle-point:hover circle,.muscle-point.active circle{r:10;fill:var(--accent)}
+.muscle-point text{font-size:9px;fill:var(--muted);font-family:'Montserrat',sans-serif;pointer-events:none;transition:var(--transition)}
+.muscle-point:hover text,.muscle-point.active text{fill:var(--accent)}
+.muscle-label{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;text-align:center;margin-top:16px;font-weight:500}
+
+.exercises-panel{display:flex;flex-direction:column;gap:0}
+.ex-header{padding:20px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.ex-muscle-name{font-size:22px;font-weight:700;color:var(--white)}
+.ex-count{font-size:11px;color:var(--muted);letter-spacing:2px}
+.ex-list{display:flex;flex-direction:column;gap:0}
+.ex-card{border-bottom:1px solid var(--border);transition:var(--transition);cursor:pointer}
+.ex-card:hover{background:var(--surface2)}
+.ex-card-header{padding:18px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ex-info{}
+.ex-name{font-size:15px;font-weight:600;margin-bottom:4px}
+.ex-meta{display:flex;gap:16px;font-size:12px;color:var(--muted)}
+.ex-tag{font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;background:rgba(200,169,110,0.1);padding:3px 10px;border-radius:2px;flex-shrink:0}
+.ex-video{display:none;padding:0 0 20px}
+.ex-video.open{display:block}
+.ex-video iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:var(--radius)}
+.ex-video-link{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:1px;text-decoration:none;text-transform:uppercase;transition:var(--transition)}
+.ex-video-link:hover{color:var(--accent2)}
+.ex-arrow{color:var(--muted);font-size:14px;transition:transform var(--transition);flex-shrink:0}
+.ex-card.open .ex-arrow{transform:rotate(180deg);color:var(--accent)}
+.empty-state{padding:48px;text-align:center;color:var(--muted);font-size:14px}
+.empty-icon{font-size:32px;margin-bottom:12px;display:block;opacity:0.4}
+
+/* NUTRITION */
+.nutrition-section{background:var(--bg);position:relative;z-index:5}
+.nut-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media(max-width:900px){.nut-grid{grid-template-columns:1fr}}
+
+/* CALC */
+.calc-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
+.calc-box-title{font-size:16px;font-weight:700;margin-bottom:24px;letter-spacing:1px}
+.fg{margin-bottom:16px}
+.fl{display:block;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--muted);margin-bottom:7px;text-transform:uppercase}
+.fi,.fs{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:11px 14px;font-size:14px;font-family:inherit;outline:none;border-radius:var(--radius);transition:border var(--transition);appearance:none}
+.fi:focus,.fs:focus{border-color:var(--accent)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-btn-main{width:100%;background:var(--accent);color:#0a0a0a;padding:13px;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:var(--transition);margin-top:4px}
+.calc-btn-main:hover{background:var(--accent2)}
+.calc-results{margin-top:20px;display:none}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.res-box{background:var(--bg);border:1px solid var(--border);padding:16px;text-align:center;border-radius:var(--radius)}
+.res-val{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;display:block}
+.res-lbl{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block}
+.rv-cal{color:var(--accent)}
+.rv-pro{color:var(--green)}
+.rv-carb{color:var(--blue)}
+.rv-fat{color:#e0a055}
+.calc-note{font-size:11px;color:var(--muted2);text-align:center;margin-top:12px;letter-spacing:1px}
+
+/* MEALS */
+.meals-box{}
+.meals-title{font-size:16px;font-weight:700;margin-bottom:20px;letter-spacing:1px}
+.meal-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;transition:var(--transition)}
+.meal-item:hover{border-color:var(--accent)}
+.meal-left .m-name{font-size:14px;font-weight:600;margin-bottom:4px}
+.meal-left .m-desc{font-size:12px;color:var(--muted)}
+.meal-macros{display:flex;gap:8px;margin-top:8px}
+.mp{font-size:11px;padding:2px 8px;border-radius:2px;font-weight:600}
+.mp-p{background:rgba(76,175,125,0.12);color:var(--green)}
+.mp-c{background:rgba(74,144,217,0.12);color:var(--blue)}
+.mp-f{background:rgba(224,160,85,0.12);color:#e0a055}
+.meal-cal-box{text-align:center;flex-shrink:0}
+.meal-cal-num{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--accent)}
+.meal-cal-unit{font-size:10px;color:var(--muted);letter-spacing:1px}
+
+/* TESTIMONIALS */
+.testi-section{background:var(--surface)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.testi-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:var(--transition)}
+.testi-card:hover{border-color:var(--accent)}
+.testi-stars{color:var(--accent);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.testi-text{font-size:14px;color:rgba(245,245,240,0.8);line-height:1.8;font-weight:300;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent);flex-shrink:0}
+.testi-name{font-size:13px;font-weight:700}
+.testi-result{font-size:11px;color:var(--accent);letter-spacing:1px;margin-top:2px}
+
+/* PRICING */
+.pricing-section{background:var(--bg)}
+.pricing-wrap{max-width:500px;margin:0 auto}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:44px;position:relative;overflow:hidden}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.price-badge{display:inline-block;background:rgba(200,169,110,0.1);border:1px solid rgba(200,169,110,0.2);color:var(--accent);padding:5px 14px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:2px;margin-bottom:20px}
+.price-orig{font-size:14px;color:var(--muted2);text-decoration:line-through;display:block}
+.price-main{display:flex;align-items:flex-start;gap:6px;margin:8px 0 4px}
+.price-curr{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--green);margin-top:10px}
+.price-num{font-family:'Montserrat',sans-serif;font-size:64px;font-weight:800;color:var(--green);line-height:1}
+.price-per{font-size:14px;color:var(--muted);align-self:flex-end;margin-bottom:8px}
+.price-disc-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(76,175,125,0.08);border:1px solid rgba(76,175,125,0.2);color:var(--green);padding:6px 14px;font-size:12px;font-weight:600;border-radius:2px;margin-bottom:28px}
+.features-ul{list-style:none;margin-bottom:28px}
+.features-ul li{padding:11px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(245,245,240,0.7)}
+.features-ul li:last-child{border:none}
+.fchk{color:var(--green);font-size:14px;flex-shrink:0;font-weight:700}
+
+/* DISC CODE */
+.disc-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:20px}
+.disc-title{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;color:var(--accent)}
+.disc-sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+.disc-row{display:flex;gap:8px}
+.disc-input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:11px 14px;font-size:13px;font-family:inherit;outline:none;border-radius:var(--radius);letter-spacing:3px;text-transform:uppercase;transition:border var(--transition)}
+.disc-input:focus{border-color:var(--accent)}
+.disc-apply{background:var(--accent);color:#0a0a0a;padding:11px 20px;border:none;font-size:11px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:var(--transition);white-space:nowrap}
+.disc-apply:hover{background:var(--accent2)}
+.disc-result{margin-top:10px;padding:10px 14px;font-size:12px;display:none;border-radius:var(--radius)}
+.disc-result.ok{background:rgba(76,175,125,0.08);border:1px solid rgba(76,175,125,0.2);color:var(--green);display:block}
+.disc-result.err{background:rgba(224,85,85,0.08);border:1px solid rgba(224,85,85,0.2);color:var(--red);display:block}
+
+/* REGISTER */
+.register-section{background:var(--surface)}
+.reg-wrap{max-width:640px;margin:0 auto}
+.form-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:40px}
+.form-div{font-size:10px;font-weight:700;letter-spacing:4px;color:var(--accent);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:10px;margin:28px 0 18px}
+.req{color:var(--accent)}
+.ft{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:11px 14px;font-size:14px;font-family:inherit;outline:none;border-radius:var(--radius);resize:vertical;min-height:76px;line-height:1.6;transition:border var(--transition)}
+.ft:focus{border-color:var(--accent)}
+.radio-row{display:flex;gap:8px;flex-wrap:wrap}
+.ro{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);padding:9px 14px;cursor:pointer;transition:var(--transition);border-radius:var(--radius);flex:1;min-width:80px}
+.ro:hover,.ro.on{border-color:var(--accent);background:rgba(200,169,110,0.06)}
+.ro input{accent-color:var(--accent);width:14px;height:14px;cursor:pointer;flex-shrink:0}
+.ro span{font-size:13px;color:var(--muted);transition:color var(--transition)}
+.ro.on span{color:var(--white)}
+.opt-tag{background:rgba(74,144,217,0.12);color:var(--blue);padding:2px 7px;font-size:10px;font-weight:700;letter-spacing:1px;border-radius:2px;margin-left:4px}
+
+
+
+
+
+
+
+.sub-btn{width:100%;background:var(--accent);color:#0a0a0a;padding:15px;border:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:3px;cursor:pointer;transition:var(--transition);margin-top:10px;text-transform:uppercase;border-radius:var(--radius)}
+.sub-btn:hover{background:var(--accent2);transform:translateY(-2px)}
+.sub-note{text-align:center;margin-top:12px;font-size:12px;color:var(--muted)}
+.sub-note strong{color:var(--green)}
+.success-box{display:none;text-align:center;padding:48px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+
+/* FAQ */
+.faq-section{background:var(--bg)}
+.faq-list{max-width:660px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{padding:20px 0;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color var(--transition);user-select:none;gap:16px}
+.faq-q:hover{color:var(--accent)}
+.faq-chevron{color:var(--muted);font-size:12px;transition:transform var(--transition);flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;font-size:14px;color:var(--muted);line-height:1.8;font-weight:300}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;left:28px;z-index:500;background:#25d366;color:white;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.35);transition:var(--transition);animation:waPulse 3s ease-in-out infinite}
+body.en .wa-float{left:auto;right:28px}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,0.35)}50%{box-shadow:0 4px 28px rgba(37,211,102,0.6)}}
+.wa-float:hover{transform:scale(1.08);background:#20b858}
+.wa-tooltip{position:absolute;left:66px;bottom:50%;transform:translateY(50%);background:var(--surface);border:1px solid var(--border);color:var(--white);padding:7px 14px;font-size:12px;font-weight:500;white-space:nowrap;border-radius:var(--radius);opacity:0;transition:opacity var(--transition);pointer-events:none}
+body.en .wa-tooltip{left:auto;right:66px}
+.wa-float:hover .wa-tooltip{opacity:1}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:56px 5% 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:48px}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr}}
+.footer-logo{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;letter-spacing:4px;margin-bottom:12px}
+.footer-logo span{color:var(--accent)}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.8;max-width:260px}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:rgba(245,245,240,0.5);text-decoration:none;font-size:13px;transition:color var(--transition)}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:11px;color:var(--muted2);letter-spacing:1px}
+.footer-domain{font-size:11px;color:var(--muted2)}
+.footer-domain span{color:var(--accent)}
+
+/* REVEAL */
+.reveal{opacity:1;transform:translateY(0);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* PHONE FLAG */
+.phone-wrap{display:flex;gap:8px}
+.country-select{width:120px;flex-shrink:0;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:11px 10px;font-size:13px;font-family:inherit;outline:none;border-radius:var(--radius);appearance:none;cursor:pointer;transition:border var(--transition)}
+.country-select:focus{border-color:var(--accent)}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.hero{grid-template-columns:1fr}
+.hero-right-col{margin-top:0}
+.hero-stats{grid-template-columns:repeat(2,1fr)}
+.frow{grid-template-columns:1fr}
+.nut-grid{grid-template-columns:1fr}
+.muscle-map-wrap{grid-template-columns:1fr}
+.form-box{padding:24px 18px}
+.price-card{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+
+<a class="wa-float" href="https://wa.me/201121460552?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%21%20%D8%A3%D9%86%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20Haikyuu%20Fit%20%F0%9F%92%AA" target="_blank" rel="noopener">
+  💬
+  <span class="wa-tooltip" data-ar="تواصل على واتساب" data-en="Chat on WhatsApp">تواصل على واتساب</span>
+</a>
+
+<nav>
+  <div class="logo">HAIKYU<span>U</span> FIT</div>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#workouts" data-ar="التمارين" data-en="WORKOUTS">التمارين</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#nutrition" data-ar="التغذية" data-en="NUTRITION">التغذية</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#testimonials" data-ar="النتائج" data-en="RESULTS">النتائج</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#pricing" data-ar="الأسعار" data-en="PRICING">الأسعار</a></li>
+    <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a></li>
+  </ul>
+  <a href="file:///C:/Users/drsei/Downloads/dashboard.html" style="color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1px;margin-left:16px;white-space:nowrap" data-ar="دخول" data-en="LOGIN">دخول</a><a href="file:///C:/Users/drsei/Downloads/dashboard.html" class="nav-cta" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-img"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.7) 60%,var(--bg) 100%);z-index:1;pointer-events:none"></div>
+
+  <!-- RIGHT: CONTENT -->
+  <div class="hero-content" style="z-index:2;position:relative;text-align:right">
+    <div class="hero-eyebrow" style="justify-content:flex-end">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text" data-ar="كوتشينج احترافي متخصص" data-en="ELITE PERSONAL COACHING">كوتشينج احترافي متخصص</span>
+    </div>
+    <h1>
+      <span class="gold" data-ar="حوّل جسمك." data-en="TRANSFORM">حوّل جسمك.</span><br>
+      <span data-ar="ارتقِ بمستواك." data-en="ELEVATE YOUR LEVEL.">ارتقِ بمستواك.</span><br>
+      <span class="outline" data-ar="ابنِ إرثك." data-en="BUILD YOUR LEGACY.">ابنِ إرثك.</span>
+    </h1>
+    <p class="hero-sub" data-ar="برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية." data-en="A fully personalized nutrition and workout program — precise calories, scientific macros, professional video exercises, and real weekly coaching.">برنامج غذائي وتمريني مخصص بالكامل — سعرات دقيقة، ماكروز علمية، تمارين بفيديوهات احترافية، ومتابعة أسبوعية حقيقية.</p>
+    <div class="hero-stats" style="margin-top:32px">
+      <div class="stat-box"><span class="stat-num">+50</span><span class="stat-lbl" data-ar="مشترك نشط" data-en="MEMBERS">مشترك نشط</span></div>
+      <div class="stat-box"><span class="stat-num">98%</span><span class="stat-lbl" data-ar="نسبة الرضا" data-en="SATISFACTION">نسبة الرضا</span></div>
+      <div class="stat-box"><span class="stat-num">12kg</span><span class="stat-lbl" data-ar="متوسط الخسارة" data-en="AVG LOSS">متوسط الخسارة</span></div>
+      <div class="stat-box"><span class="stat-num">24h</span><span class="stat-lbl" data-ar="تستلم برنامجك" data-en="GET PROGRAM">تستلم برنامجك</span></div>
+    </div>
+  </div>
+
+  <!-- LEFT: PRICING CARD -->
+  <div class="hero-right-col" style="z-index:2">
+    <div class="price-badge" style="display:inline-block;background:rgba(200,169,110,0.1);border:1px solid rgba(200,169,110,0.2);color:var(--accent);padding:5px 14px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:2px;margin-bottom:16px" data-ar="الأكثر طلباً" data-en="MOST POPULAR">الأكثر طلباً</div>
+    <span style="font-size:13px;color:var(--muted2);text-decoration:line-through;display:block" data-ar="السعر الأصلي: $100 / شهر" data-en="Original Price: $100 / month">السعر الأصلي: $100 / شهر</span>
+    <div style="display:flex;align-items:flex-start;gap:6px;margin:8px 0 4px">
+      <span style="font-family:Montserrat,sans-serif;font-size:20px;font-weight:700;color:var(--green);margin-top:10px">$</span>
+      <span style="font-family:Montserrat,sans-serif;font-size:64px;font-weight:800;color:var(--green);line-height:1" id="pNum">50</span>
+      <span style="font-size:14px;color:var(--muted);align-self:flex-end;margin-bottom:8px" data-ar="/ شهر" data-en="/ month">/ شهر</span>
+    </div>
+    <div id="pBadge" style="display:none;background:rgba(76,175,125,0.08);border:1px solid rgba(76,175,125,0.2);color:var(--green);padding:6px 14px;font-size:12px;font-weight:700;border-radius:2px;margin-bottom:16px" data-ar="✓ خصم 100% مفعّل — مجاناً تماماً" data-en="✓ 100% Discount Active — Completely Free">✓ خصم 100% مفعّل — مجاناً تماماً</div>
+    <ul style="list-style:none;margin:16px 0 20px">
+      <li style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><span style="color:var(--green);font-weight:700">✓</span><span data-ar="برنامج غذائي مخصص بالماكروز والسعرات" data-en="Custom nutrition plan with macros">برنامج غذائي مخصص بالماكروز والسعرات</span></li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><span style="color:var(--green);font-weight:700">✓</span><span data-ar="برنامج تمريني مع فيديوهات توضيحية" data-en="Workout program with videos">برنامج تمريني مع فيديوهات توضيحية</span></li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><span style="color:var(--green);font-weight:700">✓</span><span data-ar="متابعة أسبوعية وتعديل البرنامج" data-en="Weekly tracking and adjustments">متابعة أسبوعية وتعديل البرنامج</span></li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><span style="color:var(--green);font-weight:700">✓</span><span data-ar="تواصل مباشر على واتساب" data-en="Direct WhatsApp communication">تواصل مباشر على واتساب</span></li>
+      <li style="padding:9px 0;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><span style="color:var(--green);font-weight:700">✓</span><span data-ar="استلام البرنامج خلال 24 ساعة" data-en="Receive program within 24 hours">استلام البرنامج خلال 24 ساعة</span></li>
+    </ul>
+    <!-- DISCOUNT -->
+    <div style="background:var(--bg);border:1px solid rgba(200,169,110,0.15);border-radius:var(--radius);padding:16px;margin-bottom:14px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px" data-ar="كود الخصم" data-en="DISCOUNT CODE">كود الخصم</div>
+      <div style="display:flex;gap:8px">
+        <input type="text" id="discIn" placeholder="أدخل الكود" maxlength="10" oninput="this.value=this.value.toUpperCase()" style="flex:1;background:var(--surface);border:1px solid var(--border);color:var(--white);padding:10px 12px;font-size:13px;font-family:inherit;outline:none;border-radius:var(--radius);letter-spacing:2px;text-transform:uppercase;transition:border 0.3s">
+        <button onclick="applyDiscount()" style="background:var(--accent);color:#0a0a0a;padding:10px 18px;border:none;font-size:11px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:all 0.3s;white-space:nowrap" data-ar="تطبيق" data-en="APPLY">تطبيق</button>
+      </div>
+      <div id="discRes" style="margin-top:8px;font-size:12px;display:none;padding:8px 12px;border-radius:var(--radius)"></div>
+    </div>
+    <a href="file:///C:/Users/drsei/Downloads/dashboard.html" class="btn-gold" style="width:100%;text-align:center;display:block;font-size:12px;letter-spacing:3px;font-family:Montserrat,sans-serif" data-ar="انضم الآن" data-en="JOIN NOW">انضم الآن</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">NUTRITION COACHING<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">WORKOUT PROGRAMS<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">MACRO TRACKING<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">WEEKLY FOLLOW-UP<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">VIDEO EXERCISES<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">HEALTH HISTORY<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">NUTRITION COACHING<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">WORKOUT PROGRAMS<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">MACRO TRACKING<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">WEEKLY FOLLOW-UP<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">VIDEO EXERCISES<span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">HEALTH HISTORY<span class="ticker-dot">◆</span></span>
+  </div>
+</div>
+
+
+
+
+<!-- WORKOUTS — LOCKED -->
+<section class="workouts-section locked-section" id="workouts">
+  <div class="sec-header">
+    <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-ar="مكتبة التمارين" data-en="EXERCISE LIBRARY">مكتبة التمارين</span></div>
+    <h2 class="sec-title" data-ar="اضغط على &lt;span class=&quot;gold&quot;&gt;العضلة&lt;/span&gt; لتبدأ" data-en="TAP THE &lt;span class=&quot;gold&quot;&gt;MUSCLE&lt;/span&gt; TO BEGIN">اضغط على <span class="gold">العضلة</span> لتبدأ</h2>
+    <p class="sec-sub" data-ar="رسم تفاعلي — اضغط على أي عضلة وشوف التمارين الخاصة بها مع الفيديو التوضيحي" data-en="Interactive body map — tap any muscle to see its exercises with video demonstrations">رسم تفاعلي — اضغط على أي عضلة وشوف التمارين مع الفيديو التوضيحي</p>
+  </div>
+  <div class="muscle-map-wrap">
+    <!-- BODY SVG MAP -->
+    <div class="muscle-map">
+      <svg viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+        <!-- BODY SILHOUETTE -->
+        <g fill="none" stroke="#2a2a2a" stroke-width="1">
+          <!-- head -->
+          <ellipse cx="100" cy="32" rx="22" ry="26" fill="#1a1a1a"></ellipse>
+          <!-- neck -->
+          <rect x="92" y="55" width="16" height="14" fill="#1a1a1a" rx="4"></rect>
+          <!-- torso -->
+          <path d="M68 68 Q60 70 58 90 L54 160 Q54 170 60 172 L140 172 Q146 170 146 160 L142 90 Q140 70 132 68 Z" fill="#1a1a1a"></path>
+          <!-- left arm upper -->
+          <path d="M68 72 Q50 78 44 110 Q40 130 42 150 L54 148 Q54 128 58 108 Q62 84 72 78 Z" fill="#1a1a1a"></path>
+          <!-- left forearm -->
+          <path d="M42 150 Q38 170 40 192 L52 190 Q52 168 54 148 Z" fill="#1a1a1a"></path>
+          <!-- right arm upper -->
+          <path d="M132 72 Q150 78 156 110 Q160 130 158 150 L146 148 Q146 128 142 108 Q138 84 128 78 Z" fill="#1a1a1a"></path>
+          <!-- right forearm -->
+          <path d="M158 150 Q162 170 160 192 L148 190 Q148 168 146 148 Z" fill="#1a1a1a"></path>
+          <!-- left thigh -->
+          <path d="M60 172 Q54 200 52 240 L72 242 Q74 202 78 176 Z" fill="#1a1a1a"></path>
+          <!-- right thigh -->
+          <path d="M140 172 Q146 200 148 240 L128 242 Q126 202 122 176 Z" fill="#1a1a1a"></path>
+          <!-- left calf -->
+          <path d="M52 240 Q48 280 50 310 L70 308 Q70 278 72 242 Z" fill="#1a1a1a"></path>
+          <!-- right calf -->
+          <path d="M148 240 Q152 280 150 310 L130 308 Q130 278 128 242 Z" fill="#1a1a1a"></path>
+          <!-- feet -->
+          <ellipse cx="60" cy="316" rx="18" ry="8" fill="#1a1a1a"></ellipse>
+          <ellipse cx="140" cy="316" rx="18" ry="8" fill="#1a1a1a"></ellipse>
+        </g>
+
+        <!-- MUSCLE HOTSPOTS -->
+        <!-- Chest -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;chest&#39;)" id="mp-chest">
+          <circle cx="100" cy="100" r="7" fill="rgba(200,169,110,0.15)" stroke="var(--accent)" stroke-width="1.5"></circle>
+          <text x="100" y="118" text-anchor="middle" data-ar="صدر" data-en="CHEST">صدر</text>
+        </g>
+        <!-- Shoulders -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;shoulder&#39;)" id="mp-shoulder">
+          <circle cx="60" cy="82" r="6" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <circle cx="140" cy="82" r="6" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="28" y="80" text-anchor="middle" data-ar="كتف" data-en="SHOULDER">كتف</text>
+        </g>
+        <!-- Back/Lats -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;back&#39;)" id="mp-back">
+          <circle cx="100" cy="130" r="7" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="100" y="148" text-anchor="middle" data-ar="ظهر" data-en="BACK">ظهر</text>
+        </g>
+        <!-- Biceps -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;biceps&#39;)" id="mp-biceps">
+          <circle cx="48" cy="118" r="6" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="22" y="116" text-anchor="middle" data-ar="بايسبس" data-en="BICEPS">بايسبس</text>
+        </g>
+        <!-- Triceps -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;triceps&#39;)" id="mp-triceps">
+          <circle cx="152" cy="118" r="6" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="178" y="116" text-anchor="middle" data-ar="ترايسبس" data-en="TRICEPS">ترايسبس</text>
+        </g>
+        <!-- Abs -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;abs&#39;)" id="mp-abs">
+          <circle cx="100" cy="152" r="6" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="100" y="167" text-anchor="middle" data-ar="بطن" data-en="ABS">بطن</text>
+        </g>
+        <!-- Quads/Legs -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;legs&#39;)" id="mp-legs">
+          <circle cx="100" cy="210" r="7" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="100" y="228" text-anchor="middle" data-ar="أرجل" data-en="LEGS">أرجل</text>
+        </g>
+        <!-- Cardio -->
+        <g class="muscle-point" onclick="selectMuscle(&#39;cardio&#39;)" id="mp-cardio">
+          <circle cx="100" cy="280" r="6" fill="rgba(200,169,110,0.15)" stroke="#555" stroke-width="1.5"></circle>
+          <text x="100" y="296" text-anchor="middle" data-ar="كارديو" data-en="CARDIO">كارديو</text>
+        </g>
+      </svg>
+      <p class="muscle-label" data-ar="↑ اضغط على أي منطقة لعرض التمارين" data-en="↑ Tap any area to view exercises">↑ اضغط على أي منطقة لعرض التمارين</p>
+    </div>
+
+    <!-- EXERCISES PANEL -->
+    <div class="exercises-panel" id="exercisesPanel">
+      <div class="empty-state">
+        <span class="empty-icon">💪</span>
+        <p data-ar="اضغط على عضلة لتظهر التمارين الخاصة بها" data-en="Tap a muscle to see its exercises">اضغط على عضلة لتظهر التمارين الخاصة بها</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCK OVERLAY -->
+  <div class="lock-overlay" id="workoutsLock">
+    <div class="lock-box">
+      <span class="lock-icon">🔒</span>
+      <div class="lock-title" data-ar="محتوى حصري للمشتركين" data-en="Exclusive Member Content">محتوى حصري للمشتركين</div>
+      <p class="lock-sub" data-ar="ادخل كودك للوصول الكامل لمكتبة التمارين والمحتوى الحصري" data-en="Enter your code for full access to the exercise library and exclusive content">ادخل كودك للوصول الكامل لمكتبة التمارين والمحتوى الحصري</p>
+      <div class="lock-input-row">
+        <input type="text" class="lock-input" id="lockCode1" placeholder="أدخل الكود" maxlength="10" oninput="this.value=this.value.toUpperCase()">
+        <button class="lock-btn" onclick="unlock(&#39;workoutsLock&#39;,&#39;lockCode1&#39;,&#39;lockErr1&#39;)" data-ar="فتح" data-en="UNLOCK">فتح</button>
+      </div>
+      <p class="lock-err" id="lockErr1" data-ar="❌ كود غير صحيح" data-en="❌ Invalid code">❌ كود غير صحيح</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- NUTRITION — LOCKED -->
+<section class="nutrition-section locked-section" id="nutrition">
+  <div class="sec-header">
+    <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-ar="التغذية والماكروز" data-en="NUTRITION &amp; MACROS">التغذية والماكروز</span></div>
+    <h2 class="sec-title" data-ar="احسب &lt;span class=&quot;gold&quot;&gt;ماكروزك&lt;/span&gt; الآن" data-en="CALCULATE YOUR &lt;span class=&quot;gold&quot;&gt;MACROS&lt;/span&gt;">احسب <span class="gold">ماكروزك</span> الآن</h2>
+    <p class="sec-sub" data-ar="أدخل بياناتك واحصل على السعرات والماكروز المثالية لجسمك وهدفك" data-en="Enter your data and get the ideal calories and macros for your body and goal">أدخل بياناتك واحصل على السعرات والماكروز المثالية لجسمك وهدفك</p>
+  </div>
+  <div class="nut-grid">
+    <div class="calc-box">
+      <div class="calc-box-title" data-ar="🔢 حاسبة الماكروز العلمية" data-en="🔢 SCIENTIFIC MACRO CALCULATOR">🔢 حاسبة الماكروز العلمية</div>
+      <div class="frow">
+        <div class="fg"><label class="fl" data-ar="الوزن (كجم)" data-en="Weight (kg)">الوزن (كجم)</label><input type="number" class="fi" id="cWt" placeholder="75"></div>
+        <div class="fg"><label class="fl" data-ar="الطول (سم)" data-en="Height (cm)">الطول (سم)</label><input type="number" class="fi" id="cHt" placeholder="175"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label class="fl" data-ar="العمر" data-en="Age">العمر</label><input type="number" class="fi" id="cAg" placeholder="25"></div>
+        <div class="fg"><label class="fl" data-ar="الجنس" data-en="Gender">الجنس</label>
+          <select class="fs" id="cGn">
+            <option value="m" data-ar="ذكر" data-en="Male">ذكر</option>
+            <option value="f" data-ar="أنثى" data-en="Female">أنثى</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label class="fl" data-ar="مستوى النشاط" data-en="Activity Level">مستوى النشاط</label>
+        <select class="fs" id="cAc">
+          <option value="1.2" data-ar="خامل — عمل مكتبي" data-en="Sedentary">خامل — عمل مكتبي</option>
+          <option value="1.375" data-ar="خفيف — 1-3 أيام/أسبوع" data-en="Light — 1-3 days">خفيف — 1-3 أيام/أسبوع</option>
+          <option value="1.55" selected="" data-ar="متوسط — 3-5 أيام/أسبوع" data-en="Moderate — 3-5 days">متوسط — 3-5 أيام/أسبوع</option>
+          <option value="1.725" data-ar="نشيط — 6-7 أيام/أسبوع" data-en="Active — 6-7 days">نشيط — 6-7 أيام/أسبوع</option>
+          <option value="1.9" data-ar="نشيط جداً — رياضي" data-en="Very Active">نشيط جداً — رياضي</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl" data-ar="الهدف" data-en="Goal">الهدف</label>
+        <select class="fs" id="cGl">
+          <option value="cut" data-ar="تنشيف (−300 سعرة)" data-en="Cutting (−300 cal)">تنشيف (−300 سعرة)</option>
+          <option value="maintain" data-ar="ثبات الوزن" data-en="Maintain Weight">ثبات الوزن</option>
+          <option value="bulk" data-ar="ضخامة (+300 سعرة)" data-en="Bulking (+300 cal)">ضخامة (+300 سعرة)</option>
+        </select>
+      </div>
+      <button class="calc-btn-main" onclick="calcMacros()" data-ar="احسب الآن" data-en="CALCULATE NOW">احسب الآن</button>
+      <div class="calc-results" id="calcRes">
+        <div class="results-grid">
+          <div class="res-box"><span class="res-val rv-cal" id="rCal">—</span><span class="res-lbl" data-ar="سعرة/يوم" data-en="cal/day">سعرة/يوم</span></div>
+          <div class="res-box"><span class="res-val rv-pro" id="rPro">—</span><span class="res-lbl" data-ar="بروتين" data-en="Protein">بروتين</span></div>
+          <div class="res-box"><span class="res-val rv-carb" id="rCarb">—</span><span class="res-lbl" data-ar="كارب" data-en="Carbs">كارب</span></div>
+          <div class="res-box"><span class="res-val rv-fat" id="rFat">—</span><span class="res-lbl" data-ar="دهون" data-en="Fat">دهون</span></div>
+        </div>
+        <p class="calc-note" data-ar="سجّل الآن وستصلك خطتك الدقيقة خلال 24 ساعة" data-en="Register now and receive your precise plan within 24 hours">سجّل الآن وستصلك خطتك الدقيقة خلال 24 ساعة</p>
+      </div>
+    </div>
+    <div>
+      <div class="meals-title" data-ar="🍽️ نماذج وجبات يومية" data-en="🍽️ DAILY MEAL SAMPLES">🍽️ نماذج وجبات يومية</div>
+      <div class="meal-item">
+        <div class="meal-left"><div class="m-name" data-ar="الإفطار — بيض وشوفان" data-en="Breakfast — Eggs &amp; Oats">الإفطار — بيض وشوفان</div><div class="m-desc" data-ar="3 بيض + 60جم شوفان + موز" data-en="3 eggs + 60g oats + banana">3 بيض + 60جم شوفان + موز</div><div class="meal-macros"><span class="mp mp-p">P 28g</span><span class="mp mp-c">C 52g</span><span class="mp mp-f">F 14g</span></div></div>
+        <div class="meal-cal-box"><div class="meal-cal-num">450</div><div class="meal-cal-unit" data-ar="سعرة" data-en="cal">سعرة</div></div>
+      </div>
+      <div class="meal-item">
+        <div class="meal-left"><div class="m-name" data-ar="الغداء — دجاج وأرز" data-en="Lunch — Chicken &amp; Rice">الغداء — دجاج وأرز</div><div class="m-desc" data-ar="200جم دجاج مشوي + 150جم أرز" data-en="200g grilled chicken + 150g rice">200جم دجاج مشوي + 150جم أرز</div><div class="meal-macros"><span class="mp mp-p">P 48g</span><span class="mp mp-c">C 58g</span><span class="mp mp-f">F 8g</span></div></div>
+        <div class="meal-cal-box"><div class="meal-cal-num">500</div><div class="meal-cal-unit" data-ar="سعرة" data-en="cal">سعرة</div></div>
+      </div>
+      <div class="meal-item">
+        <div class="meal-left"><div class="m-name" data-ar="بعد التمرين — واي بروتين" data-en="Post-Workout — Whey Protein">بعد التمرين — واي بروتين</div><div class="m-desc" data-ar="1 سكوب واي + موز + لبن" data-en="1 scoop whey + banana + milk">1 سكوب واي + موز + لبن</div><div class="meal-macros"><span class="mp mp-p">P 35g</span><span class="mp mp-c">C 40g</span><span class="mp mp-f">F 4g</span></div></div>
+        <div class="meal-cal-box"><div class="meal-cal-num">340</div><div class="meal-cal-unit" data-ar="سعرة" data-en="cal">سعرة</div></div>
+      </div>
+      <div class="meal-item">
+        <div class="meal-left"><div class="m-name" data-ar="العشاء — تونة وخضار" data-en="Dinner — Tuna &amp; Veg">العشاء — تونة وخضار</div><div class="m-desc" data-ar="185جم تونة + خضار + زيت زيتون" data-en="185g tuna + vegetables + olive oil">185جم تونة + خضار + زيت زيتون</div><div class="meal-macros"><span class="mp mp-p">P 40g</span><span class="mp mp-c">C 18g</span><span class="mp mp-f">F 10g</span></div></div>
+        <div class="meal-cal-box"><div class="meal-cal-num">330</div><div class="meal-cal-unit" data-ar="سعرة" data-en="cal">سعرة</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD CALORIE AI CALCULATOR -->
+  <div class="food-calc-wrap" style="margin-top:48px">
+    <div class="sec-eyebrow" style="margin-bottom:20px"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-ar="حاسبة سعرات الأكل" data-en="FOOD CALORIE CALCULATOR">حاسبة سعرات الأكل</span></div>
+    <h3 style="font-size:clamp(20px,3vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px" data-ar="احسب سعرات &lt;span style=&quot;color:var(--accent)&quot;&gt;أي أكل&lt;/span&gt;" data-en="Calculate Calories of &lt;span style=&quot;color:var(--accent)&quot;&gt;Any Food&lt;/span&gt;">احسب سعرات <span style="color:var(--accent)">أي أكل</span></h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px;font-weight:300" data-ar="اكتب اسم الأكل والكمية وهيحسبلك السعرات والماكروز فوراً" data-en="Write the food name and quantity and get calories and macros instantly">اكتب اسم الأكل والكمية وهيحسبلك السعرات والماكروز فوراً</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+      <input type="text" id="foodInput" class="fi" style="flex:1;min-width:200px" placeholder="مثال: 200 جرام صدر دجاج مشوي" data-ar-placeholder="مثال: 200 جرام صدر دجاج مشوي" data-en-placeholder="e.g. 200g grilled chicken breast">
+      <button onclick="calcFoodCals()" style="background:var(--accent);color:#0a0a0a;padding:11px 24px;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:var(--radius);font-family:inherit;text-transform:uppercase;transition:var(--transition);white-space:nowrap" data-ar="احسب" data-en="CALCULATE">احسب</button>
+    </div>
+    <div id="foodCalcResult" style="display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px"></div>
+    <div id="foodCalcLoading" style="display:none;color:var(--muted);font-size:13px;padding:12px 0" data-ar="⏳ جاري الحساب..." data-en="⏳ Calculating...">⏳ جاري الحساب...</div>
+  </div>
+
+  <!-- LOCK OVERLAY -->
+  <div class="lock-overlay" id="nutritionLock">
+    <div class="lock-box">
+      <span class="lock-icon">🔒</span>
+      <div class="lock-title" data-ar="محتوى حصري للمشتركين" data-en="Exclusive Member Content">محتوى حصري للمشتركين</div>
+      <p class="lock-sub" data-ar="ادخل كودك للوصول لحاسبة الماكروز ونماذج الوجبات" data-en="Enter your code to access the macro calculator and meal samples">ادخل كودك للوصول لحاسبة الماكروز ونماذج الوجبات</p>
+      <div class="lock-input-row">
+        <input type="text" class="lock-input" id="lockCode2" placeholder="أدخل الكود" maxlength="10" oninput="this.value=this.value.toUpperCase()">
+        <button class="lock-btn" onclick="unlock(&#39;nutritionLock&#39;,&#39;lockCode2&#39;,&#39;lockErr2&#39;)" data-ar="فتح" data-en="UNLOCK">فتح</button>
+      </div>
+      <p class="lock-err" id="lockErr2" data-ar="❌ كود غير صحيح" data-en="❌ Invalid code">❌ كود غير صحيح</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="testimonials">
+  <div class="sec-header">
+    <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-ar="نتائج حقيقية" data-en="REAL RESULTS">نتائج حقيقية</span></div>
+    <h2 class="sec-title" data-ar="ماذا يقول &lt;span class=&quot;gold&quot;&gt;مشتركونا&lt;/span&gt;" data-en="WHAT OUR &lt;span class=&quot;gold&quot;&gt;MEMBERS&lt;/span&gt; SAY">ماذا يقول <span class="gold">مشتركونا</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text" data-ar="&quot;في 8 أسابيع خسرت 9 كيلو مع الحفاظ على العضل. البرنامج مخصص لجسمي تماماً ولم أشعر بجوع شديد في أي وقت.&quot;" data-en="&quot;In 8 weeks I lost 9kg while preserving muscle. The program was perfectly tailored to my body and I never felt extreme hunger.&quot;">"في 8 أسابيع خسرت 9 كيلو مع الحفاظ على العضل. البرنامج مخصص لجسمي تماماً."</p>
+      <div class="testi-author"><div class="testi-avatar">أح</div><div><div class="testi-name" data-ar="أحمد السعيد" data-en="Ahmed Al-Said">أحمد السعيد</div><div class="testi-result" data-ar="−9 كجم في 8 أسابيع" data-en="−9kg in 8 weeks">−9 كجم في 8 أسابيع</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text" data-ar="&quot;أول كوتش يراعي مشكلة الركبة عندي ويعمل برنامجاً آمناً. نزلت 12 كيلو بدون أي ألم وبشكل تدريجي وصحي.&quot;" data-en="&quot;First coach to consider my knee problem and create a safe program. I lost 12kg without any pain, gradually and healthily.&quot;">"أول كوتش يراعي مشكلة الركبة عندي ويعمل برنامجاً آمناً. نزلت 12 كيلو!"</p>
+      <div class="testi-author"><div class="testi-avatar">سم</div><div><div class="testi-name" data-ar="سارة المطيري" data-en="Sara Al-Mutairi">سارة المطيري</div><div class="testi-result" data-ar="−12 كجم في 3 شهور" data-en="−12kg in 3 months">−12 كجم في 3 شهور</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text" data-ar="&quot;ماكروز دقيقة، تمارين بالفيديو، ورد سريع على كل سؤال. هذا ما يجعل الفرق بين كوتش حقيقي وبرنامج جاهز.&quot;" data-en="&quot;Precise macros, video exercises, and fast replies to every question. This is what makes the difference between a real coach and a ready-made program.&quot;">"ماكروز دقيقة وتمارين بالفيديو ورد سريع على كل سؤال. هذا الفرق الحقيقي."</p>
+      <div class="testi-author"><div class="testi-avatar">خع</div><div><div class="testi-name" data-ar="خالد العتيبي" data-en="Khalid Al-Otaibi">خالد العتيبي</div><div class="testi-result" data-ar="+5 كجم عضل في 4 شهور" data-en="+5kg muscle in 4 months">+5 كجم عضل في 4 شهور</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="sec-header" style="text-align:center">
+    <div class="sec-eyebrow" style="justify-content:center"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</span><div class="sec-eyebrow-line"></div></div>
+    <h2 class="sec-title" data-ar="أسئلة &lt;span class=&quot;gold&quot;&gt;شائعة&lt;/span&gt;" data-en="&lt;span class=&quot;gold&quot;&gt;COMMON&lt;/span&gt; Questions">أسئلة <span class="gold">شائعة</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="كيف أستلم برنامجي بعد التسجيل؟" data-en="How do I receive my program after registration?">كيف أستلم برنامجي بعد التسجيل؟</span><span class="faq-chevron">▼</span></div>
+      <div class="faq-a" data-ar="بعد ملء الاستمارة، يراجع الكوتش بياناتك ويرسل لك برنامجك الكامل على واتساب خلال 24 ساعة." data-en="After filling the form, the coach reviews your data and sends your complete program on WhatsApp within 24 hours.">بعد ملء الاستمارة، يراجع الكوتش بياناتك ويرسل لك برنامجك الكامل على واتساب خلال 24 ساعة.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل المتابعة مستمرة أم لمرة واحدة؟" data-en="Is coaching ongoing or one-time?">هل المتابعة مستمرة أم لمرة واحدة؟</span><span class="faq-chevron">▼</span></div>
+      <div class="faq-a" data-ar="المتابعة مستمرة طوال مدة الاشتراك. كل أسبوع ترسل وزنك وقياساتك والكوتش يعدّل البرنامج بناءً عليها." data-en="Coaching is ongoing throughout the subscription. Every week you send your weight and measurements and the coach adjusts the program accordingly.">المتابعة مستمرة طوال مدة الاشتراك. كل أسبوع ترسل وزنك وقياساتك والكوتش يعدّل البرنامج بناءً عليها.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل البرنامج مناسب للمبتدئين؟" data-en="Is the program suitable for beginners?">هل البرنامج مناسب للمبتدئين؟</span><span class="faq-chevron">▼</span></div>
+      <div class="faq-a" data-ar="نعم، البرنامج يُصمَّم حسب مستواك سواء كنت مبتدئاً أو متقدماً، مع فيديوهات توضيحية لكل تمرين." data-en="Yes, the program is designed according to your level whether you&#39;re a beginner or advanced, with explanatory videos for every exercise.">نعم، البرنامج يُصمَّم حسب مستواك سواء كنت مبتدئاً أو متقدماً، مع فيديوهات توضيحية لكل تمرين.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل أحتاج معدات جيم؟" data-en="Do I need gym equipment?">هل أحتاج معدات جيم؟</span><span class="faq-chevron">▼</span></div>
+      <div class="faq-a" data-ar="لا، يمكنك التمرين في الجيم أو في المنزل. تختار في الاستمارة والبرنامج يُبنى على أساسه." data-en="No, you can train at the gym or at home. You choose in the form and the program is built accordingly.">لا، يمكنك التمرين في الجيم أو في المنزل. تختار في الاستمارة والبرنامج يُبنى على أساسه.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span data-ar="هل البرنامج متاح لجميع الدول؟" data-en="Is the program available in all countries?">هل البرنامج متاح لجميع الدول؟</span><span class="faq-chevron">▼</span></div>
+      <div class="faq-a" data-ar="نعم، الخدمة متاحة لجميع الدول. يتم التواصل عبر واتساب وإرسال البرنامج رقمياً." data-en="Yes, the service is available in all countries. Communication is via WhatsApp and the program is sent digitally.">نعم، الخدمة متاحة لجميع الدول. يتم التواصل عبر واتساب وإرسال البرنامج رقمياً.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">HAIKYU<span>U</span> FIT</div>
+      <p class="footer-desc" data-ar="كوتشينج احترافي مخصص — تغذية، تمرين، ومتابعة حقيقية لتحقيق أهدافك في أسرع وقت." data-en="Professional personalized coaching — nutrition, training, and real tracking to achieve your goals.">كوتشينج احترافي مخصص — تغذية، تمرين، ومتابعة حقيقية.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-ar="روابط" data-en="LINKS">روابط</h4>
+      <ul>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#workouts" data-ar="التمارين" data-en="Workouts">التمارين</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#nutrition" data-ar="التغذية" data-en="Nutrition">التغذية</a></li>
+        <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
+        
+        <li><a href="file:///C:/Users/drsei/Downloads/index_45.html#faq" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-ar="تواصل" data-en="CONTACT">تواصل</h4>
+      <ul>
+        <li><a href="https://wa.me/201121460552" target="_blank">💬 WhatsApp</a></li>
+        <li><a href="mailto:sayyafharidi@gmail.com">📧 Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy" data-ar="© 2025 Haikyuu Fit — جميع الحقوق محفوظة" data-en="© 2025 Haikyuu Fit — All Rights Reserved">© 2025 Haikyuu Fit — جميع الحقوق محفوظة</span>
+    <span class="footer-domain">www.<span>haikyuufit</span>.it.com</span>
+  </div>
+</footer>
+
+<script>
+// DATA
+const DISC_CODE = 'VIP100';
+const LOCK_CODE = 'SAYYAF';
+const PRICE = 50;
+const WA_NUM = '201121460552';
+
+const muscleData = {
+  chest: {
+    ar: 'الصدر', en: 'CHEST',
+    exercises: [
+      {ar:'بنش برس بالبار',en:'Barbell Bench Press',sets:'4×8-12',rest:'90ث',url:'https://youtu.be/rxD321l2svE'},
+      {ar:'بنش برس بالدمبل',en:'Dumbbell Bench Press',sets:'3×10-12',rest:'75ث',url:'https://youtu.be/VmB1G1K7v94'},
+      {ar:'كابل فلاي',en:'Cable Fly',sets:'3×12-15',rest:'60ث',url:'https://youtu.be/Iwe6AmxVf7o'},
+    ]
+  },
+  shoulder: {
+    ar: 'الكتف', en: 'SHOULDERS',
+    exercises: [
+      {ar:'أوفر هيد برس',en:'Overhead Press',sets:'4×8-10',rest:'90ث',url:'https://youtu.be/qEwKCR5JCog'},
+      {ar:'لاتيرال ريز',en:'Lateral Raise',sets:'3×12-15',rest:'60ث',url:'https://youtu.be/3VcKaXpzqRo'},
+      {ar:'فرونت ريز',en:'Front Raise',sets:'3×12',rest:'60ث',url:'https://youtu.be/gkjOdFMkgRo'},
+    ]
+  },
+  back: {
+    ar: 'الظهر', en: 'BACK',
+    exercises: [
+      {ar:'برول أب',en:'Pull Up',sets:'4×6-10',rest:'90ث',url:'https://youtu.be/1XMaks2udtU'},
+      {ar:'باربيل رو',en:'Barbell Row',sets:'4×8-10',rest:'90ث',url:'https://youtu.be/FWJR5Ve8bnQ'},
+      {ar:'لات بول داون',en:'Lat Pulldown',sets:'3×10-12',rest:'75ث',url:'https://youtu.be/CAwf7n6Luuc'},
+    ]
+  },
+  biceps: {
+    ar: 'البايسبس', en: 'BICEPS',
+    exercises: [
+      {ar:'بايسبس كيرل بالبار',en:'Barbell Curl',sets:'3×10-12',rest:'60ث',url:'https://youtu.be/kwG2ipFRgfo'},
+      {ar:'هامر كيرل',en:'Hammer Curl',sets:'3×10-12',rest:'60ث',url:'https://youtu.be/zC3nLlEvin4'},
+      {ar:'كونسنتريشن كيرل',en:'Concentration Curl',sets:'3×12',rest:'60ث',url:'https://youtu.be/0AUGkch3tzc'},
+    ]
+  },
+  triceps: {
+    ar: 'الترايسبس', en: 'TRICEPS',
+    exercises: [
+      {ar:'ترايسبس بوش داون',en:'Tricep Pushdown',sets:'3×12-15',rest:'60ث',url:'https://youtu.be/2-LAMcpzODU'},
+      {ar:'سكول كراشر',en:'Skull Crusher',sets:'3×10-12',rest:'75ث',url:'https://youtu.be/d_KZxkY_0cM'},
+      {ar:'دايمند بوش أب',en:'Diamond Push Up',sets:'3×12-15',rest:'60ث',url:'https://youtu.be/J0DnG1_S92I'},
+    ]
+  },
+  abs: {
+    ar: 'البطن', en: 'ABS',
+    exercises: [
+      {ar:'كرانش',en:'Crunches',sets:'3×20',rest:'45ث',url:'https://youtu.be/Xyd_fa5zoEU'},
+      {ar:'بلانك',en:'Plank',sets:'3×60ث',rest:'45ث',url:'https://youtu.be/ASdvN_XEl_c'},
+      {ar:'ليج ريز',en:'Leg Raise',sets:'3×15',rest:'45ث',url:'https://youtu.be/JB2oyawG9KI'},
+    ]
+  },
+  legs: {
+    ar: 'الأرجل', en: 'LEGS',
+    exercises: [
+      {ar:'سكوات بالبار',en:'Barbell Squat',sets:'4×8-12',rest:'2د',url:'https://youtu.be/ultWZbUMPL8'},
+      {ar:'ليج برس',en:'Leg Press',sets:'4×10-12',rest:'90ث',url:'https://youtu.be/IZxyjW7MPJQ'},
+      {ar:'لانج',en:'Lunges',sets:'3×12',rest:'75ث',url:'https://youtu.be/D7KaRcUTQeE'},
+      {ar:'ليج كيرل',en:'Leg Curl',sets:'3×12-15',rest:'60ث',url:'https://youtu.be/-LzSMlt7T2k'},
+    ]
+  },
+  cardio: {
+    ar: 'الكارديو', en: 'CARDIO',
+    exercises: [
+      {ar:'HIIT — حرق مكثف',en:'HIIT — Fat Burn',sets:'20 دقيقة',rest:'—',url:'https://youtu.be/IODxDxX7oi4'},
+      {ar:'تريدميل متقطع',en:'Interval Treadmill',sets:'30 دقيقة',rest:'—',url:'https://youtu.be/0AwMDYkJfJ0'},
+      {ar:'جامبينج جاكس',en:'Jumping Jacks',sets:'3×60ث',rest:'30ث',url:'https://youtu.be/iSSAk4XCsRA'},
+    ]
+  }
+};
+
+let isAr = true;
+
+// LANG
+function toggleLang(){
+  isAr = !isAr;
+  const b = document.body, btn = document.getElementById('langBtn');
+  if(isAr){b.classList.remove('en');b.setAttribute('dir','rtl');b.setAttribute('lang','ar');btn.textContent='EN';}
+  else{b.classList.add('en');b.setAttribute('dir','ltr');b.setAttribute('lang','en');btn.textContent='ع';}
+  document.querySelectorAll('[data-ar]').forEach(el=>{
+    const v = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    if(!v) return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=v;
+    else el.innerHTML=v;
+  });
+  document.querySelectorAll('option[data-ar]').forEach(el=>{
+    el.textContent = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+  });
+}
+
+// REVEAL
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// LOCK
+function unlock(overlayId, inputId, errId){
+  const val = document.getElementById(inputId).value.trim().toUpperCase();
+  const err = document.getElementById(errId);
+  if(val === LOCK_CODE){
+    document.getElementById(overlayId).style.display='none';
+    err.style.display='none';
+  } else {
+    err.style.display='block';
+    document.getElementById(inputId).style.borderColor='var(--red)';
+    setTimeout(()=>{ document.getElementById(inputId).style.borderColor=''; },2000);
+  }
+}
+
+// MUSCLE MAP
+function selectMuscle(key){
+  // reset all
+  document.querySelectorAll('.muscle-point').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.muscle-point circle').forEach(c=>{ c.setAttribute('stroke','#555'); c.setAttribute('r','6'); });
+  // activate
+  const mp = document.getElementById('mp-'+key);
+  if(mp){
+    mp.classList.add('active');
+    const circles = mp.querySelectorAll('circle');
+    circles.forEach(c=>{ c.setAttribute('stroke','var(--accent)'); c.setAttribute('r','9'); c.setAttribute('fill','rgba(200,169,110,0.2)'); });
+  }
+  renderExercises(key);
+}
+
+function renderExercises(key){
+  const data = muscleData[key];
+  if(!data){ return; }
+  const panel = document.getElementById('exercisesPanel');
+  const muscleName = isAr ? data.ar : data.en;
+  let html = `
+    <div class="ex-header">
+      <div class="ex-muscle-name">${muscleName}</div>
+      <span class="ex-count">${data.exercises.length} ${isAr?'تمارين':'exercises'}</span>
+    </div>
+    <div class="ex-list">`;
+  data.exercises.forEach((ex,i)=>{
+    const name = isAr ? ex.ar : ex.en;
+    const ytId = ex.url.includes('youtu.be/') ? ex.url.split('youtu.be/')[1] : ex.url.split('v=')[1];
+    html += `
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-card-header">
+          <div class="ex-info">
+            <div class="ex-name">${name}</div>
+            <div class="ex-meta">
+              <span>💪 ${ex.sets}</span>
+              <span>⏱ ${ex.rest}</span>
+            </div>
+          </div>
+          <span class="ex-tag">${isAr?'فيديو':'VIDEO'}</span>
+          <span class="ex-arrow">▼</span>
+        </div>
+        <div class="ex-video">
+          <iframe src="https://www.youtube.com/embed/${ytId}?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a href="${ex.url}" target="_blank" rel="noopener" class="ex-video-link">
+            ${isAr?'فتح على يوتيوب ↗':'Open on YouTube ↗'}
+          </a>
+        </div>
+      </div>`;
+  });
+  html += `</div>`;
+  panel.innerHTML = html;
+}
+
+function toggleEx(card){
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.ex-card').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.ex-video').forEach(v=>v.classList.remove('open'));
+  if(!wasOpen){
+    card.classList.add('open');
+    card.querySelector('.ex-video').classList.add('open');
+  }
+}
+
+// MACRO CALC
+function calcMacros(){
+  const w=+document.getElementById('cWt').value;
+  const h=+document.getElementById('cHt').value;
+  const a=+document.getElementById('cAg').value;
+  const g=document.getElementById('cGn').value;
+  const ac=+document.getElementById('cAc').value;
+  const goal=document.getElementById('cGl').value;
+  if(!w||!h||!a){alert(isAr?'أدخل الوزن والطول والعمر':'Enter weight, height and age');return;}
+  let bmr = g==='m' ? 88.36+(13.4*w)+(4.8*h)-(5.7*a) : 447.6+(9.2*w)+(3.1*h)-(4.3*a);
+  let tdee = Math.round(bmr*ac);
+  let cals = goal==='cut'?tdee-300:goal==='bulk'?tdee+300:tdee;
+  let pro = Math.round(w*2.2);
+  let fat = Math.round(cals*0.25/9);
+  let carb = Math.round((cals-(pro*4)-(fat*9))/4);
+  document.getElementById('rCal').textContent = cals;
+  document.getElementById('rPro').textContent = pro+'g';
+  document.getElementById('rCarb').textContent = carb+'g';
+  document.getElementById('rFat').textContent = fat+'g';
+  document.getElementById('calcRes').style.display='block';
+}
+
+// DISCOUNT
+function applyDiscount(){
+  const v=document.getElementById('discIn').value.trim().toUpperCase();
+  const r=document.getElementById('discRes');
+  const priceEl=document.getElementById('pNum');
+  const badge=document.getElementById('pBadge');
+  const origEl=document.getElementById('price-orig-text');
+  if(v===DISC_CODE){
+    // Update price display
+    if(priceEl) priceEl.textContent='0';
+    if(badge) badge.style.display='inline-flex';
+    r.className='disc-result ok';
+    r.innerHTML=isAr
+      ?`✓ كود صحيح! خصم 100% — <s style="color:var(--muted)">${PRICE}</s> ← <strong style="color:var(--green)">$0 مجاناً 🎁</strong>`
+      :`✓ Valid! 100% off — <s style="color:var(--muted)">${PRICE}</s> ← <strong style="color:var(--green)">$0 Free 🎁</strong>`;
+    if(priceEl) priceEl.textContent='0';
+    document.getElementById('dc').value=DISC_CODE;
+  } else if(!v){
+    r.className='disc-result err';
+    r.innerHTML=isAr?'⚠ أدخل كود الخصم':'⚠ Enter discount code';
+  } else {
+    if(priceEl) priceEl.textContent=PRICE;
+    if(badge) badge.style.display='none';
+    r.className='disc-result err';
+    r.innerHTML=isAr?'✕ كود غير صحيح — تواصل مع الكوتش للحصول على كودك':'✕ Invalid code — contact coach to get your code';
+  }
+}
+
+// FORM HELPERS
+function selRo(el){
+  document.querySelectorAll(`input[name="${el.name}"]`).forEach(r=>r.closest('.ro').classList.remove('on'));
+  el.closest('.ro').classList.add('on');
+}
+function tog(id,show){ document.getElementById(id).style.display=show?'block':'none'; }
+function handleGender(v){}
+
+// FAQ
+function toggleFaq(item){ item.classList.toggle('open'); }
+
+// SUBMIT
+function submitReg(){
+  // Validate only essential fields
+  const req=[{id:'fn'},{id:'em'},{id:'ph'},{id:'ag'},{id:'wt'},{id:'ht'}];
+  let missing=[];
+  req.forEach(r=>{
+    const el=document.getElementById(r.id);
+    if(!el||!el.value.trim()){
+      if(el){el.style.borderColor='var(--red)';el.scrollIntoView({behavior:'smooth',block:'center'});}
+      missing.push(r.id);
+    } else {
+      el.style.borderColor='';
+    }
+  });
+  if(missing.length>0){
+    alert(isAr?'⚠ من فضلك أكمل الحقول المطلوبة المحددة بالأحمر':'⚠ Please complete the required fields highlighted in red');
+    return;
+  }
+
+  // SEND TO FORMSPREE — Professional Format
+  const memberName = document.getElementById('fn').value + ' ' + document.getElementById('ln').value;
+  const memberPhone = document.getElementById('countryCode').value + document.getElementById('ph').value;
+  const memberCountry = document.getElementById('country').value;
+  const memberAge = document.getElementById('ag').value;
+  const memberGender = document.getElementById('gn').value === 'male' ? (isAr?'ذكر':'Male') : (isAr?'أنثى':'Female');
+  const memberWeight = document.getElementById('wt').value;
+  const memberHeight = document.getElementById('ht').value;
+  const memberGoal = document.getElementById('gl').options[document.getElementById('gl').selectedIndex]?.text || '';
+  const memberActivity = document.getElementById('ac').options[document.getElementById('ac').selectedIndex]?.text || '';
+  const memberDisc = document.getElementById('dc').value || 'لا يوجد';
+  const memberInj = document.getElementById('inj').value || 'لا يوجد';
+  const memberLab = document.getElementById('lab').value || 'لا يوجد';
+  const memberDis = document.getElementById('dis').value || 'لا يوجد';
+  const memberSup = document.getElementById('sup').value || 'لا يوجد';
+  const memberPrev = document.getElementById('prev').value || 'لا يوجد';
+  const memberNotes = document.getElementById('nt').value || 'لا يوجد';
+  const chronicVal = document.querySelector('input[name="ch"]:checked')?.value === 'yes' ? 'نعم' : 'لا';
+  const allergyVal = document.querySelector('input[name="al"]:checked')?.value === 'yes' ? 'نعم' : 'لا';
+  const medsVal = document.querySelector('input[name="md"]:checked')?.value === 'yes' ? 'نعم' : 'لا';
+  const placeVal = document.querySelector('input[name="pl"]:checked')?.value || 'لم يحدد';
+
+  const emailBody = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏋️ مشترك جديد — HAIKYUU FIT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 المعلومات الشخصية
+الاسم:         ${memberName}
+البريد:        ${document.getElementById('em').value}
+واتساب:        ${memberPhone}
+البلد:         ${memberCountry}
+العمر:         ${memberAge} سنة
+الجنس:         ${memberGender}
+
+📏 القياسات
+الوزن:         ${memberWeight} كجم
+الطول:         ${memberHeight} سم
+BMI تقريبي:   ${Math.round(memberWeight / Math.pow(memberHeight/100, 2) * 10)/10}
+
+🎯 الهدف والنشاط
+الهدف:         ${memberGoal}
+مستوى النشاط: ${memberActivity}
+مكان التمرين: ${placeVal}
+
+🩺 التاريخ الصحي
+أمراض مزمنة:  ${chronicVal}
+حساسية:        ${allergyVal}
+أدوية:         ${medsVal}
+إصابات/آلام:   ${memberInj}
+تحاليل:        ${memberLab}
+
+🥗 العادات الغذائية
+أطعمة مرفوضة: ${memberDis}
+مكملات حالية: ${memberSup}
+تجربة سابقة:  ${memberPrev}
+
+🎟️ كود الخصم: ${memberDisc}
+📝 ملاحظات:    ${memberNotes}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+تاريخ التسجيل: ${new Date().toLocaleDateString('ar-SA', {year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'})}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `.trim();
+
+  // Send to Formspree
+  fetch('https://formspree.io/f/mdavavya', {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({
+      _subject: '🏋️ مشترك جديد: ' + memberName + ' — Haikyuu Fit',
+      _replyto: document.getElementById('em').value,
+      message: emailBody,
+      name: memberName,
+      email: document.getElementById('em').value,
+      phone: memberPhone,
+      country: memberCountry,
+    })
+  })
+  .then(res => console.log('Formspree status:', res.status))
+  .catch(err => console.log('Formspree error:', err));
+
+  const disc=document.getElementById('dc').value.trim().toUpperCase();
+  const isFree=disc===DISC_CODE;
+  const name=document.getElementById('fn').value;
+  // Show success
+  document.getElementById('regForm').style.display='none';
+  const box=document.getElementById('sucBox');
+  box.style.display='block';
+  document.getElementById('sucTitle').innerHTML=isAr?`أهلاً ${name} ✓`:`WELCOME ${name} ✓`;
+  document.getElementById('sucText').innerHTML=isFree
+    ?(isAr
+      ?`<div style="background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.15);border-radius:4px;padding:16px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--muted);text-decoration:line-through">$${PRICE} / شهر</div>
+        <div style="font-size:28px;font-weight:800;color:var(--green);font-family:Montserrat,sans-serif">$0 <span style="font-size:14px">مجاناً 🎁</span></div>
+       </div>
+       <p style="margin-bottom:16px">سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted);text-align:right">
+         📸 <strong style="color:var(--accent)">صور القياس:</strong> ابعت صور القياس على واتساب بعد ما تتواصل مع الكوتش — <span style="color:var(--muted)">اختيارية للبنات</span>
+       </div>`
+      :`<div style="background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.15);border-radius:4px;padding:16px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--muted);text-decoration:line-through">$${PRICE} / month</div>
+        <div style="font-size:28px;font-weight:800;color:var(--green);font-family:Montserrat,sans-serif">$0 <span style="font-size:14px">Free 🎁</span></div>
+       </div>
+       <p style="margin-bottom:16px">Coach will contact you within <strong>24 hours</strong> on WhatsApp 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted)">
+         📸 <strong style="color:var(--accent)">Progress Photos:</strong> Send your progress photos on WhatsApp after the coach contacts you — <span style="color:var(--muted)">optional for females</span>
+       </div>`)
+    :(isAr
+      ?`<p style="margin-bottom:16px">سيتواصل معك الكوتش خلال <strong>24 ساعة</strong> على واتساب لإرسال برنامجك وتفاصيل الدفع 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted);text-align:right">
+         📸 <strong style="color:var(--accent)">صور القياس:</strong> ابعت صور القياس على واتساب بعد ما تتواصل مع الكوتش — <span style="color:var(--muted)">اختيارية للبنات</span>
+       </div>`
+      :`<p style="margin-bottom:16px">Coach will contact you within <strong>24 hours</strong> on WhatsApp with your program and payment details 📱</p>
+       <div style="background:rgba(200,169,110,0.06);border:1px solid rgba(200,169,110,0.15);border-radius:4px;padding:14px;font-size:13px;color:var(--muted)">
+         📸 <strong style="color:var(--accent)">Progress Photos:</strong> Send your progress photos on WhatsApp after the coach contacts you — <span style="color:var(--muted)">optional for females</span>
+       </div>`);
+}
+
+document.getElementById('discIn').addEventListener('input',function(){this.value=this.value.toUpperCase();});
+
+// FOOD CALC
+async function calcFoodCals(){
+  const food = document.getElementById('foodInput').value.trim();
+  const result = document.getElementById('foodCalcResult');
+  const loading = document.getElementById('foodCalcLoading');
+  if(!food){
+    result.style.display='block';
+    result.innerHTML=`<p style="color:var(--red);font-size:13px">${isAr?'⚠ اكتب اسم الأكل والكمية':'⚠ Enter food name and quantity'}</p>`;
+    return;
+  }
+  result.style.display='none';
+  loading.style.display='block';
+  try {
+    const prompt = isAr
+      ? `أنت خبير تغذية. احسب السعرات الحرارية والماكروز لـ: "${food}". أجب بالعربي فقط بهذا الشكل الدقيق بدون أي نص إضافي:
+السعرات: [رقم] كيلوكالوري
+بروتين: [رقم] جرام
+كارب: [رقم] جرام
+دهون: [رقم] جرام
+ملاحظة: [جملة واحدة مفيدة]`
+      : `You are a nutrition expert. Calculate calories and macros for: "${food}". Reply in English only in this exact format with no extra text:
+Calories: [number] kcal
+Protein: [number]g
+Carbs: [number]g
+Fat: [number]g
+Note: [one useful sentence]`;
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,messages:[{role:'user',content:prompt}]})
+    });
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '';
+    loading.style.display='none';
+    if(text){
+      const lines = text.split('\n').filter(l=>l.trim());
+      let html = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">`;
+      const colors=['var(--accent)','var(--green)','var(--blue)','#e0a055'];
+      const labels = isAr
+        ? ['السعرات','بروتين','كارب','دهون']
+        : ['Calories','Protein','Carbs','Fat'];
+      lines.slice(0,4).forEach((line,i)=>{
+        const val = line.split(':')[1]?.trim() || '—';
+        html += `<div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center">
+          <div style="font-family:Montserrat,sans-serif;font-size:20px;font-weight:800;color:${colors[i]}">${val}</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px">${labels[i]}</div>
+        </div>`;
+      });
+      html += `</div>`;
+      if(lines[4]){
+        const note = lines[4].split(':').slice(1).join(':').trim();
+        html += `<p style="font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:12px">💡 ${note}</p>`;
+      }
+      result.style.display='block';
+      result.innerHTML=html;
+    } else {
+      result.style.display='block';
+      result.innerHTML=`<p style="color:var(--red);font-size:13px">${isAr?'حدث خطأ، حاول مرة أخرى':'Error, please try again'}</p>`;
+    }
+  } catch(e){
+    loading.style.display='none';
+    result.style.display='block';
+    result.innerHTML=`<p style="color:var(--red);font-size:13px">${isAr?'حدث خطأ، حاول مرة أخرى':'Error, please try again'}</p>`;
+  }
+}
+document.getElementById('foodInput').addEventListener('keypress',function(e){if(e.key==='Enter')calcFoodCals();});
+</script>
+
+</body></html>
